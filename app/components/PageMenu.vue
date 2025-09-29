@@ -1,23 +1,22 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, watch } from "vue";
+import { ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
+import { useRoute, useRouter } from "vue-router";
+import { onClickOutside } from "@vueuse/core";
 import Menu from "~/assets/Menu.svg";
 
 const { locale } = useI18n();
-const currentLang = ref<"en" | "de">(locale.value as "en" | "de");
+const route = useRoute();
+const router = useRouter();
+
+const props = withDefaults(defineProps<{ mobile?: boolean }>(), {
+  mobile: false,
+});
 
 const menuRef = ref<HTMLElement | null>(null);
 const showDropdown = ref(false);
 const currentPage = ref("Menu");
-
-const props = withDefaults(
-  defineProps<{
-    mobile?: boolean;
-  }>(),
-  {
-    mobile: false,
-  }
-);
+const currentLang = ref(locale.value as "en" | "de");
 
 const pagesByLang: Record<"en" | "de", { name: string; path: string }[]> = {
   en: [
@@ -35,29 +34,6 @@ const pagesByLang: Record<"en" | "de", { name: string; path: string }[]> = {
 };
 
 const pages = ref(pagesByLang[currentLang.value]);
-const route = useRoute();
-const router = useRouter();
-
-watch(
-  () => route.path,
-  (path) => {
-    const page = pages.value.find((p) => p.path === path);
-    currentPage.value = page ? page.name : "Menu";
-  },
-  { immediate: true }
-);
-
-watch(
-  () => locale.value,
-  (newLocale) => {
-    currentLang.value = newLocale as "en" | "de";
-    pages.value = pagesByLang[currentLang.value];
-    const currentPath = route.path;
-    const page = pages.value.find((p) => p.path === currentPath);
-    currentPage.value = page ? page.name : "Menu";
-  },
-  { immediate: true }
-);
 
 function toggleDropdown() {
   showDropdown.value = !showDropdown.value;
@@ -71,31 +47,33 @@ function navigate(path: string) {
   showDropdown.value = false;
 }
 
-function handleClickOutside(event: MouseEvent) {
-  if (menuRef.value && !menuRef.value.contains(event.target as Node)) {
-    showDropdown.value = false;
-  }
-}
+watch(
+  () => route.path,
+  (path) => {
+    const page = pages.value.find((p) => p.path === path);
+    currentPage.value = page ? page.name : "Menu";
+  },
+  { immediate: true }
+);
 
-onMounted(() => {
-  const currentPath = window.location.pathname;
-  const page = pages.value.find((p) => p.path === currentPath);
+watch(locale, (newLocale) => {
+  currentLang.value = newLocale as "en" | "de";
+  pages.value = pagesByLang[currentLang.value];
+  const page = pages.value.find((p) => p.path === route.path);
   currentPage.value = page ? page.name : "Menu";
-
-  document.addEventListener("click", handleClickOutside);
 });
 
-onBeforeUnmount(() => {
-  document.removeEventListener("click", handleClickOutside);
+onClickOutside(menuRef, () => {
+  showDropdown.value = false;
 });
 </script>
 
 <template>
-  <div ref="menuRef" class="page-menu" :class="{ mobile: mobile }">
+  <div ref="menuRef" class="page-menu" :class="{ mobile: props.mobile }">
     <!-- Menu button -->
     <div class="menu-item" @click="toggleDropdown">
       <span class="glow-white">{{ currentPage }}</span>
-      <img v-if="!mobile" :src="Menu" class="menu-icon" />
+      <img v-if="!props.mobile" :src="Menu" class="menu-icon" />
       <span v-else class="arrow">{{ showDropdown ? "▲" : "▼" }}</span>
     </div>
 
@@ -173,6 +151,7 @@ span {
   padding: 19px 32px;
   cursor: pointer;
   white-space: nowrap;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
 }
 
 .dropdown-item:hover {

@@ -1,20 +1,14 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from "vue";
+import { ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
+import { onClickOutside } from "@vueuse/core";
 
 const { locale } = useI18n();
+const props = withDefaults(defineProps<{ mobile?: boolean }>(), {
+  mobile: false,
+});
 
 const menuRef = ref<HTMLElement | null>(null);
-
-const props = withDefaults(
-  defineProps<{
-    mobile?: boolean;
-  }>(),
-  {
-    mobile: false,
-  }
-);
-
 const showDropdown = ref(false);
 const currentLang = ref(locale.value.toUpperCase());
 const languages = ["en", "de"];
@@ -29,26 +23,26 @@ function selectLang(lang: string) {
   showDropdown.value = false;
 }
 
-function handleClickOutside(event: any) {
-  if (!props.mobile && menuRef.value && !menuRef.value.contains(event.target)) {
-    showDropdown.value = false;
-  }
-}
-
-onMounted(() => {
-  if (!props.mobile) document.addEventListener("click", handleClickOutside);
+onClickOutside(menuRef, () => {
+  showDropdown.value = false;
 });
 
-onBeforeUnmount(() => {
-  if (!props.mobile) document.removeEventListener("click", handleClickOutside);
+watch(locale, (val) => {
+  currentLang.value = val.toUpperCase();
 });
 </script>
 
 <template>
-  <div class="language-switcher" :class="{ mobile }">
+  <div
+    ref="menuRef"
+    class="language-switcher"
+    :class="{ mobile: props.mobile }"
+  >
     <div class="menu-item" @click="toggleDropdown">
       <span>{{ currentLang }}</span>
-      <span v-if="mobile" class="arrow">{{ showDropdown ? "▲" : "▼" }}</span>
+      <span v-if="props.mobile" class="arrow">{{
+        showDropdown ? "▲" : "▼"
+      }}</span>
     </div>
 
     <div v-if="showDropdown" class="dropdown">
@@ -123,6 +117,7 @@ span {
   padding: 19px 32px;
   cursor: pointer;
   white-space: nowrap;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
 }
 
 .dropdown-item:hover {
