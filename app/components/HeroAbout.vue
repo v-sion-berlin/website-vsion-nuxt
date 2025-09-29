@@ -5,7 +5,7 @@
       <img :src="about.heroImage" class="blur-img" />
       <img :src="about.heroImage" class="img" />
       <h1>{{ t("about_hero") }}</h1>
-      <h2>+49 30 29381928 contact@v-sion.de</h2>
+      <h2>{{ t("about_subheader") }}</h2>
     </section>
 
     <!-- Cards Section -->
@@ -14,6 +14,16 @@
         <h3>{{ card.title }}</h3>
         <p v-html="card.address"></p>
         <p v-if="card.phone" v-html="card.phone"></p>
+      </div>
+    </section>
+
+    <!-- Amtsgericht Section -->
+    <section id="card-section-long">
+      <div class="card">
+        <p>
+          Amtsgericht Berlin Charlottenburg <br />
+          HRB 119 647
+        </p>
       </div>
     </section>
   </div>

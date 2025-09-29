@@ -7,8 +7,6 @@ cards:
   - title: v-sion GmbH @ ZDF
     address: ZDF-Straße Raum SB E327<br>55127 Mainz
     phone: "T: +49 (0)61 31 70 14 01 5<br>F: +49 (0)61 31 70 14 01 5"
-  - title: HR Info
-    address: Amtsgericht Berlin Charlottenburg <br>HRB 119 647
 ---
 
 # About v-sion
