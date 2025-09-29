@@ -22,7 +22,12 @@ export default defineNuxtConfig({
       }
     },
     preview: {
-      dev: true
+      dev: true,
+       gitInfo: {
+        name: 'website-vsion-nuxt',
+        owner: 'v-sion',
+        url: 'https://github.com/v-sion-berlin/website-vsion-nuxt'
+      }
     },
      watch: {
       port: 4000,
