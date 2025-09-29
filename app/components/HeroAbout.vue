@@ -1,16 +1,16 @@
 <template>
-  <div id="hero" v-if="aboutData">
+  <div id="hero" v-if="about">
     <!-- Hero Section -->
     <section id="headline">
-      <img :src="aboutData.heroImage" class="blur-img" />
-      <img :src="aboutData.heroImage" class="img" />
+      <img :src="about.heroImage" class="blur-img" />
+      <img :src="about.heroImage" class="img" />
       <h1>{{ t("about_hero") }}</h1>
       <h2>+49 30 29381928 contact@v-sion.de</h2>
     </section>
 
     <!-- Cards Section -->
     <section id="card-section">
-      <div class="card" v-for="card in aboutData.cards" :key="card.title">
+      <div class="card" v-for="card in cards" :key="card.title">
         <h3>{{ card.title }}</h3>
         <p v-html="card.address"></p>
         <p v-if="card.phone" v-html="card.phone"></p>
@@ -23,13 +23,30 @@
 
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
+import { computed } from "vue";
+
+interface Card {
+  title: string;
+  address: string;
+  phone?: string;
+}
+
+interface About {
+  heroImage: string;
+  meta: {
+    cards: Card[];
+  };
+}
+
 const { t } = useI18n();
 
-const { data: aboutData } = await useAsyncData("about", () =>
-  queryCollection("about").all()
-);
+const { data: aboutData } = await useAsyncData("about", async () => {
+  const result = await queryCollection("about").all();
+  return result as unknown as About[];
+});
 
-console.log(aboutData);
+const about = computed<About | undefined>(() => aboutData.value?.[0]);
+const cards = computed<Card[]>(() => about?.value?.meta.cards ?? []);
 </script>
 
 <style scoped>

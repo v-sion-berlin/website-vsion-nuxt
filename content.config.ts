@@ -5,7 +5,7 @@ export default defineContentConfig({
   collections: {
     about: defineCollection({
       type: 'page',
-      source: 'content/about/*.md',
+      source: 'about/*.md',
       schema: z.object({
         title: z.string(),
         heroImage: z.string(),

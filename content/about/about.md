@@ -1,5 +1,5 @@
 ---
-heroImage: /images/about-hero.jpg
+heroImage: /images/bg_about_top_full.png
 cards:
   - title: v-sion GmbH
     address: Warschauer Straße 59a<br>10243 Berlin
