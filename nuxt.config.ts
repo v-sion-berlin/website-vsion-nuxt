@@ -21,6 +21,9 @@ export default defineNuxtConfig({
         }
       }
     },
+    preview: {
+      dev: true
+    },
      watch: {
       port: 4000,
       showURL: true
