@@ -1,0 +1,103 @@
+<template>
+  <div id="text-container">
+    <main>
+      <section>
+        <!-- If we have an image we can comment this in -->
+        <!-- <div class="image-container"><img :src="ClaimPicture.src" /></div> -->
+        <div>
+          <h2>
+            {{ t("textblock_anspruch_header") }}
+          </h2>
+          <p>
+            {{ t("textblock_anspruch_body") }}
+          </p>
+          <button id="contact-btn-copy" @click="handleClick">
+            {{ buttonText }}
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed, ref } from "vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+
+const isSoon = ref(false);
+
+const buttonText = computed(() =>
+  isSoon.value
+    ? t("textblock_anspruch_button_soon")
+    : t("textblock_anspruch_button")
+);
+
+function handleClick() {
+  isSoon.value = true;
+
+  setTimeout(() => {
+    isSoon.value = false;
+  }, 2000);
+}
+</script>
+
+<style scoped>
+h2 {
+  font-weight: 500;
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: clamp(40px, 6vw, 80px);
+  margin-bottom: 32px;
+}
+
+p {
+  font-size: clamp(16px, 2.5vw, 24px);
+  font-weight: 500;
+  line-height: clamp(24px, 3vw, 40px);
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+  align-items: flex-start;
+}
+
+section img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: center bottom;
+  transition: transform 0.3s ease;
+}
+
+.image-container {
+  flex: 1 1 420px;
+  max-width: min(100%, 420px);
+  height: 560px;
+  overflow: hidden;
+}
+
+section div:last-child {
+  flex: 1 1 280px;
+  min-width: 280px;
+}
+
+#contact-btn-copy {
+  font-size: clamp(16px, 2vw, 20px);
+  margin-top: 2rem;
+  border: 2px solid #ff153e;
+  border-radius: 16px;
+  background: transparent;
+  color: white;
+  padding: clamp(12px, 2vw, 16px) clamp(24px, 3vw, 32px);
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+#contact-btn-copy:hover {
+  background: #ff153e;
+}
+</style>
