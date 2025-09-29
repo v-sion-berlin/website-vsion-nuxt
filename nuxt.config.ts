@@ -9,6 +9,24 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/fonts',
   ],
+  content: {
+    build: {
+      markdown: {
+        toc: {
+          depth: 3,
+        },
+        highlight: {
+          // Theme used in all color schemes.
+          theme: 'github-dark',
+        }
+      }
+    },
+     watch: {
+      port: 4000,
+      showURL: true
+    }
+  },
+
   app: {
     head: {
       title: "v-sion",

@@ -1,51 +1,36 @@
-<script setup lang="ts">
-import { useI18n } from "vue-i18n";
-const { t } = useI18n();
-import mainImg from "~/assets/bg_about_top_full.png";
-</script>
-
 <template>
-  <div id="hero">
+  <div id="hero" v-if="aboutData">
+    <!-- Hero Section -->
     <section id="headline">
-      <img :src="mainImg" class="blur-img" />
-      <img :src="mainImg" class="img" />
+      <img :src="aboutData.heroImage" class="blur-img" />
+      <img :src="aboutData.heroImage" class="img" />
       <h1>{{ t("about_hero") }}</h1>
       <h2>+49 30 29381928 contact@v-sion.de</h2>
     </section>
+
+    <!-- Cards Section -->
     <section id="card-section">
-      <div class="card">
-        <h3>v-sion GmbH</h3>
-        <p>
-          Warschauer Straße 59a<br />
-          10243 Berlin
-        </p>
-        <p>
-          T: +49 (0)30 29 38 19 28<br />
-          F: +49 (0)30 29 38 19 18
-        </p>
-      </div>
-      <div class="card">
-        <h3>v-sion GmbH @ ZDF</h3>
-        <p>
-          ZDF-Straße Raum SB E327<br />
-          55127 Mainz
-        </p>
-        <p>
-          T: +49 (0)61 31 70 14 01 5<br />
-          F: +49 (0)61 31 70 14 01 5
-        </p>
-      </div>
-    </section>
-    <section id="card-section-long">
-      <div class="card">
-        <p>
-          Amtsgericht Berlin Charlottenburg <br />
-          HRB 119 647
-        </p>
+      <div class="card" v-for="card in aboutData.cards" :key="card.title">
+        <h3>{{ card.title }}</h3>
+        <p v-html="card.address"></p>
+        <p v-if="card.phone" v-html="card.phone"></p>
       </div>
     </section>
   </div>
+
+  <div v-else>Loading...</div>
 </template>
+
+<script setup lang="ts">
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+
+const { data: aboutData } = await useAsyncData("about", () =>
+  queryCollection("about").all()
+);
+
+console.log(aboutData);
+</script>
 
 <style scoped>
 #hero {
