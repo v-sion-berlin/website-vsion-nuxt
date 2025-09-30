@@ -2,8 +2,8 @@
   <div id="hero" v-if="page">
     <!-- Hero Section -->
     <section id="headline">
-      <img :src="page.heroImage" class="blur-img" />
-      <img :src="page.heroImage" class="img" />
+      <img :src="page.heroImage?.src" class="blur-img" />
+      <img :src="page.heroImage?.src" class="img" />
       <h1>{{ page?.header }}</h1>
       <h2>{{ page.subtTitle }}</h2>
     </section>
@@ -42,6 +42,10 @@
 </template>
 
 <script setup lang="ts">
+interface Media {
+  src: string;
+  alt: string;
+}
 interface Address {
   company: string;
   street: string;
@@ -57,7 +61,7 @@ interface CourtInfo {
 
 interface Page {
   header?: string;
-  heroImage?: string;
+  heroImage?: Media;
   subtTitle?: string;
   description?: string;
   addressBerlin?: Address;

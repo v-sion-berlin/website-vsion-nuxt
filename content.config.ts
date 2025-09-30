@@ -1,9 +1,13 @@
-import { defineContentConfig, defineCollection, z } from '@nuxt/content'
+import { defineContentConfig, defineCollection, property } from '@nuxt/content'
+import { z } from 'zod/v3'
 
 const aboutPageSchema = z.object({
   type: z.literal('about'),
   header: z.string().optional(),
-  heroImage: z.string().optional(),
+  heroImage: z.object({
+          src: property(z.string()).editor({ input: 'media' }),
+          alt: z.string()
+        }).optional(),
   subtTitle: z.string().optional(),
   addressBerlin: z
     .object({
@@ -34,7 +38,10 @@ const aboutPageSchema = z.object({
 const homePageSchema = z.object({
   type: z.literal('/'),
   hero: z.string(),
-  heroImage: z.string(),
+  heroImage: z.object({
+        src: property(z.string()).editor({ input: 'media' }),
+        alt: z.string()
+      }).optional(),
 
   // Lists
   list_studio: z.string(),
@@ -78,7 +85,7 @@ export default defineContentConfig({
       type: 'page',
        source: {
         include: 'en/**',
-        prefix: '',
+        prefix: ''
       },
       schema: z.union([aboutPageSchema, homePageSchema]),
     }),
@@ -86,7 +93,7 @@ export default defineContentConfig({
       type: 'page',
        source: {
         include: 'de/**',
-        prefix: '',
+        prefix: ''
       },
       schema: z.union([aboutPageSchema, homePageSchema]),
     }),

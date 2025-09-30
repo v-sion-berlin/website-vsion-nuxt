@@ -1,6 +1,10 @@
 <script setup lang="ts">
+interface Media {
+  src: string;
+  alt: string;
+}
 interface Page {
-  heroImage?: string;
+  heroImage?: Media;
   hero?: string;
 }
 
@@ -12,8 +16,8 @@ const props = defineProps<{
 <template>
   <div id="hero">
     <section>
-      <img :src="page.heroImage" class="blur-img" />
-      <img :src="page.heroImage" class="img" />
+      <img :src="page.heroImage?.src" class="blur-img" />
+      <img :src="page.heroImage?.src" class="img" />
       <h1>{{ page.hero }}</h1>
     </section>
   </div>

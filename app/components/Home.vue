@@ -1,7 +1,11 @@
 <script setup lang="ts">
+interface Media {
+  src: string;
+  alt: string;
+}
 interface HomePage {
   hero: string;
-  heroImage: string;
+  heroImage: Media;
   list_studio: string;
   list_news: string;
   list_sport: string;

@@ -2,7 +2,9 @@
 type: about
 header: Live to the world from Berlin
 subtTitle: +49 30 29381928 contact@v-sion.de
-heroImage: /images/bg_about_top_full.png
+heroImage:
+  src: /images/bg_about_top_full.png
+  alt: Hero image showing Berlin skyline
 addressBerlin:
   company: v-sion GmbH
   street: Warschauer Straße 59a

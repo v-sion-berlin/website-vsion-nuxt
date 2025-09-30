@@ -2,7 +2,9 @@
 type: /
 # HERO
 hero: Excellent design and pioneering technology powering today’s live content delivery
-heroImage: /images/bg_main_top_full.png
+heroImage:
+  src: /images/bg_main_top_full.png
+  alt: Hero image showing Berlin skyline
 
 # LIST
 list_studio: Connected technology for interactive live shows

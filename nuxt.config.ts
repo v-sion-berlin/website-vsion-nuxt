@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-09-29',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   modules: [
     '@nuxt/content',
     '@nuxt/eslint',
@@ -26,7 +26,6 @@ export default defineNuxtConfig({
           depth: 3,
         },
         highlight: {
-          // Theme used in all color schemes.
           theme: 'github-dark',
         }
       }
@@ -35,10 +34,6 @@ export default defineNuxtConfig({
       dev: true,
       api: 'https://api.nuxt.studio',
 
-    },
-     watch: {
-      port: 4000,
-      showURL: true
     }
   },
 
