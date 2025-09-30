@@ -1,4 +1,5 @@
 ---
+type: /
 # HERO
 hero: Exzellentes Design und wegweisende Technologie für moderne Medienproduktionen
 heroImage: /images/bg_main_top_full.png
