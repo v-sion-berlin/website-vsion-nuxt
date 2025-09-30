@@ -17,6 +17,20 @@ npm run dev
 
 ```
 
+## Content Studio - Production
+
+TODO
+
+## Content Studio - Development (Debugging ONLY)
+
+Start the development with cloudfare tunnel:
+
+```bash
+# npm
+npx nuxt dev --tunnel
+
+```
+
 ## Production
 
 Build the application for production:
