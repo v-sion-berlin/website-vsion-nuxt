@@ -1,58 +1,59 @@
 <template>
-  <div id="contact-section">
-    <div class="contact-left">
-      <h2>{{ t("contact_header") }}</h2>
-      <div class="button-container">
-        <button id="contact-btn-copy" @click="copyEmail('button')">
-          {{ t("contact_button") }}
-        </button>
-        <div
-          v-if="copiedButton"
-          class="button-container"
-          style="gap: 4px; text-align: center"
+  <client-only>
+    <div id="contact-section">
+      <div class="contact-left">
+        <h2>{{ t("contact_header") }}</h2>
+        <div class="button-container">
+          <button id="contact-btn-copy" @click="copyEmail('button')">
+            {{ t("contact_button") }}
+          </button>
+          <div
+            v-if="copiedButton"
+            class="button-container"
+            style="gap: 4px; text-align: center"
+          >
+            <img :src="WhiteCheck" class="check" />
+            <span class="copied-msg">{{ t("contact_button_copied") }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <div class="info-box-first">
+          <LegalLinksVue />
+          <p class="light">©2025, v-sion GmbH.<br />All rights reserved.</p>
+        </div>
+
+        <a class="info-box" href="tel:+491234567890">
+          <img class="icon" :src="Phone" alt="phone" />
+          <div>+49 (0)30 29 38 19 28</div>
+        </a>
+
+        <a class="info-box" @click="copyEmail('email')">
+          <img class="icon" :src="Email" alt="email" />
+          <div ref="emailEl">
+            <span v-if="copiedEmail" class="email-copied">{{
+              t("contact_button_copied")
+            }}</span>
+            <span v-else>contact@v-sion.de</span>
+          </div>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/feed/update/urn:li:activity:7313186482737897472/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="info-box"
         >
-          <img :src="WhiteCheck" class="check" />
-          <span class="copied-msg">{{ t("contact_button_copied") }}</span>
-        </div>
+          <img class="icon-linkedin" :src="LinkedIn" alt="linkedin" />
+          <span>LinkedIn</span>
+        </a>
       </div>
     </div>
-
-    <div class="contact-right">
-      <div class="info-box-first">
-        <LegalLinksVue />
-        <p class="light">©2025, v-sion GmbH.<br />All rights reserved.</p>
-      </div>
-
-      <a class="info-box" href="tel:+491234567890">
-        <img class="icon" :src="Phone" alt="phone" />
-        <div>+49 (0)30 29 38 19 28</div>
-      </a>
-
-      <a class="info-box" @click="copyEmail('email')">
-        <img class="icon" :src="Email" alt="email" />
-        <div ref="emailEl">
-          <span v-if="copiedEmail" class="email-copied">{{
-            t("contact_button_copied")
-          }}</span>
-          <span v-else>contact@v-sion.de</span>
-        </div>
-      </a>
-
-      <a
-        href="https://www.linkedin.com/feed/update/urn:li:activity:7313186482737897472/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="info-box"
-      >
-        <img class="icon-linkedin" :src="LinkedIn" alt="linkedin" />
-        <span>LinkedIn</span>
-      </a>
-    </div>
-  </div>
+  </client-only>
 </template>
 
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
 import { ref } from "vue";
 import LegalLinksVue from "./LegalLinks.vue";
 import Phone from "~/assets/Phone.svg";

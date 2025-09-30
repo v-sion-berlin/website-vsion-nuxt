@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
 import { onClickOutside } from "@vueuse/core";
 import Menu from "~/assets/Menu.svg";
@@ -26,8 +25,8 @@ const pagesByLang: Record<"en" | "de", { name: string; path: string }[]> = {
     // { name: "Contact", path: "/contact" },
   ],
   de: [
-    { name: "Startseite", path: "/" },
-    { name: "Über uns", path: "/about" },
+    { name: "Startseite", path: "/de" },
+    { name: "Über uns", path: "/de/about" },
     // { name: "Dienstleistungen", path: "/services" },
     // { name: "Kontakt", path: "/contact" },
   ],

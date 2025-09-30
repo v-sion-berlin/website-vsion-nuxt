@@ -1,31 +1,29 @@
 <template>
-  <div id="hero" v-if="about">
+  <div id="hero" v-if="page">
     <!-- Hero Section -->
     <section id="headline">
-      <img :src="about.heroImage" class="blur-img" />
-      <img :src="about.heroImage" class="img" />
-      <h1>{{ about.title }}</h1>
-      <h2>{{ about.subtTitle }}</h2>
+      <img :src="page.heroImage" class="blur-img" />
+      <img :src="page.heroImage" class="img" />
+      <h1>{{ page?.header }}</h1>
+      <h2>{{ page.subtTitle }}</h2>
     </section>
 
     <!-- Address Cards Section -->
     <section id="card-section">
-      <div class="card" v-if="about.addressBerlin">
-        <h3>{{ about.addressBerlin.company }}</h3>
-        <p>{{ about.addressBerlin.street }}</p>
-        <p>{{ about.addressBerlin.zip }}</p>
-        <p v-if="about.addressBerlin.phone">
-          T: {{ about.addressBerlin.phone }}
-        </p>
-        <p v-if="about.addressBerlin.fax">F: {{ about.addressBerlin.fax }}</p>
+      <div class="card" v-if="page.addressBerlin">
+        <h3>{{ page.addressBerlin.company }}</h3>
+        <p>{{ page.addressBerlin.street }}</p>
+        <p>{{ page.addressBerlin.zip }}</p>
+        <p v-if="page.addressBerlin.phone">T: {{ page.addressBerlin.phone }}</p>
+        <p v-if="page.addressBerlin.fax">F: {{ page.addressBerlin.fax }}</p>
       </div>
 
-      <div class="card" v-if="about.addressZDF">
-        <h3>{{ about.addressZDF.company }}</h3>
-        <p>{{ about.addressZDF.street }}</p>
-        <p>{{ about.addressZDF.zip }}</p>
-        <p v-if="about.addressZDF.phone">T: {{ about.addressZDF.phone }}</p>
-        <p v-if="about.addressZDF.fax">F: {{ about.addressZDF.fax }}</p>
+      <div class="card" v-if="page.addressZDF">
+        <h3>{{ page.addressZDF.company }}</h3>
+        <p>{{ page.addressZDF.street }}</p>
+        <p>{{ page.addressZDF.zip }}</p>
+        <p v-if="page.addressZDF.phone">T: {{ page.addressZDF.phone }}</p>
+        <p v-if="page.addressZDF.fax">F: {{ page.addressZDF.fax }}</p>
       </div>
     </section>
 
@@ -33,8 +31,8 @@
     <section id="card-section-long">
       <div class="card">
         <p>
-          {{ about.courtInfo.text }} <br />
-          {{ about.courtInfo.hrb }}
+          {{ page.courtInfo?.text }} <br />
+          {{ page.courtInfo?.hrb }}
         </p>
       </div>
     </section>
@@ -44,9 +42,6 @@
 </template>
 
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
-import { computed } from "vue";
-
 interface Address {
   company: string;
   street: string;
@@ -60,23 +55,19 @@ interface CourtInfo {
   hrb: string;
 }
 
-interface About {
-  title: string;
-  heroImage: string;
+interface Page {
+  header?: string;
+  heroImage?: string;
+  subtTitle?: string;
   description?: string;
   addressBerlin?: Address;
   addressZDF?: Address;
   courtInfo?: CourtInfo;
 }
 
-const { t } = useI18n();
-
-const { data: aboutData } = await useAsyncData("about", async () => {
-  const result = await queryCollection("about").all();
-  return result as unknown as About[];
-});
-
-const about = computed<About | undefined>(() => aboutData.value?.[0]);
+const props = defineProps<{
+  page: Page;
+}>();
 </script>
 
 <style scoped>

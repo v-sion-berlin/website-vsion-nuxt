@@ -2,9 +2,9 @@
   <div id="text-container">
     <main>
       <section>
-        <h2>{{ t("textblock_marken_header") }}</h2>
+        <h2>{{ page.textblock_marken_header }}</h2>
         <p>
-          {{ t("textblock_marken_body") }}
+          {{ page.textblock_marken_body }}
         </p>
       </section>
 
@@ -57,9 +57,6 @@
 </template>
 
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
 import RBB from "~/assets/RBB.svg";
 import SAT1 from "~/assets/SAT1.svg";
 import SVT from "~/assets/SVT.svg";
@@ -73,6 +70,14 @@ import KABEL1 from "~/assets/KABEL1.svg";
 import NTV from "~/assets/NTV.svg";
 import PRO7 from "~/assets/PRO7.svg";
 import RTL from "~/assets/RTL.svg";
+
+interface Marken {
+  textblock_marken_header: string;
+  textblock_marken_body: string;
+}
+const props = defineProps<{
+  page: Marken;
+}>();
 </script>
 
 <style scoped>

@@ -1,15 +1,20 @@
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
-const { t } = useI18n();
-import mainImg from "~/assets/bg_main_top_full.png";
+interface Page {
+  heroImage?: string;
+  hero?: string;
+}
+
+const props = defineProps<{
+  page: Page;
+}>();
 </script>
 
 <template>
   <div id="hero">
     <section>
-      <img :src="mainImg" class="blur-img" />
-      <img :src="mainImg" class="img" />
-      <h1>{{ t("hero") }}</h1>
+      <img :src="page.heroImage" class="blur-img" />
+      <img :src="page.heroImage" class="img" />
+      <h1>{{ page.hero }}</h1>
     </section>
   </div>
 </template>

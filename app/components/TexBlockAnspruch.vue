@@ -6,10 +6,10 @@
         <!-- <div class="image-container"><img :src="ClaimPicture.src" /></div> -->
         <div>
           <h2>
-            {{ t("textblock_anspruch_header") }}
+            {{ page.textblock_anspruch_header }}
           </h2>
           <p>
-            {{ t("textblock_anspruch_body") }}
+            {{ page.textblock_anspruch_body }}
           </p>
           <button id="contact-btn-copy" @click="handleClick">
             {{ buttonText }}
@@ -22,16 +22,23 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
 
 const isSoon = ref(false);
 
+interface Anspruch {
+  textblock_anspruch_header: string;
+  textblock_anspruch_body: string;
+  textblock_anspruch_button: string;
+  textblock_anspruch_button_soon: string;
+}
+const props = defineProps<{
+  page: Anspruch;
+}>();
+
 const buttonText = computed(() =>
   isSoon.value
-    ? t("textblock_anspruch_button_soon")
-    : t("textblock_anspruch_button")
+    ? props.page.textblock_anspruch_button_soon
+    : props.page.textblock_anspruch_button
 );
 
 function handleClick() {
@@ -94,7 +101,9 @@ section div:last-child {
   color: white;
   padding: clamp(12px, 2vw, 16px) clamp(24px, 3vw, 32px);
   cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 #contact-btn-copy:hover {

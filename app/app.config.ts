@@ -1,5 +1,5 @@
 export default defineAppConfig({
-  title: 'Hello Nuxt',
+  title: 'v-sion',
   theme: {
     dark: true,
     colors: {

@@ -3,11 +3,11 @@
     <main>
       <section>
         <h2>
-          {{ t("textblock_live_header") }}
+          {{ page.textblock_live_header }}
           <span style="font-style: italic; font-weight: 300">easy</span>
         </h2>
         <p>
-          {{ t("textblock_live_body") }}
+          {{ page.textblock_live_body }}
         </p>
       </section>
     </main>
@@ -21,7 +21,11 @@
 </style>
 
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
+interface Live {
+  textblock_live_header: string;
+  textblock_live_body: string;
+}
+const props = defineProps<{
+  page: Live;
+}>();
 </script>

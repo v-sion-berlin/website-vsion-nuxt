@@ -4,7 +4,7 @@
       <li
         v-for="item in menuItems"
         :key="item.key"
-        :data-text="t(item.i18nKey)"
+        :data-text="item.i18nKey"
         :class="{ active: activeItem === item.key }"
         v-on="!canHover ? { click: () => toggleItem(item.key) } : {}"
         :style="`--bg-color: ${item.color}`"
@@ -14,11 +14,11 @@
         <div class="marquee">
           <div class="marquee__inner">
             <span v-for="i in repeatCount" :key="`${item.key}-a-${i}`">
-              {{ t(item.i18nKey) }}
+              {{ item.i18nKey }}
               <img :src="Arrow" alt="→" />
             </span>
             <span v-for="i in repeatCount" :key="`${item.key}-b-${i}`">
-              {{ t(item.i18nKey) }}
+              {{ item.i18nKey }}
               <img :src="Arrow" alt="→" />
             </span>
           </div>
@@ -29,9 +29,22 @@
 </template>
 
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
 import Arrow from "~/assets/Arrow.svg";
 import { onBeforeUnmount, onMounted, ref } from "vue";
+
+interface List {
+  list_studio: string;
+  list_news: string;
+  list_sport: string;
+  list_code: string;
+  list_interaction: string;
+  list_operations: string;
+  list_storytelling: string;
+  list_infographics: string;
+}
+const props = defineProps<{
+  page: List;
+}>();
 
 const { t } = useI18n();
 const activeItem = ref<string | null>(null);
@@ -62,39 +75,49 @@ onBeforeUnmount(() => {
 const menuItems = [
   {
     key: "code",
-    i18nKey: "list_code",
+    i18nKey: props.page.list_code,
     label: "Code & Control",
     color: "#ff9f1c",
   },
   {
     key: "interaction",
-    i18nKey: "list_interaction",
+    i18nKey: props.page.list_interaction,
     label: "Interaction",
     color: "#9b5de5",
   },
   {
     key: "operations",
-    i18nKey: "list_operations",
+    i18nKey: props.page.list_operations,
     label: "Operations",
     color: "#f15bb5",
   },
-  { key: "sport", i18nKey: "list_sport", label: "Sport", color: "#00b894" },
-  { key: "news", i18nKey: "list_news", label: "News", color: "#0d6efd" },
+  {
+    key: "sport",
+    i18nKey: props.page.list_sport,
+    label: "Sport",
+    color: "#00b894",
+  },
+  {
+    key: "news",
+    i18nKey: props.page.list_news,
+    label: "News",
+    color: "#0d6efd",
+  },
   {
     key: "studio",
-    i18nKey: "list_studio",
+    i18nKey: props.page.list_studio,
     label: "Studio & Videowalls",
     color: "#ff153e",
   },
   {
     key: "infographics",
-    i18nKey: "list_infographics",
+    i18nKey: props.page.list_infographics,
     label: "Infographics",
     color: "#ffd166",
   },
   {
     key: "storytelling",
-    i18nKey: "list_storytelling",
+    i18nKey: props.page.list_storytelling,
     label: "Storytelling",
     color: "#06d6a0",
   },

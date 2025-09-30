@@ -2,12 +2,12 @@
   <div id="text-container">
     <main>
       <section>
-        <h2>{{ t("interview_header") }}</h2>
+        <h2>{{ page.interview_header }}</h2>
         <p style="display: inline">
-          {{ t("interview_body") }}
+          {{ page.interview_body }}
           <a href="https://www.vizrt.com" target="_blank" rel="noopener">
             Vizrt</a
-          >{{ t("interview_body_part_2") }}
+          >{{ page.interview_body_part_2 }}
         </p>
       </section>
 
@@ -16,7 +16,7 @@
         :class="{ expanded: isVideoOpen }"
         @click.stop="toggleVideo"
       >
-        <p :class="{ hidden: isVideoOpen }">Watch</p>
+        <p :class="{ hidden: isVideoOpen }">{{ page.interview_watch_text }}</p>
 
         <transition name="video-fade">
           <div class="video-container" v-if="isVideoOpen">
@@ -30,7 +30,7 @@
         </transition>
       </div>
       <div class="video-source" v-if="isVideoOpen">
-        Source:
+        {{ page.interview_source_text }}
         <a
           href="https://www.vizrt.com/campaign/unlock-next-level-news-production-with-viz-pilot-edge/"
           target="_blank"
@@ -44,10 +44,7 @@
 </template>
 
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
 import { ref } from "vue";
-
-const { t } = useI18n();
 
 const isVideoOpen = ref(false);
 
@@ -58,6 +55,16 @@ function toggleVideo() {
 function collapseVideo() {
   isVideoOpen.value = false;
 }
+interface Interview {
+  interview_header: string;
+  interview_body: string;
+  interview_body_part_2: string;
+  interview_source_text: string;
+  interview_watch_text: string;
+}
+const props = defineProps<{
+  page: Interview;
+}>();
 </script>
 
 <style scoped>
@@ -115,7 +122,9 @@ function collapseVideo() {
   color: white;
   font-weight: bold;
   font-size: clamp(16px, 2vw, 24px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
   z-index: 2;
   position: absolute;
   text-align: center;
@@ -157,7 +166,9 @@ function collapseVideo() {
 /* transitions */
 .video-fade-enter-active,
 .video-fade-leave-active {
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 
 .video-fade-enter-from,

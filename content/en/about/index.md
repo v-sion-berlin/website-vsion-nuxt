@@ -1,5 +1,5 @@
 ---
-title: Live to the world from Berlin
+header: Live to the world from Berlin
 subtTitle: +49 30 29381928 contact@v-sion.de
 heroImage: /images/bg_about_top_full.png
 addressBerlin:

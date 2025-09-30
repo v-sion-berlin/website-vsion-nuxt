@@ -8,7 +8,17 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/icon',
     '@nuxt/fonts',
+    '@nuxt/fonts',
+    '@nuxtjs/i18n'
   ],
+  i18n: {
+    defaultLocale: "en",
+    strategy: "prefix_except_default",
+    locales: [
+      { code: "en", name: "English", language: "en-US",  dir: 'ltr' },
+      { code: "de", name: "Deutsch", language: "de-DE", dir: 'ltr' },
+    ],
+  },
   content: {
     build: {
       markdown: {

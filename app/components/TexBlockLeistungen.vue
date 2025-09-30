@@ -3,10 +3,10 @@
     <main>
       <section>
         <h2>
-          {{ t("textblock_leistungen_header") }}
+          {{ page.textblock_leistungen_header }}
         </h2>
         <p>
-          {{ t("textblock_leistungen_body") }}
+          {{ page.textblock_leistungen_body }}
         </p>
       </section>
     </main>
@@ -14,7 +14,11 @@
 </template>
 
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
+interface Leistung {
+  textblock_leistungen_header: string;
+  textblock_leistungen_body: string;
+}
+const props = defineProps<{
+  page: Leistung;
+}>();
 </script>
