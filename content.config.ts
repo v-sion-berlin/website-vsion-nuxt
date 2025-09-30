@@ -9,7 +9,7 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         heroImage: z.string(),
-        description: z.string(),
+        subtTitle: z.string(),
         addressBerlin: z
           .object({
             company: z.string(),

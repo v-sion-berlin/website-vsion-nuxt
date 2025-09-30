@@ -1,15 +1,24 @@
 ---
+title: Live to the world from Berlin
+subtTitle: +49 30 29381928 contact@v-sion.de
+
 heroImage: /images/bg_about_top_full.png
-cards:
-  - title: v-sion GmbH
-    address: Warschauer Straße 59a<br>10243 Berlin
-    phone: "T: +49 (0)30 29 38 19 28<br>F: +49 (0)30 29 38 19 18"
-  - title: v-sion GmbH @ ZDF
-    address: ZDF-Straße Raum SB E327<br>55127 Mainz
-    phone: "T: +49 (0)61 31 70 14 01 5<br>F: +49 (0)61 31 70 14 01 5"
+
+addressBerlin:
+  company: v-sion GmbH
+  street: Warschauer Straße 59a
+  zip: 10243 Berlin
+  phone: +49 (0)30 29 38 19 28
+  fax: +49 (0)30 29 38 19 18
+
+addressZDF:
+  company: v-sion GmbH @ ZDF
+  street: ZDF-Straße Raum SB E327
+  zip: 55127 Mainz
+  phone: +49 (0)61 31 70 14 01 5
+  fax: +49 (0)61 31 70 14 01 5
+
+courtInfo:
+  text: Amtsgericht Berlin Charlottenburg
+  hrb: HRB 119 647
 ---
-
-# About v-sion
-
-We specialize in excellent design and pioneering technology for live content delivery.
-Our team ensures high-quality services across all projects.

@@ -4,16 +4,28 @@
     <section id="headline">
       <img :src="about.heroImage" class="blur-img" />
       <img :src="about.heroImage" class="img" />
-      <h1>{{ t("about_hero") }}</h1>
-      <h2>{{ t("about_subheader") }}</h2>
+      <h1>{{ about.title }}</h1>
+      <h2>{{ about.subtTitle }}</h2>
     </section>
 
-    <!-- Cards Section -->
+    <!-- Address Cards Section -->
     <section id="card-section">
-      <div class="card" v-for="card in cards" :key="card.title">
-        <h3>{{ card.title }}</h3>
-        <p v-html="card.address"></p>
-        <p v-if="card.phone" v-html="card.phone"></p>
+      <div class="card" v-if="about.addressBerlin">
+        <h3>{{ about.addressBerlin.company }}</h3>
+        <p>{{ about.addressBerlin.street }}</p>
+        <p>{{ about.addressBerlin.zip }}</p>
+        <p v-if="about.addressBerlin.phone">
+          T: {{ about.addressBerlin.phone }}
+        </p>
+        <p v-if="about.addressBerlin.fax">F: {{ about.addressBerlin.fax }}</p>
+      </div>
+
+      <div class="card" v-if="about.addressZDF">
+        <h3>{{ about.addressZDF.company }}</h3>
+        <p>{{ about.addressZDF.street }}</p>
+        <p>{{ about.addressZDF.zip }}</p>
+        <p v-if="about.addressZDF.phone">T: {{ about.addressZDF.phone }}</p>
+        <p v-if="about.addressZDF.fax">F: {{ about.addressZDF.fax }}</p>
       </div>
     </section>
 
@@ -21,8 +33,8 @@
     <section id="card-section-long">
       <div class="card">
         <p>
-          Amtsgericht Berlin Charlottenburg <br />
-          HRB 119 647
+          {{ about.courtInfo.text }} <br />
+          {{ about.courtInfo.hrb }}
         </p>
       </div>
     </section>
@@ -35,17 +47,26 @@
 import { useI18n } from "vue-i18n";
 import { computed } from "vue";
 
-interface Card {
-  title: string;
-  address: string;
+interface Address {
+  company: string;
+  street: string;
+  zip: string;
   phone?: string;
+  fax?: string;
+}
+
+interface CourtInfo {
+  text: string;
+  hrb: string;
 }
 
 interface About {
+  title: string;
   heroImage: string;
-  meta: {
-    cards: Card[];
-  };
+  description?: string;
+  addressBerlin?: Address;
+  addressZDF?: Address;
+  courtInfo?: CourtInfo;
 }
 
 const { t } = useI18n();
@@ -56,7 +77,6 @@ const { data: aboutData } = await useAsyncData("about", async () => {
 });
 
 const about = computed<About | undefined>(() => aboutData.value?.[0]);
-const cards = computed<Card[]>(() => about?.value?.meta.cards ?? []);
 </script>
 
 <style scoped>
