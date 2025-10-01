@@ -32,12 +32,12 @@ export default defineNuxtConfig({
     },
     preview: {
       dev: true,
-      // api: 'https://api.nuxt.studio',
+      api: 'https://api.nuxt.studio',
     },
     watch: {
-      tunnel: true,
       enabled: true,
-      ws: true
+      ws: true,
+      port: 4000
     }
   },
 
