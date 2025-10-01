@@ -35,8 +35,8 @@ export default defineNuxtConfig({
       api: 'https://api.nuxt.studio',
     },
     watch: {
-      enabled: true,
-      ws: true,
+      // enabled: true,
+      // ws: true,
       port: 4000
     }
   },
