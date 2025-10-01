@@ -1,5 +1,5 @@
 ---
-type: /
+type: home
 hero: Exzellentes Design und wegweisende Technologie für moderne Medienproduktionen
 heroImage:
   src: /images/bg_main_top_full.png

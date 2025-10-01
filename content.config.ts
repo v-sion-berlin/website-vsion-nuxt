@@ -36,7 +36,7 @@ const aboutPageSchema = z.object({
 })
 
 const homePageSchema = z.object({
-  type: z.literal('/'),
+  type: z.literal('home'),
   hero: z.string(),
   heroImage: z.object({
         src: property(z.string()).editor({ input: 'media' }),
