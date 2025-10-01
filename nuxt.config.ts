@@ -35,9 +35,9 @@ export default defineNuxtConfig({
       api: 'https://api.nuxt.studio',
     },
     watch: {
-      // enabled: true,
-      // ws: true,
-      port: 4000
+      port: 4000,
+      hostname: '0.0.0.0',
+      // baseURL: process.env.NUXT_CONTENT_WS_URL || 'wss://<your-tunnel-url>/ws',
     }
   },
 
