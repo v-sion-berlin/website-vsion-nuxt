@@ -33,6 +33,11 @@ export default defineNuxtConfig({
     preview: {
       dev: true,
       // api: 'https://api.nuxt.studio',
+    },
+    watch: {
+      tunnel: true,
+      enabled: true,
+      ws: true
     }
   },
 
