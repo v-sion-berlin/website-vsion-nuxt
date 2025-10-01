@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-09-29',
   devtools: { enabled: false },
   modules: [
     '@nuxt/content',
@@ -31,14 +30,9 @@ export default defineNuxtConfig({
       }
     },
     preview: {
-      dev: true,
+      // dev: true,
       api: 'https://api.nuxt.studio',
     },
-    watch: {
-      port: 4000,
-      hostname: '0.0.0.0',
-      // baseURL: process.env.NUXT_CONTENT_WS_URL || 'wss://<your-tunnel-url>/ws',
-    }
   },
 
   app: {
