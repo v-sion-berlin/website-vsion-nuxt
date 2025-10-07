@@ -1,10 +1,8 @@
 export default defineNuxtPlugin(() => {
   if (typeof window === "undefined") return;
 
-  const isStudioPreview =
-    window.parent !== window && !!window.parent.document.querySelector('[data-nuxt-studio]');
-
-  if (!isStudioPreview) return;
+  const previewIframe = window.parent.document.getElementById("preview-iframe");
+  if (!previewIframe) return;
 
   const url = new URL(window.location.href);
 
