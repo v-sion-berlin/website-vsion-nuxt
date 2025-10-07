@@ -1,6 +1,6 @@
 ---
 type: home
-hero: Excellent design and pioneering technology powering today’s live content
+hero: Excellent design and pioneering technology powering today's live content
   delivery
 heroImage:
   src: /images/bg_main_top_full.png
@@ -17,7 +17,7 @@ interview_header: See us in action
 interview_body: For our partner
 interview_source_text: Source
 interview_watch_text: Watch
-interview_body_part_2: ", we’ve developed a framework that helps customers
+interview_body_part_2: ", we've developed a framework that helps customers
   seamlessly migrate to Viz Pilot Edge. This framework includes components
   designed to supercharge your production build process. Check out our best
   practices for a smooth and successful transition."

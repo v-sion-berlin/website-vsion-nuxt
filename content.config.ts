@@ -85,7 +85,7 @@ export default defineContentConfig({
       type: 'page',
        source: {
         include: 'en/**',
-        prefix: ''
+        prefix: '/'
       },
       schema: z.union([aboutPageSchema, homePageSchema]),
     }),
@@ -93,7 +93,7 @@ export default defineContentConfig({
       type: 'page',
        source: {
         include: 'de/**',
-        prefix: ''
+        prefix: '/de'
       },
       schema: z.union([aboutPageSchema, homePageSchema]),
     }),

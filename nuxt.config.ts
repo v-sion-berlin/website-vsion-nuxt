@@ -19,20 +19,20 @@ export default defineNuxtConfig({
     ],
   },
   content: {
-    build: {
-      markdown: {
-        toc: {
-          depth: 3,
-        },
-        highlight: {
-          theme: 'github-dark',
-        }
-      }
-    },
     preview: {
       // dev: true,
       api: 'https://api.nuxt.studio',
     },
+    // build: {
+    //   markdown: {
+    //     toc: {
+    //       depth: 3,
+    //     },
+    //     highlight: {
+    //       theme: 'github-dark',
+    //     }
+    //   }
+    // },
   },
 
   app: {

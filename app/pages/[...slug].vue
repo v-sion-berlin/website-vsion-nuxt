@@ -1,18 +1,17 @@
 <script setup lang="ts">
-import { withLeadingSlash } from "ufo";
 import type { Collections } from "@nuxt/content";
 
 const route = useRoute();
 const { locale } = useI18n();
-const slug = computed(() => withLeadingSlash(String(route.params.slug)));
+const slug = computed(() => String(route.params.slug));
+const collection = computed(
+  () => ("content_" + locale.value) as keyof Collections
+);
 
 const { data: page } = await useAsyncData(
-  "page-" + slug.value,
-  async () => {
-    const collection = ("content_" + locale.value) as keyof Collections;
-    const content = await queryCollection(collection).path(slug.value).first();
-
-    return content;
+  route.path,
+  () => {
+    return queryCollection(collection.value).path(route.path).first();
   },
   {
     watch: [locale],
@@ -27,15 +26,17 @@ if (!page.value) {
   });
 }
 
-useSeoMeta(page.value.seo);
+if (page.value?.seo) {
+  useSeoMeta(page.value.seo);
+}
 </script>
 
 <template>
   <!-- Special handling for About page -->
-  <HeroAbout v-if="page && slug === '/about'" :page="page.meta" />
+  <HeroAbout v-if="page && slug === 'about'" :page="page.meta" />
 
   <!-- Default renderer for all other pages -->
-  <Home v-else-if="page && slug === '/'" :page="page.meta" />
+  <Home v-else-if="page && slug === ''" :page="page.meta" />
 
   <div v-else>
     <h1>Page not found</h1>
