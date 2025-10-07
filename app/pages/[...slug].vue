@@ -8,7 +8,7 @@ const collection = computed(
   () => ("content_" + locale.value) as keyof Collections
 );
 
-const { data: page } = await useAsyncData(
+const { data: rawPage } = await useAsyncData(
   route.path,
   () => {
     return queryCollection(collection.value).path(route.path).first();
@@ -17,6 +17,14 @@ const { data: page } = await useAsyncData(
     watch: [locale],
   }
 );
+
+const page = computed(() => {
+  if (!rawPage.value) return null;
+  return {
+    ...rawPage.value,
+    ...rawPage.value.meta,
+  };
+});
 
 // if (!page.value) {
 //   throw createError({
