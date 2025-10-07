@@ -2,41 +2,55 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: [
-    '@nuxt/content',
-    '@nuxt/eslint',
-    '@nuxt/image',
-    '@nuxt/icon',
-    '@nuxt/fonts',
-    '@nuxt/fonts',
-    '@nuxtjs/i18n'
+    "@nuxt/content",
+    "@nuxt/eslint",
+    "@nuxt/image",
+    "@nuxt/icon",
+    "@nuxt/fonts",
+    "@nuxt/fonts",
+    "@nuxtjs/i18n",
   ],
   i18n: {
     defaultLocale: "en",
     strategy: "prefix_except_default",
     locales: [
-      { code: "en", name: "English", language: "en-US",  dir: 'ltr' },
-      { code: "de", name: "Deutsch", language: "de-DE", dir: 'ltr' },
+      { code: "en", name: "English", language: "en-US", dir: "ltr" },
+      { code: "de", name: "Deutsch", language: "de-DE", dir: "ltr" },
     ],
   },
   content: {
+    build: {
+      markdown: {
+        toc: {
+          depth: 5,
+          searchDepth: 5,
+        },
+        highlight: {
+          langs: [
+            "ts",
+            "js",
+            "json",
+            "vue",
+            "dockerfile",
+            "docker",
+            "yaml",
+            "css",
+          ],
+          theme: {
+            light: "github-light",
+            dark: "github-dark",
+            default: "github-dark",
+          },
+        },
+      },
+    },
     preview: {
       // dev: true,
-      api: 'https://api.nuxt.studio',
+      api: "https://api.nuxt.studio",
     },
     watch: {
       enabled: false,
-    }
-
-    // build: {
-    //   markdown: {
-    //     toc: {
-    //       depth: 3,
-    //     },
-    //     highlight: {
-    //       theme: 'github-dark',
-    //     }
-    //   }
-    // },
+    },
   },
 
   app: {
@@ -65,7 +79,10 @@ export default defineNuxtConfig({
           content:
             "Excellent design and pioneering technology powering today’s live content delivery",
         },
-        { name: "twitter:image", content: "https://www.v-sion.de/OG_Image.jpg" },
+        {
+          name: "twitter:image",
+          content: "https://www.v-sion.de/OG_Image.jpg",
+        },
       ],
       link: [
         // Favicon (light)
@@ -105,8 +122,7 @@ export default defineNuxtConfig({
         },
         // Web manifest
         { rel: "manifest", href: "/site.webmanifest" },
-
       ],
     },
   },
-})
+});
