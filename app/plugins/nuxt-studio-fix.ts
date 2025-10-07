@@ -1,7 +1,7 @@
 export default defineNuxtPlugin(() => {
   if (typeof window === 'undefined') return
 
-  const isStudio = window.location.hostname.includes('studio')
+  const isStudio = window.location.hostname.includes('nuxt.space')
   if (!isStudio) return
 
   const { locale, defaultLocale, setLocale } = useI18n()
