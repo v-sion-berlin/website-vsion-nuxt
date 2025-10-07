@@ -1,39 +1,5 @@
 <script setup lang="ts">
-interface Media {
-  src: string;
-  alt: string;
-}
-interface HomePage {
-  hero: string;
-  heroImage: Media;
-  list_studio: string;
-  list_news: string;
-  list_sport: string;
-  list_code: string;
-  list_interaction: string;
-  list_operations: string;
-  list_storytelling: string;
-  list_infographics: string;
-  interview_header: string;
-  interview_body: string;
-  interview_body_part_2: string;
-  interview_watch_text: string;
-  interview_source_text: string;
-  textblock_live_header: string;
-  textblock_live_body: string;
-  textblock_anspruch_header: string;
-  textblock_marken_button: string;
-  textblock_anspruch_body: string;
-  textblock_anspruch_button: string;
-  textblock_anspruch_button_soon: string;
-  textblock_leistungen_header: string;
-  textblock_leistungen_body: string;
-  textblock_marken_header: string;
-  textblock_marken_body: string;
-  contact_header: string;
-  contact_button: string;
-  contact_button_copied: string;
-}
+import type { HomePage } from "~/types/content";
 
 const props = defineProps<{
   page: HomePage;

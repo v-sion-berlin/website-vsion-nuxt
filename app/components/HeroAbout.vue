@@ -42,35 +42,10 @@
 </template>
 
 <script setup lang="ts">
-interface Media {
-  src: string;
-  alt: string;
-}
-interface Address {
-  company: string;
-  street: string;
-  zip: string;
-  phone?: string;
-  fax?: string;
-}
-
-interface CourtInfo {
-  text: string;
-  hrb: string;
-}
-
-interface Page {
-  header?: string;
-  heroImage?: Media;
-  subtTitle?: string;
-  description?: string;
-  addressBerlin?: Address;
-  addressZDF?: Address;
-  courtInfo?: CourtInfo;
-}
+import type { AboutPage } from "~/types/content";
 
 const props = defineProps<{
-  page: Page;
+  page: AboutPage;
 }>();
 </script>
 

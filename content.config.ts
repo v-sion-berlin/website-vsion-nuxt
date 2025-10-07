@@ -1,47 +1,14 @@
 import { defineContentConfig, defineCollection, property } from '@nuxt/content'
 import { z } from 'zod'
 
-const aboutPageSchema = z.object({
-  type: z.literal('about'),
-  header: z.string().optional(),
-  heroImage: z.object({
-          src: property(z.string()).editor({ input: 'media' }),
-          alt: z.string()
-        }).optional(),
-  subtTitle: z.string().optional(),
-  addressBerlin: z
-    .object({
-      company: z.string(),
-      street: z.string(),
-      zip: z.string(),
-      phone: z.string(),
-      fax: z.string(),
-    })
-    .optional(),
-  addressZDF: z
-    .object({
-      company: z.string(),
-      street: z.string(),
-      zip: z.string(),
-      phone: z.string(),
-      fax: z.string(),
-    })
-    .optional(),
-  courtInfo: z
-    .object({
-      text: z.string(),
-      hrb: z.string(),
-    })
-    .optional(),
-})
-
+// --- Home Page ---
 const homePageSchema = z.object({
   type: z.literal('home'),
   hero: z.string(),
   heroImage: z.object({
-        src: property(z.string()).editor({ input: 'media' }),
-        alt: z.string()
-      }).optional(),
+    src: property(z.string()).editor({ input: 'media' }),
+    alt: z.string()
+  }).optional(),
 
   // Lists
   list_studio: z.string(),
@@ -53,7 +20,7 @@ const homePageSchema = z.object({
   list_storytelling: z.string(),
   list_infographics: z.string(),
 
-  // Interview section
+  // Interview
   interview_header: z.string(),
   interview_body: z.string(),
   interview_body_part_2: z.string(),
@@ -64,14 +31,14 @@ const homePageSchema = z.object({
   textblock_live_header: z.string(),
   textblock_live_body: z.string(),
   textblock_anspruch_header: z.string(),
-  textblock_marken_button: z.string(),
   textblock_anspruch_body: z.string(),
   textblock_anspruch_button: z.string(),
   textblock_anspruch_button_soon: z.string(),
-  textblock_leistungen_header: z.string(),
-  textblock_leistungen_body: z.string(),
   textblock_marken_header: z.string(),
   textblock_marken_body: z.string(),
+  textblock_marken_button: z.string(),
+  textblock_leistungen_header: z.string(),
+  textblock_leistungen_body: z.string(),
 
   // Contact
   contact_header: z.string(),
@@ -79,23 +46,56 @@ const homePageSchema = z.object({
   contact_button_copied: z.string(),
 })
 
+// --- About Page ---
+const aboutPageSchema = z.object({
+  type: z.literal('about'),
+  header: z.string().optional(),
+  subtTitle: z.string().optional(),
+  heroImage: z.object({
+    src: property(z.string()).editor({ input: 'media' }),
+    alt: z.string()
+  }).optional(),
+  addressBerlin: z.object({
+    company: z.string(),
+    street: z.string(),
+    zip: z.string(),
+    phone: z.string(),
+    fax: z.string(),
+  }).optional(),
+  addressZDF: z.object({
+    company: z.string(),
+    street: z.string(),
+    zip: z.string(),
+    phone: z.string(),
+    fax: z.string(),
+  }).optional(),
+  courtInfo: z.object({
+    text: z.string(),
+    hrb: z.string(),
+  }).optional(),
+})
+
 export default defineContentConfig({
   collections: {
-    content_en: defineCollection({
+    home_en: defineCollection({
       type: 'page',
-       source: {
-        include: 'en/**',
-        prefix: '/'
-      },
-      schema: z.union([aboutPageSchema, homePageSchema]),
+      source: { include: 'en/index.md', prefix: '/' },
+      schema: homePageSchema
     }),
-    content_de: defineCollection({
+    about_en: defineCollection({
       type: 'page',
-       source: {
-        include: 'de/**',
-        prefix: '/de'
-      },
-      schema: z.union([aboutPageSchema, homePageSchema]),
+      source: { include: 'en/about.md', prefix: '/' },
+      schema: aboutPageSchema
     }),
-  },
+    home_de: defineCollection({
+      type: 'page',
+      source: { include: 'de/index.md', prefix: '/de' },
+      schema: homePageSchema
+    }),
+    about_de: defineCollection({
+      type: 'page',
+      source: { include: 'de/about.md', prefix: '/de' },
+      schema: aboutPageSchema
+    }),
+  }
 })

@@ -19,31 +19,6 @@ export default defineNuxtConfig({
     ],
   },
   content: {
-    build: {
-      markdown: {
-        toc: {
-          depth: 5,
-          searchDepth: 5,
-        },
-        highlight: {
-          langs: [
-            "ts",
-            "js",
-            "json",
-            "vue",
-            "dockerfile",
-            "docker",
-            "yaml",
-            "css",
-          ],
-          theme: {
-            light: "github-light",
-            dark: "github-dark",
-            default: "github-dark",
-          },
-        },
-      },
-    },
     preview: {
       // dev: true,
       api: "https://api.nuxt.studio",

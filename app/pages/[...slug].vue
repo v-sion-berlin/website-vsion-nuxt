@@ -1,54 +1,40 @@
 <script setup lang="ts">
+import type { HomePage, AboutPage } from "~/types/content";
+import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
+import { queryCollection } from "#imports";
 import type { Collections } from "@nuxt/content";
 
 const route = useRoute();
 const { locale } = useI18n();
-const slug = computed(() => String(route.params.slug));
-const collection = computed(
-  () => ("content_" + locale.value) as keyof Collections
-);
 
-const { data: rawPage } = await useAsyncData(
-  route.path,
-  () => {
-    return queryCollection(collection.value).path(route.path).first();
-  },
-  {
-    watch: [locale],
-  }
-);
+const slug = computed(() => String(route.params.slug ?? ""));
 
-const page = computed(() => {
-  if (!rawPage.value) return null;
-  return {
-    ...rawPage.value,
-    ...rawPage.value.meta,
-  };
+const collectionName = computed<keyof Collections | null>(() => {
+  if (slug.value === "") return `home_${locale.value}` as const;
+  if (slug.value === "about") return `about_${locale.value}` as const;
+  else return null;
 });
 
-// if (!page.value) {
-//   throw createError({
-//     statusCode: 404,
-//     statusMessage: "Page not found",
-//     fatal: true,
-//   });
-// }
+const { data: rawPage } = await useAsyncData(route.path, async () => {
+  if (!collectionName.value) return null;
+  const query = queryCollection(collectionName.value);
+  const all = await query.all();
+  return all[0];
+});
 
-if (page.value?.seo) {
-  useSeoMeta(page.value.seo);
-}
+const page = computed<HomePage | AboutPage | null>(() => {
+  if (!rawPage.value) return null;
+  return { ...(rawPage.value.meta ?? {}), ...(rawPage.value as any) };
+});
 </script>
 
 <template>
-  <!-- Special handling for About page -->
-  <HeroAbout v-if="page && slug === 'about'" :page="page.meta" />
-
-  <!-- Default renderer for all other pages -->
-  <Home v-else-if="page && slug === ''" :page="page.meta" />
+  <HeroAbout v-if="page && slug === 'about'" :page="page as AboutPage" />
+  <Home v-else-if="page && slug === ''" :page="page as HomePage" />
 
   <div v-else>
     <h1>Page not found</h1>
     <p>This page doesn't exist in {{ locale }} language.</p>
   </div>
-  <!-- <Contact /> -->
 </template>
