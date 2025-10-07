@@ -23,6 +23,10 @@ export default defineNuxtConfig({
       // dev: true,
       api: 'https://api.nuxt.studio',
     },
+    watch: {
+      enabled: false,
+    }
+
     // build: {
     //   markdown: {
     //     toc: {
