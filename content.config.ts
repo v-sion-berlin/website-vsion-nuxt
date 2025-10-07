@@ -1,5 +1,5 @@
 import { defineContentConfig, defineCollection, property } from '@nuxt/content'
-import { z } from 'zod/v3'
+import { z } from 'zod'
 
 const aboutPageSchema = z.object({
   type: z.literal('about'),
