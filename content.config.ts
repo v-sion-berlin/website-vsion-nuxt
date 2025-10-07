@@ -80,22 +80,23 @@ export default defineContentConfig({
     home_en: defineCollection({
       type: 'page',
       source: { include: 'en/index.md', prefix: '/' },
-      schema: homePageSchema
+      schema: homePageSchema,
     }),
     about_en: defineCollection({
       type: 'page',
       source: { include: 'en/about.md', prefix: '/' },
-      schema: aboutPageSchema
+      schema: aboutPageSchema,
     }),
+
     home_de: defineCollection({
       type: 'page',
-      source: { include: 'de/index.md', prefix: '/de' },
-      schema: homePageSchema
+      source: { include: 'de/index.md', prefix: '/' },
+      schema: homePageSchema,
     }),
     about_de: defineCollection({
       type: 'page',
-      source: { include: 'de/about.md', prefix: '/de' },
-      schema: aboutPageSchema
+      source: { include: 'de/about.md', prefix: '/' },
+      schema: aboutPageSchema,
     }),
-  }
+  },
 })
