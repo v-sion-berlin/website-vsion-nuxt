@@ -3,7 +3,7 @@ import { z } from 'zod'
 
 const listItemSchema = z.object({
   title: z.string(),
-  color: property(z.string()).editor({ input: 'color' }).optional(),
+  color: z.string(),
 })
 
 // --- Home Page ---
