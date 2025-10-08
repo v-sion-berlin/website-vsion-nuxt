@@ -193,13 +193,13 @@
 import { ref } from "vue";
 import Modal from "./Modal.vue";
 import SafeHtml from "./SafeHtml.vue";
-import type { HomePage } from "~/types/content";
+import type { ContactData } from "~/types/content";
 
 const impressumOpen = ref(false);
 const datenschutzOpen = ref(false);
 
 const props = defineProps<{
-  page: HomePage["contact"];
+  page: ContactData;
 }>();
 </script>
 

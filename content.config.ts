@@ -1,66 +1,112 @@
-import { defineContentConfig, defineCollection, property } from '@nuxt/content'
-import { z } from 'zod'
+import { defineContentConfig, defineCollection, property } from "@nuxt/content";
+import { z } from "zod";
 
 const listItemSchema = z.object({
   title: z.string(),
   color: z.string(),
-})
+});
 
 // --- Home Page ---
 const homePageSchema = z.object({
-  type: z.literal('home'),
+  type: z.literal("home"),
   hero: z.string(),
-  heroImage: z.object({
-    src: property(z.string()).editor({ input: 'media' }),
-    alt: z.string()
-  }).optional(),
+  heroImage: z
+    .object({
+      src: property(z.string()).editor({ input: "media" }),
+      alt: z.string(),
+    })
+    .optional(),
 
   // Lists
-  lists: z.object({
-    studio: listItemSchema,
-    news: listItemSchema,
-    sport: listItemSchema,
-    code: listItemSchema,
-    interaction: listItemSchema,
-    operations: listItemSchema,
-    storytelling: listItemSchema,
-    infographics: listItemSchema,
-  }).optional(),
+  lists: z
+    .object({
+      studio: listItemSchema,
+      news: listItemSchema,
+      sport: listItemSchema,
+      code: listItemSchema,
+      interaction: listItemSchema,
+      operations: listItemSchema,
+      storytelling: listItemSchema,
+      infographics: listItemSchema,
+    })
+    .optional(),
 
   // --- Interview Section ---
-  interview: z.object({
-    header: z.string(),
-    body: z.string(),
-    body_part_2: z.string(),
-    source_text: z.string(),
-    watch_text: z.string(),
-  }).optional(),
+  interview: z
+    .object({
+      header: z.string(),
+      body: z.string(),
+      body_part_2: z.string(),
+      source_text: z.string(),
+      watch_text: z.string(),
+    })
+    .optional(),
 
   // --- Textblocks Section ---
-  textblocks: z.object({
-    live: z.object({
-      header: z.string(),
-      body: z.string(),
-    }),
-    anspruch: z.object({
-      header: z.string(),
-      body: z.string(),
-      button: z.string(),
-      button_soon: z.string(),
-    }),
-    marken: z.object({
-      header: z.string(),
-      body: z.string(),
-      button: z.string(),
-    }),
-    leistungen: z.object({
-      header: z.string(),
-      body: z.string(),
-    }),
-  }).optional(),
+  textblocks: z
+    .object({
+      live: z.object({
+        header: z.string(),
+        body: z.string(),
+      }),
+      anspruch: z.object({
+        header: z.string(),
+        body: z.string(),
+        button: z.string(),
+        button_soon: z.string(),
+      }),
+      marken: z.object({
+        header: z.string(),
+        body: z.string(),
+        button: z.string(),
+      }),
+      leistungen: z.object({
+        header: z.string(),
+        body: z.string(),
+      }),
+    })
+    .optional(),
+});
 
-  // --- Contact Section ---
-  contact: z.object({
+// --- About Page ---
+const aboutPageSchema = z.object({
+  type: z.literal("about"),
+  header: z.string().optional(),
+  subtTitle: z.string().optional(),
+  heroImage: z
+    .object({
+      src: property(z.string()).editor({ input: "media" }),
+      alt: z.string(),
+    })
+    .optional(),
+  addressBerlin: z
+    .object({
+      company: z.string(),
+      street: z.string(),
+      zip: z.string(),
+      phone: z.string(),
+      fax: z.string(),
+    })
+    .optional(),
+  addressZDF: z
+    .object({
+      company: z.string(),
+      street: z.string(),
+      zip: z.string(),
+      phone: z.string(),
+      fax: z.string(),
+    })
+    .optional(),
+  courtInfo: z
+    .object({
+      text: z.string(),
+      hrb: z.string(),
+    })
+    .optional(),
+});
+
+// --- Contact Component ---
+const contactSchema = z.object({
     header: z.string(),
     button: z.string(),
     button_copied: z.string(),
@@ -81,63 +127,43 @@ const homePageSchema = z.object({
           fax: z.string(),
           email: z.string(),
         }),
-      })
-    })
-  }).optional(),
-})
-
-// --- About Page ---
-const aboutPageSchema = z.object({
-  type: z.literal('about'),
-  header: z.string().optional(),
-  subtTitle: z.string().optional(),
-  heroImage: z.object({
-    src: property(z.string()).editor({ input: 'media' }),
-    alt: z.string()
-  }).optional(),
-  addressBerlin: z.object({
-    company: z.string(),
-    street: z.string(),
-    zip: z.string(),
-    phone: z.string(),
-    fax: z.string(),
-  }).optional(),
-  addressZDF: z.object({
-    company: z.string(),
-    street: z.string(),
-    zip: z.string(),
-    phone: z.string(),
-    fax: z.string(),
-  }).optional(),
-  courtInfo: z.object({
-    text: z.string(),
-    hrb: z.string(),
-  }).optional(),
-})
-
+      }),
+    }),
+  }).optional();
 
 export default defineContentConfig({
   collections: {
     home_en: defineCollection({
-      type: 'data',
-      source: { include: 'en/index.md', prefix: '/' },
+      type: "data",
+      source: { include: "en/index.md", prefix: "/" },
       schema: homePageSchema,
     }),
     about_en: defineCollection({
-      type: 'data',
-      source: { include: 'en/about.md', prefix: '/' },
+      type: "data",
+      source: { include: "en/about.md", prefix: "/" },
       schema: aboutPageSchema,
     }),
 
     home_de: defineCollection({
-      type: 'data',
-      source: { include: 'de/index.md', prefix: '/' },
+      type: "data",
+      source: { include: "de/index.md", prefix: "/" },
       schema: homePageSchema,
     }),
     about_de: defineCollection({
-      type: 'data',
-      source: { include: 'de/about.md', prefix: '/' },
+      type: "data",
+      source: { include: "de/about.md", prefix: "/" },
       schema: aboutPageSchema,
     }),
+
+    contact_en: defineCollection({
+      type: "data",
+      source: { include: "en/contact.md", prefix: "/" },
+      schema: contactSchema,
+    }),
+    contact_de: defineCollection({
+      type: "data",
+      source: { include: "de/contact.md", prefix: "/" },
+      schema: contactSchema,
+    }),
   },
-})
+});

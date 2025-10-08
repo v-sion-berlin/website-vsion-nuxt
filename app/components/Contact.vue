@@ -60,12 +60,12 @@ import Phone from "~/assets/Phone.svg";
 import Email from "~/assets/Email.svg";
 import LinkedIn from "~/assets/logo_linkedin.svg";
 import WhiteCheck from "~/assets/White_checkmark.svg";
-import type { HomePage } from "~/types/content";
+import type { ContactData } from "~/types/content";
 
 const emailEl = ref<HTMLAnchorElement | null>(null);
 
 const props = defineProps<{
-  page: HomePage["contact"];
+  page: ContactData;
 }>();
 
 const copiedButton = ref(false);

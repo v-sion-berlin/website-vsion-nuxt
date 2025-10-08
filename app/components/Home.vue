@@ -44,5 +44,4 @@ const props = defineProps<{
       textblock_anspruch_button_soon: page.textblocks.anspruch.button_soon,
     }"
   />
-  <Contact :page="page.contact" />
 </template>

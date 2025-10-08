@@ -1,4 +1,5 @@
 ---
+_path: /de/about
 type: about
 header: Von Berlin aus live in die Welt
 subtTitle: +49 30 29381928 contact@v-sion.de
