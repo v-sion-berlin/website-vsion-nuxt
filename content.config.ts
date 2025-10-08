@@ -2,27 +2,12 @@ import { defineContentConfig, defineCollection, property } from '@nuxt/content'
 import { z } from 'zod'
 
 // --- Home Page ---
-const homePageSchemaBase = z.object({
+const homePageSchema = z.object({
   path: z.string(),
   title: z.string(),
   description: z.string(),
-  seo: z.intersection(
-    z.object({
-      title: z.string().optional(),
-      description: z.string().optional(),
-      meta: z.array(z.record(z.string(), z.any())).optional(),
-      link: z.array(z.record(z.string(), z.any())).optional(),
-    }),
-    z.record(z.string(), z.any()),
-  ).optional().default({}),
-  navigation: z.union([
-    z.boolean(),
-    z.object({
-      title: z.string(),
-      description: z.string(),
-      icon: z.string(),
-    }),
-  ]).default(true),
+  seo: z.string(),
+  navigation: z.string(),
 
   type: z.literal('home'),
   hero: z.string(),
@@ -68,7 +53,7 @@ const homePageSchemaBase = z.object({
 })
 
 // --- About Page ---
-const aboutPageSchemaBase = z.object({
+const aboutPageSchema = z.object({
   type: z.literal('about'),
   header: z.string().optional(),
   subtTitle: z.string().optional(),
@@ -96,19 +81,6 @@ const aboutPageSchemaBase = z.object({
   }).optional(),
 })
 
-const aboutPageSchema = aboutPageSchemaBase.omit({
-  title: true,
-  description: true,
-  seo: true,
-  navigation: true,
-});
-
-const homePageSchema = homePageSchemaBase.omit({
-  title: true,
-  description: true,
-  seo: true,
-  navigation: true,
-});
 
 export default defineContentConfig({
   collections: {
