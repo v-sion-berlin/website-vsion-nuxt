@@ -4,10 +4,10 @@ import { z } from 'zod'
 // --- Home Page ---
 const homePageSchema = z.object({
   path: z.string(),
-  title: z.string(),
-  description: z.string(),
-  seo: z.string(),
-  navigation: z.string(),
+  title: z.never().optional(),
+  description: z.never().optional(),
+  seo: z.never().optional(),
+  navigation: z.never().optional(),
 
   type: z.literal('home'),
   hero: z.string(),
@@ -54,6 +54,11 @@ const homePageSchema = z.object({
 
 // --- About Page ---
 const aboutPageSchema = z.object({
+  title: z.never().optional(),
+  description: z.never().optional(),
+  seo: z.never().optional(),
+  navigation: z.never().optional(),
+
   type: z.literal('about'),
   header: z.string().optional(),
   subtTitle: z.string().optional(),
