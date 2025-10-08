@@ -30,7 +30,7 @@ lists:
     color: "#06d6a0"
   infographics:
     title: Complex data presented visually and clearly
-    color: "#ffd166"
+    color: "#264653"
 interview:
   header: See us in action
   body: For our partner
