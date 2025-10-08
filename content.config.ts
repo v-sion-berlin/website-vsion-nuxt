@@ -3,6 +3,33 @@ import { z } from 'zod'
 
 // --- Home Page ---
 const homePageSchema = z.object({
+
+  path: z.string(),
+  title: z.string(),
+  description: z.string(),
+  seo: z.intersection(
+    z.object({
+      title: z.string().optional(),
+      description: z.string().optional(),
+      meta: z.array(z.record(z.string(), z.any())).optional(),
+      link: z.array(z.record(z.string(), z.any())).optional(),
+    }),
+    z.record(z.string(), z.any()),
+  ).optional().default({}),
+  body: z.object({
+    type: z.string(),
+    children: z.any(),
+    toc: z.any(),
+  }),
+  navigation: z.union([
+    z.boolean(),
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      icon: z.string(),
+    }),
+  ]).default(false),
+
   type: z.literal('home'),
   hero: z.string(),
   heroImage: z.object({
@@ -48,6 +75,32 @@ const homePageSchema = z.object({
 
 // --- About Page ---
 const aboutPageSchema = z.object({
+  path: z.string(),
+  title: z.string(),
+  description: z.string(),
+  seo: z.intersection(
+    z.object({
+      title: z.string().optional(),
+      description: z.string().optional(),
+      meta: z.array(z.record(z.string(), z.any())).optional(),
+      link: z.array(z.record(z.string(), z.any())).optional(),
+    }),
+    z.record(z.string(), z.any()),
+  ).optional().default({}),
+  body: z.object({
+    type: z.string(),
+    children: z.any(),
+    toc: z.any(),
+  }),
+  navigation: z.union([
+    z.boolean(),
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      icon: z.string(),
+    }),
+  ]).default(false),
+
   type: z.literal('about'),
   header: z.string().optional(),
   subtTitle: z.string().optional(),
