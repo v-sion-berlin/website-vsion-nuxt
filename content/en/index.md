@@ -49,4 +49,6 @@ textblock_leistungen_body: Our commitment combines editorial care, excellent
 contact_header: Let's get started! We are excited for the next challenge. How can we help?
 contact_button: Contact us
 contact_button_copied: Email copied!
+seo:
+  link: []
 ---
