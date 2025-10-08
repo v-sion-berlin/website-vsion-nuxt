@@ -2,10 +2,10 @@
   <client-only>
     <div id="contact-section">
       <div class="contact-left">
-        <h2>{{ t("contact_header") }}</h2>
+        <h2>{{ page.header }}</h2>
         <div class="button-container">
           <button id="contact-btn-copy" @click="copyEmail('button')">
-            {{ t("contact_button") }}
+            {{ page.button }}
           </button>
           <div
             v-if="copiedButton"
@@ -13,14 +13,14 @@
             style="gap: 4px; text-align: center"
           >
             <img :src="WhiteCheck" class="check" />
-            <span class="copied-msg">{{ t("contact_button_copied") }}</span>
+            <span class="copied-msg">{{ page.button_copied }}</span>
           </div>
         </div>
       </div>
 
       <div class="contact-right">
         <div class="info-box-first">
-          <LegalLinksVue />
+          <LegalLinksVue :page="page" />
           <p class="light">©2025, v-sion GmbH.<br />All rights reserved.</p>
         </div>
 
@@ -33,7 +33,7 @@
           <img class="icon" :src="Email" alt="email" />
           <div ref="emailEl">
             <span v-if="copiedEmail" class="email-copied">{{
-              t("contact_button_copied")
+              page.button_copied
             }}</span>
             <span v-else>contact@v-sion.de</span>
           </div>
@@ -60,10 +60,13 @@ import Phone from "~/assets/Phone.svg";
 import Email from "~/assets/Email.svg";
 import LinkedIn from "~/assets/logo_linkedin.svg";
 import WhiteCheck from "~/assets/White_checkmark.svg";
-
-const { t } = useI18n();
+import type { HomePage } from "~/types/content";
 
 const emailEl = ref<HTMLAnchorElement | null>(null);
+
+const props = defineProps<{
+  page: HomePage["contact"];
+}>();
 
 const copiedButton = ref(false);
 const copiedEmail = ref(false);

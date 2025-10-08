@@ -1,6 +1,11 @@
 import { defineContentConfig, defineCollection, property } from '@nuxt/content'
 import { z } from 'zod'
 
+const listItemSchema = z.object({
+  title: z.string(),
+  color: property(z.string()).editor({ input: 'color' }).optional(),
+})
+
 // --- Home Page ---
 const homePageSchema = z.object({
   type: z.literal('home'),
@@ -11,39 +16,74 @@ const homePageSchema = z.object({
   }).optional(),
 
   // Lists
-  list_studio: z.string(),
-  list_news: z.string(),
-  list_sport: z.string(),
-  list_code: z.string(),
-  list_interaction: z.string(),
-  list_operations: z.string(),
-  list_storytelling: z.string(),
-  list_infographics: z.string(),
+  lists: z.object({
+    studio: listItemSchema,
+    news: listItemSchema,
+    sport: listItemSchema,
+    code: listItemSchema,
+    interaction: listItemSchema,
+    operations: listItemSchema,
+    storytelling: listItemSchema,
+    infographics: listItemSchema,
+  }).optional(),
 
-  // Interview
-  interview_header: z.string(),
-  interview_body: z.string(),
-  interview_body_part_2: z.string(),
-  interview_source_text: z.string(),
-  interview_watch_text: z.string(),
+  // --- Interview Section ---
+  interview: z.object({
+    header: z.string(),
+    body: z.string(),
+    body_part_2: z.string(),
+    source_text: z.string(),
+    watch_text: z.string(),
+  }).optional(),
 
-  // Textblocks
-  textblock_live_header: z.string(),
-  textblock_live_body: z.string(),
-  textblock_anspruch_header: z.string(),
-  textblock_anspruch_body: z.string(),
-  textblock_anspruch_button: z.string(),
-  textblock_anspruch_button_soon: z.string(),
-  textblock_marken_header: z.string(),
-  textblock_marken_body: z.string(),
-  textblock_marken_button: z.string(),
-  textblock_leistungen_header: z.string(),
-  textblock_leistungen_body: z.string(),
+  // --- Textblocks Section ---
+  textblocks: z.object({
+    live: z.object({
+      header: z.string(),
+      body: z.string(),
+    }),
+    anspruch: z.object({
+      header: z.string(),
+      body: z.string(),
+      button: z.string(),
+      button_soon: z.string(),
+    }),
+    marken: z.object({
+      header: z.string(),
+      body: z.string(),
+      button: z.string(),
+    }),
+    leistungen: z.object({
+      header: z.string(),
+      body: z.string(),
+    }),
+  }).optional(),
 
-  // Contact
-  contact_header: z.string(),
-  contact_button: z.string(),
-  contact_button_copied: z.string(),
+  // --- Contact Section ---
+  contact: z.object({
+    header: z.string(),
+    button: z.string(),
+    button_copied: z.string(),
+    legal: z.object({
+      liability: z.object({
+        legal_ceo: z.string(),
+        legal_liability_desc: z.string(),
+        legal_liability_header: z.string(),
+        legal_liability_body: z.string(),
+        legal_liability_image_header: z.string(),
+        legal_liability_image_hero: z.string(),
+        legal_liability_image_claim: z.string(),
+        legal_liability_adress: z.object({
+          company: z.string(),
+          street: z.string(),
+          zip: z.string(),
+          phone: z.string(),
+          fax: z.string(),
+          email: z.string(),
+        }),
+      })
+    })
+  }).optional(),
 })
 
 // --- About Page ---

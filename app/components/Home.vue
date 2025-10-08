@@ -10,56 +10,39 @@ const props = defineProps<{
   <Hero :page="{ hero: page.hero, heroImage: page.heroImage }" />
   <Interview
     :page="{
-      interview_header: page.interview_header,
-      interview_body: page.interview_body,
-      interview_body_part_2: page.interview_body_part_2,
-      interview_source_text: page.interview_source_text,
-      interview_watch_text: page.interview_watch_text,
+      interview_header: page.interview.header,
+      interview_body: page.interview.body,
+      interview_body_part_2: page.interview.body_part_2,
+      interview_source_text: page.interview.source_text,
+      interview_watch_text: page.interview.watch_text,
     }"
   />
   <TexBlockLive
     :page="{
-      textblock_live_header: page.textblock_live_header,
-      textblock_live_body: page.textblock_live_body,
+      textblock_live_header: page.textblocks.live.header,
+      textblock_live_body: page.textblocks.live.body,
     }"
   />
   <TexBlockLeistungen
     :page="{
-      textblock_leistungen_header: page.textblock_leistungen_header,
-      textblock_leistungen_body: page.textblock_leistungen_body,
+      textblock_leistungen_header: page.textblocks.leistungen.header,
+      textblock_leistungen_body: page.textblocks.leistungen.body,
     }"
   />
-  <List
-    :page="{
-      list_studio: page.list_studio,
-      list_news: page.list_news,
-      list_sport: page.list_sport,
-      list_code: page.list_code,
-      list_interaction: page.list_interaction,
-      list_operations: page.list_operations,
-      list_storytelling: page.list_storytelling,
-      list_infographics: page.list_infographics,
-    }"
-  />
+  <List :page="page.lists" />
   <TexBlockMarken
     :page="{
-      textblock_marken_header: page.textblock_marken_header,
-      textblock_marken_body: page.textblock_marken_body,
+      textblock_marken_header: page.textblocks.marken.header,
+      textblock_marken_body: page.textblocks.marken.body,
     }"
   />
   <TexBlockAnspruch
     :page="{
-      textblock_anspruch_header: page.textblock_anspruch_header,
-      textblock_anspruch_body: page.textblock_anspruch_body,
-      textblock_anspruch_button: page.textblock_anspruch_button,
-      textblock_anspruch_button_soon: page.textblock_anspruch_button_soon,
+      textblock_anspruch_header: page.textblocks.anspruch.header,
+      textblock_anspruch_body: page.textblocks.anspruch.body,
+      textblock_anspruch_button: page.textblocks.anspruch.button,
+      textblock_anspruch_button_soon: page.textblocks.anspruch.button_soon,
     }"
   />
-  <!-- <Contact
-    :page="{
-      contact_header: page.contact_header,
-      contact_button: page.contact_button,
-      contact_button_copied: page.contact_button_copied,
-    }"
-  /> -->
+  <Contact :page="page.contact" />
 </template>

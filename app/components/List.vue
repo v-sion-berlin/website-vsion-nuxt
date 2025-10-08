@@ -32,21 +32,15 @@
 import Arrow from "~/assets/Arrow.svg";
 import { onBeforeUnmount, onMounted, ref } from "vue";
 
-interface List {
-  list_studio: string;
-  list_news: string;
-  list_sport: string;
-  list_code: string;
-  list_interaction: string;
-  list_operations: string;
-  list_storytelling: string;
-  list_infographics: string;
+interface ListItem {
+  title: string;
+  color?: string;
 }
+
 const props = defineProps<{
-  page: List;
+  page: Record<string, ListItem>;
 }>();
 
-const { t } = useI18n();
 const activeItem = ref<string | null>(null);
 const repeatCount = 10;
 const canHover = ref(false);
@@ -75,51 +69,51 @@ onBeforeUnmount(() => {
 const menuItems = [
   {
     key: "code",
-    i18nKey: props.page.list_code,
+    i18nKey: props.page.code?.title,
     label: "Code & Control",
-    color: "#ff9f1c",
+    color: props.page.code?.color,
   },
   {
     key: "interaction",
-    i18nKey: props.page.list_interaction,
+    i18nKey: props.page.interaction?.title,
     label: "Interaction",
-    color: "#9b5de5",
+    color: props.page.interaction?.color,
   },
   {
     key: "operations",
-    i18nKey: props.page.list_operations,
+    i18nKey: props.page.operations?.title,
     label: "Operations",
-    color: "#f15bb5",
+    color: props.page.operations?.color,
   },
   {
     key: "sport",
-    i18nKey: props.page.list_sport,
+    i18nKey: props.page.sport?.title,
     label: "Sport",
-    color: "#00b894",
+    color: props.page.sport?.color,
   },
   {
     key: "news",
-    i18nKey: props.page.list_news,
+    i18nKey: props.page.news?.title,
     label: "News",
-    color: "#0d6efd",
+    color: props.page.news?.color,
   },
   {
     key: "studio",
-    i18nKey: props.page.list_studio,
+    i18nKey: props.page.studio?.title,
     label: "Studio & Videowalls",
-    color: "#ff153e",
+    color: props.page.studio?.color,
   },
   {
     key: "infographics",
-    i18nKey: props.page.list_infographics,
+    i18nKey: props.page.infographics?.title,
     label: "Infographics",
-    color: "#ffd166",
+    color: props.page.infographics?.color,
   },
   {
     key: "storytelling",
-    i18nKey: props.page.list_storytelling,
+    i18nKey: props.page.storytelling?.title,
     label: "Storytelling",
-    color: "#06d6a0",
+    color: props.page.storytelling?.color,
   },
 ];
 </script>
