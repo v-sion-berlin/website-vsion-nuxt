@@ -3,6 +3,7 @@
   "files": [],
    "compilerOptions": {
     "types": ["node"],
+    "strict": true
   },
   "references": [
     {

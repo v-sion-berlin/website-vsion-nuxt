@@ -2,8 +2,7 @@ import { defineContentConfig, defineCollection, property } from '@nuxt/content'
 import { z } from 'zod'
 
 // --- Home Page ---
-const homePageSchema = z.object({
-
+const homePageSchemaBase = z.object({
   path: z.string(),
   title: z.string(),
   description: z.string(),
@@ -16,11 +15,6 @@ const homePageSchema = z.object({
     }),
     z.record(z.string(), z.any()),
   ).optional().default({}),
-  body: z.object({
-    type: z.string(),
-    children: z.any(),
-    toc: z.any(),
-  }),
   navigation: z.union([
     z.boolean(),
     z.object({
@@ -28,7 +22,7 @@ const homePageSchema = z.object({
       description: z.string(),
       icon: z.string(),
     }),
-  ]).default(false),
+  ]).default(true),
 
   type: z.literal('home'),
   hero: z.string(),
@@ -74,33 +68,7 @@ const homePageSchema = z.object({
 })
 
 // --- About Page ---
-const aboutPageSchema = z.object({
-  path: z.string(),
-  title: z.string(),
-  description: z.string(),
-  seo: z.intersection(
-    z.object({
-      title: z.string().optional(),
-      description: z.string().optional(),
-      meta: z.array(z.record(z.string(), z.any())).optional(),
-      link: z.array(z.record(z.string(), z.any())).optional(),
-    }),
-    z.record(z.string(), z.any()),
-  ).optional().default({}),
-  body: z.object({
-    type: z.string(),
-    children: z.any(),
-    toc: z.any(),
-  }),
-  navigation: z.union([
-    z.boolean(),
-    z.object({
-      title: z.string(),
-      description: z.string(),
-      icon: z.string(),
-    }),
-  ]).default(false),
-
+const aboutPageSchemaBase = z.object({
   type: z.literal('about'),
   header: z.string().optional(),
   subtTitle: z.string().optional(),
@@ -127,6 +95,20 @@ const aboutPageSchema = z.object({
     hrb: z.string(),
   }).optional(),
 })
+
+const aboutPageSchema = aboutPageSchemaBase.omit({
+  title: true,
+  description: true,
+  seo: true,
+  navigation: true,
+});
+
+const homePageSchema = homePageSchemaBase.omit({
+  title: true,
+  description: true,
+  seo: true,
+  navigation: true,
+});
 
 export default defineContentConfig({
   collections: {
