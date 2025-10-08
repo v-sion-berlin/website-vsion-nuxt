@@ -28,7 +28,7 @@ lists:
     color: "#06d6a0"
   infographics:
     title: Komplexe Daten visuell auf den Punkt gebracht
-    color: "#ffd166"
+    color: "#264653"
 interview:
   header: Erleben Sie uns in Aktion
   body: Für unseren Partner
