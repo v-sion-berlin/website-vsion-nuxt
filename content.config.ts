@@ -107,29 +107,29 @@ const aboutPageSchema = z.object({
 
 // --- Contact Component ---
 const contactSchema = z.object({
-    header: z.string(),
-    button: z.string(),
-    button_copied: z.string(),
-    legal: z.object({
-      liability: z.object({
-        legal_ceo: z.string(),
-        legal_liability_desc: z.string(),
-        legal_liability_header: z.string(),
-        legal_liability_body: z.string(),
-        legal_liability_image_header: z.string(),
-        legal_liability_image_hero: z.string(),
-        legal_liability_image_claim: z.string(),
-        legal_liability_adress: z.object({
-          company: z.string(),
-          street: z.string(),
-          zip: z.string(),
-          phone: z.string(),
-          fax: z.string(),
-          email: z.string(),
-        }),
+  header: z.string(),
+  button: z.string(),
+  button_copied: z.string(),
+  legal: z.object({
+    liability: z.object({
+      legal_ceo: z.string(),
+      legal_liability_desc: z.string(),
+      legal_liability_header: z.string(),
+      legal_liability_body: z.string(),
+      legal_liability_image_header: z.string(),
+      legal_liability_image_hero: z.string(),
+      legal_liability_image_claim: z.string(),
+      legal_liability_adress: z.object({
+        company: z.string(),
+        street: z.string(),
+        zip: z.string(),
+        phone: z.string(),
+        fax: z.string(),
+        email: z.string(),
       }),
     }),
-  }).optional();
+  }),
+});
 
 export default defineContentConfig({
   collections: {
