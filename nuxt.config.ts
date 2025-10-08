@@ -10,6 +10,17 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "@nuxtjs/i18n",
   ],
+  $production: {
+    i18n: {
+      defaultLocale: "en",
+      strategy: "prefix_except_default",
+      detectBrowserLanguage: false,
+      locales: [
+        { code: "en", name: "English", language: "en-US" },
+        { code: "de", name: "Deutsch", language: "de-DE" },
+      ],
+    },
+  },
   i18n: {
     defaultLocale: "en",
     strategy: "prefix_except_default",

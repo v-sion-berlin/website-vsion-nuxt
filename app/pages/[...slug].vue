@@ -16,13 +16,6 @@ const collectionName = computed<keyof Collections | null>(() => {
   else return null;
 });
 
-// const { data: rawPage } = await useAsyncData(route.path, async () => {
-//   if (!collectionName.value) return null;
-//   const query = queryCollection(collectionName.value);
-//   const all = await query.all();
-//   return all[0];
-// });
-
 const { data: rawPage } = await useAsyncData(
   route.path,
   async () => {

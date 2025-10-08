@@ -21,14 +21,10 @@ const pagesByLang: Record<"en" | "de", { name: string; path: string }[]> = {
   en: [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    // { name: "Services", path: "/services" },
-    // { name: "Contact", path: "/contact" },
   ],
   de: [
     { name: "Startseite", path: "/de" },
     { name: "Über uns", path: "/de/about" },
-    // { name: "Dienstleistungen", path: "/services" },
-    // { name: "Kontakt", path: "/contact" },
   ],
 };
 
