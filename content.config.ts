@@ -3,12 +3,6 @@ import { z } from 'zod'
 
 // --- Home Page ---
 const homePageSchema = z.object({
-  path: z.string(),
-  title: z.never().optional(),
-  description: z.never().optional(),
-  seo: z.never().optional(),
-  navigation: z.never().optional(),
-
   type: z.literal('home'),
   hero: z.string(),
   heroImage: z.object({
@@ -50,6 +44,13 @@ const homePageSchema = z.object({
   contact_header: z.string(),
   contact_button: z.string(),
   contact_button_copied: z.string(),
+
+  // Overwrite
+  path: z.string(),
+  title: z.never().optional(),
+  description: z.never().optional(),
+  seo: z.never().optional(),
+  navigation: z.never().optional(),
 })
 
 // --- About Page ---
