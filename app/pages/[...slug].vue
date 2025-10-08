@@ -16,12 +16,27 @@ const collectionName = computed<keyof Collections | null>(() => {
   else return null;
 });
 
-const { data: rawPage } = await useAsyncData(route.path, async () => {
-  if (!collectionName.value) return null;
-  const query = queryCollection(collectionName.value);
-  const all = await query.all();
-  return all[0];
-});
+// const { data: rawPage } = await useAsyncData(route.path, async () => {
+//   if (!collectionName.value) return null;
+//   const query = queryCollection(collectionName.value);
+//   const all = await query.all();
+//   return all[0];
+// });
+
+const { data: rawPage } = await useAsyncData(
+  route.path,
+  async () => {
+    let content;
+    if (collectionName.value !== null) {
+      content = await queryCollection(collectionName.value).first();
+    }
+
+    return content;
+  },
+  {
+    watch: [locale],
+  }
+);
 
 const page = computed<HomePage | AboutPage | null>(() => {
   if (!rawPage.value) return null;
