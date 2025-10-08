@@ -44,22 +44,10 @@ const homePageSchema = z.object({
   contact_header: z.string(),
   contact_button: z.string(),
   contact_button_copied: z.string(),
-
-  // Overwrite
-  path: z.string(),
-  title: z.never().optional(),
-  description: z.never().optional(),
-  seo: z.never().optional(),
-  navigation: z.never().optional(),
 })
 
 // --- About Page ---
 const aboutPageSchema = z.object({
-  title: z.never().optional(),
-  description: z.never().optional(),
-  seo: z.never().optional(),
-  navigation: z.never().optional(),
-
   type: z.literal('about'),
   header: z.string().optional(),
   subtTitle: z.string().optional(),
@@ -91,23 +79,23 @@ const aboutPageSchema = z.object({
 export default defineContentConfig({
   collections: {
     home_en: defineCollection({
-      type: 'page',
+      type: 'data',
       source: { include: 'en/index.md', prefix: '/' },
       schema: homePageSchema,
     }),
     about_en: defineCollection({
-      type: 'page',
+      type: 'data',
       source: { include: 'en/about.md', prefix: '/' },
       schema: aboutPageSchema,
     }),
 
     home_de: defineCollection({
-      type: 'page',
+      type: 'data',
       source: { include: 'de/index.md', prefix: '/' },
       schema: homePageSchema,
     }),
     about_de: defineCollection({
-      type: 'page',
+      type: 'data',
       source: { include: 'de/about.md', prefix: '/' },
       schema: aboutPageSchema,
     }),
