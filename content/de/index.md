@@ -1,5 +1,5 @@
 ---
-_path: /de/
+_path: /
 type: home
 hero: Exzellentes Design und wegweisende Technologie für moderne Medienproduktionen
 heroImage:
