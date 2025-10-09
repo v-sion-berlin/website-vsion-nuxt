@@ -4,6 +4,7 @@ import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { queryCollection } from "#imports";
 import type { Collections } from "@nuxt/content";
+import { withoutTrailingSlash } from "ufo";
 
 const route = useRoute();
 const { locale } = useI18n();
@@ -20,7 +21,9 @@ const { data: rawPage } = await useAsyncData(
   route.path,
   async () => {
     if (collectionName.value !== null) {
-      return queryCollection(collectionName.value).first();
+      return queryCollection(
+        withoutTrailingSlash(collectionName.value) as keyof Collections
+      ).first();
     }
     return null;
   },
@@ -29,7 +32,10 @@ const { data: rawPage } = await useAsyncData(
 
 const { data: contactDataRaw } = await useAsyncData(
   `contact-data`,
-  () => queryCollection(`contact_${locale.value}` as keyof Collections).first(),
+  () =>
+    queryCollection(
+      withoutTrailingSlash(`contact_${locale.value}`) as keyof Collections
+    ).first(),
   { watch: [locale] }
 );
 

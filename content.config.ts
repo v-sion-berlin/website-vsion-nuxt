@@ -107,6 +107,7 @@ const aboutPageSchema = z.object({
 
 // --- Contact Component ---
 const contactSchema = z.object({
+  type: z.literal("contact"),
   header: z.string(),
   button: z.string(),
   button_copied: z.string(),
