@@ -1,4 +1,5 @@
 ---
+type: contact
 header: Legen wir los! Wir freuen uns schon auf die nächste Herausforderung. Wie
   können wir weiterhelfen?
 button: Kontakt aufnehmen
@@ -8,7 +9,8 @@ legal:
     legal_ceo: Geschäftsführer
     legal_liability_desc: Impressum
     legal_liability_header: Haftungshinweis
-    legal_liability_body: Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir
+    legal_liability_body:
+      Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir
       keine Haftung für die Inhalte externer Links. Für den Inhalt der
       verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
     legal_liability_image_header: Bildnachweise
@@ -44,12 +46,14 @@ legal:
       (Nachfolgend bezeichnen wir die betroffenen Personen zusammenfassend auch
       als „Nutzer“).
     legal_dataprot_purpose_header: Zweck der Verarbeitung
-    legal_dataprot_purpose_body: "- Zurverfügungstellung des Onlineangebotes, seiner
+    legal_dataprot_purpose_body:
+      "- Zurverfügungstellung des Onlineangebotes, seiner
       Funktionen und Inhalte.<br/>- Beantwortung von Kontaktanfragen und
       Kommunikation mit Nutzern.<br/>- Sicherheitsmaßnahmen.<br/>-
       Reichweitenmessung/Marketing"
     legal_dataprot_terms_header: Verwendete Begrifflichkeiten
-    legal_dataprot_terms_body: „Personenbezogene Daten“ sind alle Informationen, die
+    legal_dataprot_terms_body:
+      „Personenbezogene Daten“ sind alle Informationen, die
       sich auf eine identifizierte oder identifizierbare natürliche Person (im
       Folgenden „betroffene Person“) beziehen; als identifizierbar wird eine
       natürliche Person angesehen, die direkt oder indirekt, insbesondere
@@ -84,7 +88,8 @@ legal:
       juristische Person, Behörde, Einrichtung oder andere Stelle, die
       personenbezogene Daten im Auftrag des Verantwortlichen verarbeitet.
     legal_dataprot_law_header: Maßgebliche Rechtsgrundlagen
-    legal_dataprot_law_body: "Nach Maßgabe des Art. 13 DSGVO teilen wir Ihnen die
+    legal_dataprot_law_body:
+      "Nach Maßgabe des Art. 13 DSGVO teilen wir Ihnen die
       Rechtsgrundlagen unserer Datenverarbeitungen mit. Sofern die
       Rechtsgrundlage in der Datenschutzerklärung nicht genannt wird, gilt
       Folgendes: Die Rechtsgrundlage für die Einholung von Einwilligungen ist
@@ -99,7 +104,8 @@ legal:
       natürlichen Person eine Verarbeitung personenbezogener Daten erforderlich
       machen, dient Art. 6 Abs. 1 lit. d DSGVO als Rechtsgrundlage."
     legal_dataprot_security_header: Sicherheitsmaßnahmen
-    legal_dataprot_security_body: Wir treffen nach Maßgabe des Art. 32 DSGVO unter
+    legal_dataprot_security_body:
+      Wir treffen nach Maßgabe des Art. 32 DSGVO unter
       Berücksichtigung des Stands der Technik, der Implementierungskosten und
       der Art, des Umfangs, der Umstände und der Zwecke der Verarbeitung sowie
       der unterschiedlichen Eintrittswahrscheinlichkeit und Schwere des Risikos
@@ -117,7 +123,8 @@ legal:
       entsprechend dem Prinzip des Datenschutzes durch Technikgestaltung und
       durch datenschutzfreundliche Voreinstellungen (Art. 25 DSGVO).
     legal_dataprot_processors_header: Zusammenarbeit mit Auftragsverarbeitern und Dritten
-    legal_dataprot_processors_body: Sofern wir im Rahmen unserer Verarbeitung Daten
+    legal_dataprot_processors_body:
+      Sofern wir im Rahmen unserer Verarbeitung Daten
       gegenüber anderen Personen und Unternehmen (Auftragsverarbeitern oder
       Dritten) offenbaren, sie an diese übermitteln oder ihnen sonst Zugriff auf
       die Daten gewähren, erfolgt dies nur auf Grundlage einer gesetzlichen
@@ -130,7 +137,8 @@ legal:
       Grundlage eines sog. „Auftragsverarbeitungsvertrages“ beauftragen,
       geschieht dies auf Grundlage des Art. 28 DSGVO.
     legal_dataprot_foreign_header: Übermittlungen in Drittländer
-    legal_dataprot_foreign_body: Sofern wir Daten in einem Drittland (d.h. außerhalb
+    legal_dataprot_foreign_body:
+      Sofern wir Daten in einem Drittland (d.h. außerhalb
       der Europäischen Union (EU) oder des Europäischen Wirtschaftsraums (EWR))
       verarbeiten oder dies im Rahmen der Inanspruchnahme von Diensten Dritter
       oder Offenlegung, bzw. Übermittlung von Daten an Dritte geschieht, erfolgt
@@ -161,7 +169,8 @@ legal:
       fordern.<br /><br />Sie haben ferner gem. Art. 77 DSGVO das Recht, eine
       Beschwerde bei der zuständigen Aufsichtsbehörde einzureichen.
     legal_dataprot_revoke_header: Widerrufsrecht
-    legal_dataprot_revoke_body: Sie haben das Recht, erteilte Einwilligungen gem.
+    legal_dataprot_revoke_body:
+      Sie haben das Recht, erteilte Einwilligungen gem.
       Art. 7 Abs. 3 DSGVO mit Wirkung für die Zukunft zu widerrufen.
     legal_dataprot_object_header: Widerspruchsrecht
     legal_dataprot_object_body: Sie können der künftigen Verarbeitung der Sie
@@ -169,7 +178,8 @@ legal:
       Der Widerspruch kann insbesondere gegen die Verarbeitung für Zwecke der
       Direktwerbung erfolgen.
     legal_dataprot_cookies_header: Cookies und Widerspruchsrecht bei Direktwerbung
-    legal_dataprot_cookies_body: Als "Cookies" werden kleine Dateien bezeichnet, die
+    legal_dataprot_cookies_body:
+      Als "Cookies" werden kleine Dateien bezeichnet, die
       auf Rechnern der Nutzer gespeichert werden. Innerhalb der Cookies können
       unterschiedliche Angaben gespeichert werden. Ein Cookie dient primär dazu,
       die Angaben zu einem Nutzer (bzw. dem Gerät auf dem das Cookie gespeichert
@@ -207,7 +217,8 @@ legal:
       gegebenenfalls nicht alle Funktionen dieses Onlineangebotes genutzt werden
       können.
     legal_dataprot_delete_header: Löschung von Daten
-    legal_dataprot_delete_body: Die von uns verarbeiteten Daten werden nach Maßgabe
+    legal_dataprot_delete_body:
+      Die von uns verarbeiteten Daten werden nach Maßgabe
       der Art. 17 und 18 DSGVO gelöscht oder in ihrer Verarbeitung
       eingeschränkt. Sofern nicht im Rahmen dieser Datenschutzerklärung
       ausdrücklich angegeben, werden die bei uns gespeicherten Daten gelöscht,
@@ -232,14 +243,16 @@ legal:
       EU-Mitgliedstaaten erbracht werden und für die der Mini-One-Stop-Shop
       (MOSS) in Anspruch genommen wird.
     legal_dataprot_business_header: Geschäftsbezogene Verarbeitung
-    legal_dataprot_business_body: Zusätzlich verarbeiten wir <br/>- Vertragsdaten
+    legal_dataprot_business_body:
+      Zusätzlich verarbeiten wir <br/>- Vertragsdaten
       (z.B., Vertragsgegenstand, Laufzeit, Kundenkategorie). <br/>-
       Zahlungsdaten (z.B., Bankverbindung, Zahlungshistorie) <br/>von unseren
       Kunden, Interessenten und Geschäftspartnern zwecks Erbringung
       vertraglicher Leistungen, Service und Kundenpflege, Marketing, Werbung und
       Marktforschung.
     legal_dataprot_agency_header: Agenturdienstleistungen
-    legal_dataprot_agency_body: Wir verarbeiten die Daten unserer Kunden im Rahmen
+    legal_dataprot_agency_body:
+      Wir verarbeiten die Daten unserer Kunden im Rahmen
       unserer vertraglichen Leistungen zu denen konzeptionelle und strategische
       Beratung, Kampagnenplanung, Software- und Designentwicklung/-beratung oder
       Pflege, Umsetzung von Kampagnen und Prozessen/ Handling,
@@ -275,7 +288,8 @@ legal:
       entsprechend den Vorgaben des Auftrags, grundsätzlich nach Ende des
       Auftrags.
     legal_dataprot_contract_header: Vertragliche Leistungen
-    legal_dataprot_contract_body: Wir verarbeiten die Daten unserer Vertragspartner
+    legal_dataprot_contract_body:
+      Wir verarbeiten die Daten unserer Vertragspartner
       und Interessenten sowie anderer Auftraggeber, Kunden, Mandanten, Klienten
       oder Vertragspartner (einheitlich bezeichnet als "Vertragspartner")
       entsprechend Art. 6 Abs. 1 lit. b. DSGVO, um ihnen gegenüber unsere
@@ -355,7 +369,8 @@ legal:
       gesamtbetriebswirtschaftlichen Analysen und allgemeine Tendenzbestimmungen
       nach Möglichkeit anonym erstellt.
     legal_dataprot_applicant_header: Datenschutzhinweise im Bewerbungsverfahren
-    legal_dataprot_applicant_body: Wir verarbeiten die Bewerberdaten nur zum Zweck
+    legal_dataprot_applicant_body:
+      Wir verarbeiten die Bewerberdaten nur zum Zweck
       und im Rahmen des Bewerbungsverfahrens im Einklang mit den gesetzlichen
       Vorgaben. Die Verarbeitung der Bewerberdaten erfolgt zur Erfüllung unserer
       (vor)vertraglichen Verpflichtungen im Rahmen des Bewerbungsverfahrens im
@@ -443,7 +458,8 @@ legal:
       Beweiszwecken erforderlich ist, sind bis zur endgültigen Klärung des
       jeweiligen Vorfalls von der Löschung ausgenommen.
     legal_dataprot_gtm_header: Google Tag Manager
-    legal_dataprot_gtm_body: "Google Tag Manager erlaubt es uns, Website-Tags über
+    legal_dataprot_gtm_body:
+      "Google Tag Manager erlaubt es uns, Website-Tags über
       eine Oberfläche zu verwalten (z.B. Google Analytics). Der Tag Manager
       selbst verarbeitet keine personenbezogenen Daten. Nutzungsrichtlinien: <a
       href='https://www.google.com/intl/de/tagmanager/use-policy.html'
@@ -499,7 +515,8 @@ legal:
       />Die personenbezogenen Daten der Nutzer werden nach 14 Monaten gelöscht
       oder anonymisiert.'
     legal_dataprot_social_header: Onlinepräsenzen in sozialen Medien
-    legal_dataprot_social_body: Wir unterhalten Onlinepräsenzen innerhalb sozialer
+    legal_dataprot_social_body:
+      Wir unterhalten Onlinepräsenzen innerhalb sozialer
       Netzwerke und Plattformen, um mit den dort aktiven Kunden, Interessenten
       und Nutzern kommunizieren und sie dort über unsere Leistungen informieren
       zu können. Beim Aufruf der jeweiligen Netzwerke und Plattformen gelten die
@@ -510,7 +527,8 @@ legal:
       kommunizieren, z.B. Beiträge auf unseren Onlinepräsenzen verfassen oder
       uns Nachrichten zusenden.
     legal_dataprot_thirdparty_header: Einbindung von Diensten und Inhalten Dritter
-    legal_dataprot_thirdparty_body: Wir setzen innerhalb unseres Onlineangebotes auf
+    legal_dataprot_thirdparty_body:
+      Wir setzen innerhalb unseres Onlineangebotes auf
       Grundlage unserer berechtigten Interessen (d.h. Interesse an der Analyse,
       Optimierung und wirtschaftlichem Betrieb unseres Onlineangebotes im Sinne
       des Art. 6 Abs. 1 lit. f. DSGVO) Inhalts- oder Serviceangebote von
@@ -558,7 +576,8 @@ legal:
       target="_blank" rel="noopener
       noreferrer">https://adssettings.google.com/authenticated</a>.'
     legal_dataprot_maps_header: Google Maps
-    legal_dataprot_maps_body: 'Wir binden die Landkarten des Dienstes “Google Maps“
+    legal_dataprot_maps_body:
+      'Wir binden die Landkarten des Dienstes “Google Maps“
       des Anbieters Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA
       94043, USA, ein. Zu den verarbeiteten Daten können insbesondere
       IP-Adressen und Standortdaten der Nutzer gehören, die jedoch nicht ohne
@@ -600,7 +619,8 @@ legal:
       href="http://instagram.com/about/legal/privacy/" target="_blank"
       rel="noopener noreferrer">http://instagram.com/about/legal/privacy/</a>.'
     legal_dataprot_xing_header: Xing
-    legal_dataprot_xing_body: 'Innerhalb unseres Onlineangebotes können Funktionen
+    legal_dataprot_xing_body:
+      'Innerhalb unseres Onlineangebotes können Funktionen
       und Inhalte des Dienstes Xing, angeboten durch die XING AG, Dammtorstraße
       29-32, 20354 Hamburg, Deutschland, eingebunden werden. Hierzu können z.B.
       Inhalte wie Bilder, Videos oder Texte und Schaltflächen gehören, mit denen

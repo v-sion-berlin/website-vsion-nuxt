@@ -1,4 +1,5 @@
 ---
+type: contact
 header: Let's get started! We are excited for the next challenge. How can we help?
 button: Contact us
 button_copied: Email copied!
@@ -7,7 +8,8 @@ legal:
     legal_ceo: Managing Director
     legal_liability_desc: Imprint
     legal_liability_header: Disclaimer
-    legal_liability_body: Despite careful content control, we assume no liability
+    legal_liability_body:
+      Despite careful content control, we assume no liability
       for the content of external links. The content of linked sites is the sole
       responsibility of their operators.
     legal_liability_image_header: Image Credits
@@ -22,7 +24,8 @@ legal:
       email: contact@v-sion.de
   dataprot:
     legal_dataprot_desc: Privacy Policy
-    legal_dataprot_intro: This privacy policy informs you about the type, scope, and
+    legal_dataprot_intro:
+      This privacy policy informs you about the type, scope, and
       purpose of the processing of personal data (hereinafter referred to as
       'data') within our online offer and the websites, features, and content
       connected to it, as well as external online presences, such as our social
@@ -41,11 +44,13 @@ legal:
     legal_dataprot_subjects_body: Visitors and users of the online offer
       (hereinafter collectively referred to as 'users').
     legal_dataprot_purpose_header: Purpose of processing
-    legal_dataprot_purpose_body: "- Provision of the online offer, its functions,
+    legal_dataprot_purpose_body:
+      "- Provision of the online offer, its functions,
       and content.<br/>- Responding to contact requests and communication with
       users.<br/>- Security measures.<br/>- Reach measurement/marketing"
     legal_dataprot_terms_header: Definitions used
-    legal_dataprot_terms_body: “Personal data” means any information relating to an
+    legal_dataprot_terms_body:
+      “Personal data” means any information relating to an
       identified or identifiable natural person (hereinafter 'data subject') an
       identifiable natural person is one who can be identified, directly or
       indirectly, in particular by reference to an identifier such as a name,
@@ -71,7 +76,8 @@ legal:
       a natural or legal person, authority, institution, or other body that
       processes personal data on behalf of the controller.
     legal_dataprot_law_header: Applicable legal basis
-    legal_dataprot_law_body: "Pursuant to Art. 13 GDPR, we inform you of the legal
+    legal_dataprot_law_body:
+      "Pursuant to Art. 13 GDPR, we inform you of the legal
       basis for our data processing. If the legal basis is not mentioned in this
       privacy policy, the following applies: the legal basis for obtaining
       consent is Art. 6(1)(a) and Art. 7 GDPR for processing to fulfill our
@@ -81,7 +87,8 @@ legal:
       Art. 6(1)(f) GDPR. In cases where vital interests of the data subject or
       another natural person require processing, Art. 6(1)(d) GDPR applies."
     legal_dataprot_security_header: Security measures
-    legal_dataprot_security_body: We take appropriate technical and organizational
+    legal_dataprot_security_body:
+      We take appropriate technical and organizational
       measures pursuant to Art. 32 GDPR, considering the state of the art,
       implementation costs, the nature, scope, circumstances, and purposes of
       processing, as well as the likelihood and severity of risks to the rights
@@ -127,10 +134,12 @@ legal:
     legal_dataprot_revoke_body: You have the right to withdraw consents granted
       under Art. 7(3) GDPR with effect for the future.
     legal_dataprot_object_header: Right to object
-    legal_dataprot_object_body: You may object at any time to future processing of
+    legal_dataprot_object_body:
+      You may object at any time to future processing of
       your data under Art. 21 GDPR, in particular for direct marketing purposes.
     legal_dataprot_cookies_header: Cookies and right to object to direct marketing
-    legal_dataprot_cookies_body: Cookies are small files stored on users' devices.
+    legal_dataprot_cookies_body:
+      Cookies are small files stored on users' devices.
       They primarily store information about the user or device during or after
       visiting an online offer. Session cookies are deleted after the session
       ends. Persistent cookies remain after closing the browser. Third-party
@@ -143,7 +152,8 @@ legal:
       noreferrer'>http://www.youronlinechoices.com/</a>. Disabling cookies may
       limit website functionality.
     legal_dataprot_delete_header: Deletion of data
-    legal_dataprot_delete_body: "Data we process is deleted or restricted per Arts.
+    legal_dataprot_delete_body:
+      "Data we process is deleted or restricted per Arts.
       17 and 18 GDPR. Data is deleted when no longer required, unless legal
       retention obligations exist. Legal retention periods in Germany: 10 years
       for accounting records, 6 years for business letters. In Austria: 7 years
@@ -178,7 +188,8 @@ legal:
       and service providers. Supplier and business partner data is stored for
       future contact, generally permanently.
     legal_dataprot_analysis_header: Business analysis and market research
-    legal_dataprot_analysis_body: To manage our business, recognize market trends,
+    legal_dataprot_analysis_body:
+      To manage our business, recognize market trends,
       and customer needs, we analyze data such as business transactions,
       contracts, and inquiries. Data includes master, contact, contract,
       payment, usage, and metadata. Analyses aim to improve usability, optimize
@@ -192,23 +203,27 @@ legal:
       forms or email. Successful applications may retain data unsuccessful or
       withdrawn applications are deleted after 6 months.
     legal_dataprot_contact_header: Contact
-    legal_dataprot_contact_body: When contacting us (via form, email, phone, social
+    legal_dataprot_contact_body:
+      When contacting us (via form, email, phone, social
       media), user data is processed under Art. 6(1)(b) GDPR. Data may be stored
       in a CRM. Requests are deleted when no longer necessary, checked every two
       years, subject to legal retention.
     legal_dataprot_hosting_header: Hosting and email delivery
-    legal_dataprot_hosting_body: Hosting services provide infrastructure, platform
+    legal_dataprot_hosting_body:
+      Hosting services provide infrastructure, platform
       services, storage, databases, email, security, and maintenance. We and our
       provider process master, contact, content, contract, usage, meta, and
       communication data under Art. 6(1)(f) GDPR and Art. 28 GDPR.
     legal_dataprot_logfiles_header: Collection of access data and log files
-    legal_dataprot_logfiles_body: We or our hosting provider collect server access
+    legal_dataprot_logfiles_body:
+      We or our hosting provider collect server access
       data (server log files) under Art. 6(1)(f) GDPR. Data includes webpage
       name, file, date/time, data volume, success message, browser type/version,
       OS, referrer URL, IP, and provider. Logs are stored max 7 days necessary
       evidence data is retained until resolution.
     legal_dataprot_gtm_header: Google Tag Manager
-    legal_dataprot_gtm_body: "Google Tag Manager allows us to manage website tags
+    legal_dataprot_gtm_body:
+      "Google Tag Manager allows us to manage website tags
       via an interface (e.g., Google Analytics). The Tag Manager does not
       process personal data. Usage policies: <a
       href='https://www.google.com/intl/de/tagmanager/use-policy.html'
@@ -216,7 +231,8 @@ legal:
       noreferrer\\&quot>https://www.google.com/intl/de/tagmanager/use-policy.ht\
       ml</a>."
     legal_dataprot_ga_header: Google Analytics
-    legal_dataprot_ga_body: "We use Google Analytics under our legitimate interest
+    legal_dataprot_ga_body:
+      "We use Google Analytics under our legitimate interest
       (Art. 6(1)(f) GDPR). Google Analytics uses cookies, data is typically sent
       to the USA. IP anonymization is enabled. Users can opt-out via <a
       href='http://tools.google.com/dlpage/gaoptout?hl=de' target='_blank'
@@ -229,7 +245,8 @@ legal:
       noreferrer'>https://adssettings.google.com/authenticated</a>. Data
       deleted/anonymized after 14 months."
     legal_dataprot_social_header: Social media presences
-    legal_dataprot_social_body: We maintain social media presences to communicate
+    legal_dataprot_social_body:
+      We maintain social media presences to communicate
       with customers, prospects, and users. Users interactions are processed as
       described unless otherwise stated.
     legal_dataprot_thirdparty_header: Integration of third-party services and content
@@ -252,7 +269,8 @@ legal:
       target='_blank' rel='noopener
       noreferrer'>https://adssettings.google.com/authenticated</a>."
     legal_dataprot_maps_header: Google Maps
-    legal_dataprot_maps_body: "We embed Google Maps. Data may include IP addresses
+    legal_dataprot_maps_body:
+      "We embed Google Maps. Data may include IP addresses
       and location data, processed in the USA. Privacy: <a
       href='https://www.google.com/policies/privacy/' target='_blank'
       rel='noopener noreferrer'>https://www.google.com/policies/privacy/</a>,
@@ -260,7 +278,8 @@ legal:
       target='_blank' rel='noopener
       noreferrer'>https://adssettings.google.com/authenticated</a>."
     legal_dataprot_twitter_header: Twitter
-    legal_dataprot_twitter_body: "Twitter functions and content may be integrated.
+    legal_dataprot_twitter_body:
+      "Twitter functions and content may be integrated.
       Users sharing content may be linked to Twitter profiles. Privacy: <a
       href='https://twitter.com/de/privacy' target='_blank' rel='noopener
       noreferrer'>https://twitter.com/de/privacy</a>, Opt-out: <a
@@ -281,7 +300,8 @@ legal:
       rel='noopener
       noreferrer'>https://www.xing.com/app/share?op=data_protection</a>."
     legal_dataprot_linkedin_header: LinkedIn
-    legal_dataprot_linkedin_body: "Within our online offering, functions and content
+    legal_dataprot_linkedin_body:
+      "Within our online offering, functions and content
       from the service LinkedIn, provided by LinkedIn Ireland Unlimited Company,
       Wilton Place, Dublin 2, Ireland, may be integrated. This can include, for
       example, content such as images, videos, text, and buttons that allow
