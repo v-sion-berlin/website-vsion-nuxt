@@ -72,7 +72,7 @@ const homePageSchema = z.object({
 const aboutPageSchema = z.object({
   type: z.literal("about"),
   header: z.string().optional(),
-  subtTitle: z.string().optional(),
+  subTitle: z.string().optional(),
   heroImage: z
     .object({
       src: property(z.string()).editor({ input: "media" }),
@@ -132,38 +132,41 @@ const contactSchema = z.object({
   }),
 });
 
+const pageSchema = z.discriminatedUnion("type", [
+  homePageSchema,
+  aboutPageSchema,
+]);
+
 export default defineContentConfig({
   collections: {
-    home_en: defineCollection({
-      type: "data",
-      source: { include: "en/index.md", prefix: "/" },
-      schema: homePageSchema,
+    // --- English ---
+    pages_en: defineCollection({
+      type: "page",
+      source: {
+        include: "en/**/*.md",
+        exclude: ["en/contact.md"],
+        prefix: "/",
+      },
+      schema: pageSchema,
     }),
-    about_en: defineCollection({
-      type: "data",
-      source: { include: "en/about.md", prefix: "/" },
-      schema: aboutPageSchema,
-    }),
-
-    home_de: defineCollection({
-      type: "data",
-      source: { include: "de/index.md", prefix: "/" },
-      schema: homePageSchema,
-    }),
-    about_de: defineCollection({
-      type: "data",
-      source: { include: "de/about.md", prefix: "/" },
-      schema: aboutPageSchema,
-    }),
-
     contact_en: defineCollection({
       type: "data",
-      source: { include: "en/contact.md", prefix: "/" },
+      source: { include: "en/contact.md" },
       schema: contactSchema,
+    }),
+
+    // --- German ---
+    pages_de: defineCollection({
+      type: "page",
+      source: {
+        include: "de/**/*.md",
+        exclude: ["de/contact.md"],
+      },
+      schema: pageSchema,
     }),
     contact_de: defineCollection({
       type: "data",
-      source: { include: "de/contact.md", prefix: "/" },
+      source: { include: "de/contact.md" },
       schema: contactSchema,
     }),
   },

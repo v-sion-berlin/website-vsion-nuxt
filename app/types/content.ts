@@ -165,7 +165,7 @@ export interface CourtInfo {
 export interface AboutPage {
   type: "about";
   header?: string;
-  subtTitle?: string;
+  subTitle?: string;
   heroImage?: Media;
   addressBerlin?: Address;
   addressZDF?: Address;

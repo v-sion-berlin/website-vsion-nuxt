@@ -5,7 +5,7 @@
       <img :src="page.heroImage?.src" class="blur-img" />
       <img :src="page.heroImage?.src" class="img" />
       <h1>{{ page?.header }}</h1>
-      <h2>{{ page.subtTitle }}</h2>
+      <h2>{{ page.subTitle }}</h2>
     </section>
 
     <!-- Address Cards Section -->
