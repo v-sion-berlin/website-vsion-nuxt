@@ -32,8 +32,7 @@ lists:
 interview:
   header: Erleben Sie uns in Aktion
   body: Für unseren Partner
-  body_part_2:
-    " haben wir ein Framework entwickelt, das Kunden bei der nahtlosen
+  body_part_2: " haben wir ein Framework entwickelt, das Kunden bei der nahtlosen
     Migration zu Viz Pilot Edge unterstützt. Dieses Framework enthält
     Komponenten, die den Produktionsaufbau erheblich beschleunigen. Entdecken
     Sie unsere Best Practices für einen reibungslosen und erfolgreichen
@@ -59,15 +58,13 @@ textblocks:
     button_soon: Bald verfügbar
   marken:
     header: Erste Wahl für anspruchsvolle Marken
-    body:
-      "Vom internationalen Broadcaster bis zum Lokalsender: Unsere Kundschaft
+    body: "Vom internationalen Broadcaster bis zum Lokalsender: Unsere Kundschaft
       ist so vielfältig wie unsere Leistungen. Sie fordert uns heraus - und wir
       liefern Ergebnisse, die begeistern."
     button: Unsere Projekte
   leistungen:
     header: Unsere Leistungen in Aktion
-    body:
-      Unser Anspruch vereint redaktionelle Sorgfalt, exzellentes Design sowie
+    body: Unser Anspruch vereint redaktionelle Sorgfalt, exzellentes Design sowie
       reibungslose technische Realisierung und Betreuung des Sendebetriebs.
       Dafür stehen wir mit unserer langjährigen Erfahrung mit unterschiedlichen
       Sendern.
