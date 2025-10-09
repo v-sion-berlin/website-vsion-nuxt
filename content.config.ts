@@ -141,7 +141,7 @@ export default defineContentConfig({
   collections: {
     // --- English ---
     pages_en: defineCollection({
-      type: "page",
+      type: "data",
       source: {
         include: "en/**/*.md",
         exclude: ["en/contact.md"],
@@ -157,7 +157,7 @@ export default defineContentConfig({
 
     // --- German ---
     pages_de: defineCollection({
-      type: "page",
+      type: "data",
       source: {
         include: "de/**/*.md",
         exclude: ["de/contact.md"],
