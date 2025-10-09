@@ -19,16 +19,23 @@ const collectionName = computed<keyof Collections | null>(() => {
 
 const { data: rawPage } = await useAsyncData(
   route.path,
-  () =>
-    queryCollection(`pages_${locale.value}` as keyof Collections)
-      .path(route.path)
-      .first(),
+  async () => {
+    if (collectionName.value !== null) {
+      return queryCollection(
+        withoutTrailingSlash(collectionName.value) as keyof Collections
+      ).first();
+    }
+    return null;
+  },
   { watch: [locale] }
 );
 
 const { data: contactDataRaw } = await useAsyncData(
-  `contact-data-${locale.value}`,
-  () => queryCollection(`contact_${locale.value}` as keyof Collections).first(),
+  `contact-data`,
+  () =>
+    queryCollection(
+      withoutTrailingSlash(`contact_${locale.value}`) as keyof Collections
+    ).first(),
   { watch: [locale] }
 );
 

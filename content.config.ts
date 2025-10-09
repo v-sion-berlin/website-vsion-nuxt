@@ -132,41 +132,43 @@ const contactSchema = z.object({
   }),
 });
 
-const pageSchema = z.discriminatedUnion("type", [
-  homePageSchema,
-  aboutPageSchema,
-]);
+// const pageSchema = z.discriminatedUnion("type", [
+//   homePageSchema,
+//   aboutPageSchema,
+// ]);
 
 export default defineContentConfig({
   collections: {
-    // --- English ---
-    pages_en: defineCollection({
+    home_en: defineCollection({
       type: "data",
-      source: {
-        include: "en/**/*.md",
-        exclude: ["en/contact.md"],
-        prefix: "/",
-      },
-      schema: pageSchema,
+      source: { include: "en/index.md", prefix: "/" },
+      schema: homePageSchema,
     }),
-    contact_en: defineCollection({
+    about_en: defineCollection({
       type: "data",
-      source: { include: "en/contact.md" },
-      schema: contactSchema,
+      source: { include: "en/about.md", prefix: "/" },
+      schema: aboutPageSchema,
     }),
 
-    // --- German ---
-    pages_de: defineCollection({
+    home_de: defineCollection({
       type: "data",
-      source: {
-        include: "de/**/*.md",
-        exclude: ["de/contact.md"],
-      },
-      schema: pageSchema,
+      source: { include: "de/index.md", prefix: "/" },
+      schema: homePageSchema,
+    }),
+    about_de: defineCollection({
+      type: "data",
+      source: { include: "de/about.md", prefix: "/" },
+      schema: aboutPageSchema,
+    }),
+
+    contact_en: defineCollection({
+      type: "data",
+      source: { include: "en/contact.md", prefix: "/" },
+      schema: contactSchema,
     }),
     contact_de: defineCollection({
       type: "data",
-      source: { include: "de/contact.md" },
+      source: { include: "de/contact.md", prefix: "/" },
       schema: contactSchema,
     }),
   },
