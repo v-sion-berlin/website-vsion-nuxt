@@ -140,23 +140,23 @@ const contactSchema = z.object({
 export default defineContentConfig({
   collections: {
     home_en: defineCollection({
-      type: "data",
+      type: "page",
       source: { include: "en/index.md", prefix: "/" },
       schema: homePageSchema,
     }),
     about_en: defineCollection({
-      type: "data",
+      type: "page",
       source: { include: "en/about.md", prefix: "/" },
       schema: aboutPageSchema,
     }),
 
     home_de: defineCollection({
-      type: "data",
+      type: "page",
       source: { include: "de/index.md", prefix: "/" },
       schema: homePageSchema,
     }),
     about_de: defineCollection({
-      type: "data",
+      type: "page",
       source: { include: "de/about.md", prefix: "/" },
       schema: aboutPageSchema,
     }),
