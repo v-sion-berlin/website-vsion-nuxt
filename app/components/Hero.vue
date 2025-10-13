@@ -26,7 +26,7 @@ const props = defineProps<{
 <style scoped>
 #hero {
   position: relative;
-  min-height: clamp(450px, calc(39vh + 38vw), 100vw);
+  min-height: clamp(450px, calc(39vh + 40vw), 100vw);
   overflow: hidden;
 }
 
