@@ -50,9 +50,8 @@ textblocks:
       millions are watching, everything must run smoothly."
   anspruch:
     header: Our Commitment
-    body_text:
-      We are a reliable partner who thinks ahead and alongside you - easy to
-      work with and professional in execution. We embrace new technological
+    body_text: We are a reliable partner who thinks ahead and alongside you - easy
+      to work with and professional in execution. We embrace new technological
       developments and challenge the familiar. This way, we go one step further
       and always enable media platforms to provide the best live experience.
       Creative, confident, and with attention to detail.
@@ -60,17 +59,16 @@ textblocks:
     button_soon: Coming soon
   marken:
     header: First choice for discerning brands
-    body_text:
-      "From international broadcasters to local stations: our clients are as
-      diverse as our services. They challenge us - and we deliver results that
-      inspire."
+    body_text: "From international broadcasters to local stations: our clients are
+      as diverse as our services. They challenge us - and we deliver results
+      that inspire."
     button: Our projects
   leistungen:
     header: Our Services in Action
-    body_text:
-      Our commitment combines editorial care, excellent design, and seamless
-      technical implementation and broadcast operations support. We stand for
-      this with our many years of experience with various broadcasters.
+    body_text: Our commitment combines editorial care, excellent design, and
+      seamless technical implementation and broadcast operations support. We
+      stand for this with our many years of experience with various
+      broadcasters.
 seo:
   link: []
 ---
