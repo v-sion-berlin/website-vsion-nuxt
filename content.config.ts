@@ -17,20 +17,6 @@ const homePageSchema = z.object({
     })
     .optional(),
 
-  // Lists
-  lists: z
-    .object({
-      studio: listItemSchema,
-      news: listItemSchema,
-      sport: listItemSchema,
-      code: listItemSchema,
-      interaction: listItemSchema,
-      operations: listItemSchema,
-      storytelling: listItemSchema,
-      infographics: listItemSchema,
-    })
-    .optional(),
-
   // --- Interview Section ---
   interview: z
     .object({
@@ -64,6 +50,20 @@ const homePageSchema = z.object({
         header: z.string(),
         body: z.string(),
       }),
+    })
+    .optional(),
+
+  // Lists
+  lists: z
+    .object({
+      studio: listItemSchema,
+      news: listItemSchema,
+      sport: listItemSchema,
+      code: listItemSchema,
+      interaction: listItemSchema,
+      operations: listItemSchema,
+      storytelling: listItemSchema,
+      infographics: listItemSchema,
     })
     .optional(),
 });
