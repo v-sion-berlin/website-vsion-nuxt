@@ -31,7 +31,7 @@ export interface HomePage {
 
   interview: {
     header: string;
-    body: string;
+    body_text: string;
     body_part_2: string;
     source_text: string;
     watch_text: string;
@@ -40,22 +40,22 @@ export interface HomePage {
   textblocks: {
     live: {
       header: string;
-      body: string;
+      body_text: string;
     };
     anspruch: {
       header: string;
-      body: string;
+      body_text: string;
       button: string;
       button_soon: string;
     };
     marken: {
       header: string;
-      body: string;
+      body_text: string;
       button: string;
     };
     leistungen: {
       header: string;
-      body: string;
+      body_text: string;
     };
   };
 }

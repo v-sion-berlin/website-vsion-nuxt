@@ -31,8 +31,9 @@ lists:
     color: "#264653"
 interview:
   header: Erleben Sie uns in Aktion
-  body: Für unseren Partner
-  body_part_2: " haben wir ein Framework entwickelt, das Kunden bei der nahtlosen
+  body_text: Für unseren Partner
+  body_text_part_2:
+    " haben wir ein Framework entwickelt, das Kunden bei der nahtlosen
     Migration zu Viz Pilot Edge unterstützt. Dieses Framework enthält
     Komponenten, die den Produktionsaufbau erheblich beschleunigen. Entdecken
     Sie unsere Best Practices für einen reibungslosen und erfolgreichen
@@ -42,14 +43,16 @@ interview:
 textblocks:
   live:
     header: Mit uns ist Live
-    body: "v-sion macht TV-Übertragungen zu lebendigen Live-Erlebnissen - mit
+    body_text:
+      "v-sion macht TV-Übertragungen zu lebendigen Live-Erlebnissen - mit
       interaktiven Vidiwalls, vernetztem Studiodesign und dynamischen
       Live-Grafiken. Vom ersten Entwurf bis hin zur technischen Umsetzung:
       Design, Technik und Inhalt verbinden wir zu einem nahtlosen Konzept. Denn
       wenn Millionen Menschen zuschauen, muss alles reibungslos funktionieren."
   anspruch:
     header: Unser Anspruch
-    body: Wir sind ein verlässlicher Partner, der mit- und vorausdenkt - easy im
+    body_text:
+      Wir sind ein verlässlicher Partner, der mit- und vorausdenkt - easy im
       Umgang und professionell in der Umsetzung. Neue technologische
       Entwicklungen feiern wir und stellen das Gewohnte in Frage. So gehen wir
       einen Schritt weiter und ermöglichen Medienplattformen stets das beste
@@ -58,13 +61,15 @@ textblocks:
     button_soon: Bald verfügbar
   marken:
     header: Erste Wahl für anspruchsvolle Marken
-    body: "Vom internationalen Broadcaster bis zum Lokalsender: Unsere Kundschaft
+    body_text:
+      "Vom internationalen Broadcaster bis zum Lokalsender: Unsere Kundschaft
       ist so vielfältig wie unsere Leistungen. Sie fordert uns heraus - und wir
       liefern Ergebnisse, die begeistern."
     button: Unsere Projekte
   leistungen:
     header: Unsere Leistungen in Aktion
-    body: Unser Anspruch vereint redaktionelle Sorgfalt, exzellentes Design sowie
+    body_text:
+      Unser Anspruch vereint redaktionelle Sorgfalt, exzellentes Design sowie
       reibungslose technische Realisierung und Betreuung des Sendebetriebs.
       Dafür stehen wir mit unserer langjährigen Erfahrung mit unterschiedlichen
       Sendern.

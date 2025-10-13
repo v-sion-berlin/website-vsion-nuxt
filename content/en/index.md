@@ -33,8 +33,9 @@ lists:
     color: "#264653"
 interview:
   header: See us in action
-  body: For our partner
-  body_part_2: ", we've developed a framework that helps customers seamlessly
+  body_text: For our partner
+  body_text_part_2:
+    ", we've developed a framework that helps customers seamlessly
     migrate to Viz Pilot Edge. This framework includes components designed to
     supercharge your production build process. Check out our best practices for
     a smooth and successful transition."
@@ -43,14 +44,15 @@ interview:
 textblocks:
   live:
     header: Going Live with us is
-    body: "v-sion turns TV broadcasts into vibrant live experiences - with
+    body_text: "v-sion turns TV broadcasts into vibrant live experiences - with
       interactive video walls, connected studio design, and dynamic live
       graphics. From the initial concept to technical implementation: we combine
       design, technology, and content into a seamless concept. Because when
       millions are watching, everything must run smoothly."
   anspruch:
     header: Our Commitment
-    body: We are a reliable partner who thinks ahead and alongside you - easy to
+    body_text:
+      We are a reliable partner who thinks ahead and alongside you - easy to
       work with and professional in execution. We embrace new technological
       developments and challenge the familiar. This way, we go one step further
       and always enable media platforms to provide the best live experience.
@@ -59,13 +61,15 @@ textblocks:
     button_soon: Coming soon
   marken:
     header: First choice for discerning brands
-    body: "From international broadcasters to local stations: our clients are as
+    body_text:
+      "From international broadcasters to local stations: our clients are as
       diverse as our services. They challenge us - and we deliver results that
       inspire."
     button: Our projects
   leistungen:
     header: Our Services in Action
-    body: Our commitment combines editorial care, excellent design, and seamless
+    body_text:
+      Our commitment combines editorial care, excellent design, and seamless
       technical implementation and broadcast operations support. We stand for
       this with our many years of experience with various broadcasters.
 seo:
