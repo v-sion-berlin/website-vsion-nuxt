@@ -8,9 +8,6 @@ const listItemSchema = z.object({
 
 // --- Home Page ---
 const homePageSchema = z.object({
-  // --- Overwrite Defaults
-  title: property(z.string()).editor({ hidden: true }),
-
   // --- Hero Section ---
   type: z.literal("home"),
   hero: z.string(),
@@ -74,9 +71,6 @@ const homePageSchema = z.object({
 
 // --- About Page ---
 const aboutPageSchema = z.object({
-  // --- Overwrite Defaults
-  title: property(z.string()).editor({ hidden: true }),
-
   type: z.literal("about"),
   header: z.string().optional(),
   subTitle: z.string().optional(),
