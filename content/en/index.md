@@ -34,8 +34,7 @@ lists:
 interview:
   header: See us in action
   body_text: For our partner
-  body_text_part_2:
-    ", we've developed a framework that helps customers seamlessly
+  body_part_2: ", we've developed a framework that helps customers seamlessly
     migrate to Viz Pilot Edge. This framework includes components designed to
     supercharge your production build process. Check out our best practices for
     a smooth and successful transition."

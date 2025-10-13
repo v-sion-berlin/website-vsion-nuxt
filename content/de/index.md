@@ -32,7 +32,7 @@ lists:
 interview:
   header: Erleben Sie uns in Aktion
   body_text: Für unseren Partner
-  body_text_part_2:
+  body_part_2:
     " haben wir ein Framework entwickelt, das Kunden bei der nahtlosen
     Migration zu Viz Pilot Edge unterstützt. Dieses Framework enthält
     Komponenten, die den Produktionsaufbau erheblich beschleunigen. Entdecken
