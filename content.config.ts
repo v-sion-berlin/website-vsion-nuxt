@@ -21,7 +21,7 @@ const homePageSchema = z.object({
   interview: z
     .object({
       header: z.string(),
-      body: z.string(),
+      body_text: z.string(),
       body_part_2: z.string(),
       source_text: z.string(),
       watch_text: z.string(),
@@ -33,22 +33,22 @@ const homePageSchema = z.object({
     .object({
       live: z.object({
         header: z.string(),
-        body: z.string(),
+        body_text: z.string(),
       }),
       anspruch: z.object({
         header: z.string(),
-        body: z.string(),
+        body_text: z.string(),
         button: z.string(),
         button_soon: z.string(),
       }),
       marken: z.object({
         header: z.string(),
-        body: z.string(),
+        body_text: z.string(),
         button: z.string(),
       }),
       leistungen: z.object({
         header: z.string(),
-        body: z.string(),
+        body_text: z.string(),
       }),
     })
     .optional(),
