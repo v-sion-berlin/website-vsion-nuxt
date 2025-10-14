@@ -17,9 +17,12 @@ npm run dev
 
 ```
 
-## Content Studio - Production
+## Content Studio
 
-TODO
+1. Login with GitHub Account into https://nuxt.studio/
+2. Make changes in the content editor
+3. Review changes
+4. Publish changes
 
 ## Content Studio - Development (Debugging ONLY)
 
