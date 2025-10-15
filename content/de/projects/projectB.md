@@ -1,12 +1,12 @@
 ---
-type: "project"
-header: "Project B"
-subTitle: "project-b"
+type: project
+header: Project B
+subTitle: project-b
 coverImage:
-  src: "/images/projects/b.png"
-  alt: "Project B"
+  src: /images/projects/b.png
+  alt: Project B
 ---
 
-::ProjectDetailsHero
+::project-details-hero
 DETAILS B
 ::

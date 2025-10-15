@@ -1,14 +1,14 @@
 ---
-type: "projects"
-header: "Projects Overview"
-subTitle: "projects"
+type: projects
+header: Projects Overview
+subTitle: projects
 ---
 
-::ProjectsOverview
+::projects-overview
 Ob Lokalsender oder internationaler Livestream - wir machen sichere und erfolgreiche Sendungen
 ::
 
-::IndentedTextBlock
+::indented-text-block
 Erste Wahl für anspruchsvolle Marken
 
 #body

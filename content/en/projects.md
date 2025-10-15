@@ -1,15 +1,15 @@
 ---
 _path: /projects
-type: "projects"
-header: "Projects Overview"
-subTitle: "projects"
+type: projects
+header: Projects Overview
+subTitle: projects
 ---
 
-::ProjectsOverview
+::projects-overview
 Whether local broadcaster or international livestream - we make safe and successful broadcasts
 ::
 
-::IndentedTextBlock
+::indented-text-block
 First choice for ambitious brands
 
 #body
