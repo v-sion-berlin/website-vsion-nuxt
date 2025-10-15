@@ -7,6 +7,6 @@ coverImage:
   alt: "Project B"
 ---
 
-::HeroContent
+::ProjectDetailsHero
 DETAILS B
 ::
