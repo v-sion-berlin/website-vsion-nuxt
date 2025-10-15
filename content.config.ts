@@ -69,6 +69,26 @@ const homePageSchema = z.object({
     .optional(),
 });
 
+// --- Projects Overview Page ---
+const projectsOverviewSchema = z.object({
+  type: z.literal("projects"),
+  header: z.string().optional(),
+  subTitle: z.string().optional(),
+});
+
+// --- Project schema ---
+const projectSchema = z.object({
+  type: z.literal("project"),
+  header: z.string().optional(),
+  subTitle: z.string().optional(),
+  coverImage: z
+    .object({
+      src: property(z.string()).editor({ input: "media" }),
+      alt: z.string(),
+    })
+    .optional(),
+});
+
 // --- About Page ---
 const aboutPageSchema = z.object({
   type: z.literal("about"),
@@ -171,6 +191,29 @@ export default defineContentConfig({
       type: "data",
       source: { include: "de/contact.md", prefix: "/" },
       schema: contactSchema,
+    }),
+
+    projects_overview_en: defineCollection({
+      type: "page",
+      source: { include: "en/projects.md", prefix: "/" },
+      schema: projectsOverviewSchema,
+    }),
+
+    projects_overview_de: defineCollection({
+      type: "page",
+      source: { include: "de/projects.md", prefix: "/" },
+      schema: projectsOverviewSchema,
+    }),
+
+    projects_en: defineCollection({
+      type: "page",
+      source: { include: "en/projects/*.md", prefix: "/projects" },
+      schema: projectSchema,
+    }),
+    projects_de: defineCollection({
+      type: "page",
+      source: { include: "de/projects/*.md", prefix: "/projects" },
+      schema: projectSchema,
     }),
   },
 });
