@@ -6,20 +6,26 @@ import type { Collections } from "@nuxt/content";
 
 const { locale } = useI18n();
 
-const { data: overview } = await useAsyncData("projects-overview", () =>
-  queryCollection(
-    withoutTrailingSlash(
-      `projects_overview_${locale.value}`
-    ) as keyof Collections
-  ).first()
+const { data: overview } = await useAsyncData(
+  "projects-overview",
+  () =>
+    queryCollection(
+      withoutTrailingSlash(
+        `projects_overview_${locale.value}`
+      ) as keyof Collections
+    ).first(),
+  { watch: [locale] }
 );
 
-const { data: projects } = await useAsyncData("projects", () =>
-  queryCollection(
-    withoutTrailingSlash(`projects_${locale.value}`) as keyof Collections
-  )
-    .all()
-    .then((res) => res.map((p) => ({ ...p, ...(p.meta ?? {}) })))
+const { data: projects } = await useAsyncData(
+  "projects",
+  () =>
+    queryCollection(
+      withoutTrailingSlash(`projects_${locale.value}`) as keyof Collections
+    )
+      .all()
+      .then((res) => res.map((p) => ({ ...p, ...(p.meta ?? {}) }))),
+  { watch: [locale] }
 );
 </script>
 

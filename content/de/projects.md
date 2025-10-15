@@ -5,5 +5,5 @@ subTitle: "projects"
 ---
 
 ::HeroContent
-OVERVIEW
+Ob Lokalsender oder internationaler Livestream - wir machen sichere und erfolgreiche Sendungen
 ::

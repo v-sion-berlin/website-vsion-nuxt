@@ -6,5 +6,5 @@ subTitle: "projects"
 ---
 
 ::HeroContent
-OVERVIEW
+Whether local broadcaster or international livestream - we make safe and successful broadcasts
 ::
