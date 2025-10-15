@@ -1,7 +1,7 @@
 ---
 type: project
 header: ZDF Moma
-subTitle: project-zdf
+subTitle: projectzdf
 coverImage:
   src: /images/projects/zdf_cover.png
   alt: Project A
