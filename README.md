@@ -33,6 +33,7 @@ Start the development with cloudfare tunnel:
 npx nuxt dev --tunnel
 
 ```
+Add cloudfare url in Nuxt Studio under 'Delpoy/Selfhosting'
 
 ## Production
 
