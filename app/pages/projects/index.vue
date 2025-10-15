@@ -3,6 +3,7 @@ import { queryCollection } from "#imports";
 import { useI18n } from "vue-i18n";
 import { withoutTrailingSlash } from "ufo";
 import type { Collections } from "@nuxt/content";
+import type { Project } from "~/types/content";
 
 const { locale } = useI18n();
 
@@ -24,7 +25,9 @@ const { data: projects } = await useAsyncData(
       withoutTrailingSlash(`projects_${locale.value}`) as keyof Collections
     )
       .all()
-      .then((res) => res.map((p) => ({ ...p, ...(p.meta ?? {}) }))),
+      .then(
+        (res) => res.map((p) => ({ ...p, ...(p.meta ?? {}) })) as Project[]
+      ),
   { watch: [locale] }
 );
 </script>

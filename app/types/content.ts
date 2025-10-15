@@ -10,6 +10,13 @@ export interface ListItem {
   color?: string;
 }
 
+export interface Project {
+  type: "project";
+  header?: string;
+  subTitle?: string;
+  coverImage?: { src: string; alt: string };
+}
+
 export interface HomePage {
   type: "home";
   hero: string;
