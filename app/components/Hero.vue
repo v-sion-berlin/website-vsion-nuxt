@@ -55,16 +55,4 @@ const props = defineProps<{
   z-index: -150;
   filter: blur(30px);
 }
-
-h1 {
-  color: #ffffff;
-  font-size: clamp(32px, 6vw, 124px);
-  font-family: Montserrat, sans-serif;
-  font-weight: 500;
-  line-height: 1.2;
-  margin: 0;
-  z-index: 30;
-  max-width: 90%;
-  position: relative;
-}
 </style>
