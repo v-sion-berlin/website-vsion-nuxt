@@ -31,6 +31,17 @@ button {
   font-family: 'Montserrat', sans-serif;
 }
 
+h1 {
+  color: #ffffff;
+  font-size: clamp(32px, 6vw, 124px);
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.2;
+  z-index: 30;
+  max-width: 90%;
+  position: relative;
+}
 
 #text-container {
   padding: clamp(2rem, 5vw, 4rem)
