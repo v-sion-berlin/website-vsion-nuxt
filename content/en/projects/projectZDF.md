@@ -21,5 +21,5 @@ Moma
 The new ZDF morning magazine moma looks so good! The redesign of the studio is more than just a redesign for ZDF:
 
 #sub
-The television studio becomes a space where you can experience the work of journalists. The central element is the large table—a work table.
+The television studio becomes a space where you can experience the work of journalists. The central element is the large table - a work table.
 ::
