@@ -1,7 +1,8 @@
 ---
+_path: /projects/projectb
 type: project
 header: Project B
-subTitle: project-b
+subTitle: projectb
 coverImage:
   src: /images/projects/b.png
   alt: Project B
