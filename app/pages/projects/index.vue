@@ -3,7 +3,7 @@ import { queryCollection } from "#imports";
 import { useI18n } from "vue-i18n";
 import { withoutTrailingSlash } from "ufo";
 import type { Collections } from "@nuxt/content";
-import type { Project } from "~/types/content";
+import type { ContactData, Project } from "~/types/content";
 
 const { locale } = useI18n();
 
@@ -30,6 +30,23 @@ const { data: projects } = await useAsyncData(
       ),
   { watch: [locale] }
 );
+
+const { data: contactDataRaw } = await useAsyncData(
+  `contact-data`,
+  () =>
+    queryCollection(
+      withoutTrailingSlash(`contact_${locale.value}`) as keyof Collections
+    ).first(),
+  { watch: [locale] }
+);
+
+const contactData = computed<ContactData | null>(() => {
+  if (!contactDataRaw.value) return null;
+  return {
+    ...(contactDataRaw.value.meta ?? {}),
+    ...(contactDataRaw.value as any),
+  };
+});
 </script>
 
 <template>
@@ -55,23 +72,51 @@ const { data: projects } = await useAsyncData(
       </div>
     </div>
   </section>
+  <Contact v-if="contactData" :page="contactData as ContactData" />
 </template>
 
 <style scoped>
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, 400px);
   gap: 2rem;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 10vw, 19.125rem)
+    clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5.625rem);
 }
+
+.project-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  outline: 2px solid #ff153e;
+}
+
 .project-card img {
-  width: 100%;
-  border-radius: 1rem;
+  width: 400px;
+  height: 300px;
+  border-radius: 16px;
   display: block;
+  object-fit: cover;
 }
 .project-card h2 {
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: #31313180;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 19px 32px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 16px;
   color: white;
-  font-family: Montserrat, sans-serif;
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
+  font-size: clamp(16px, 2vw, 24px);
+  width: max-content;
+  margin: 0;
 }
 </style>
