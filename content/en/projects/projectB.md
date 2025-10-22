@@ -1,5 +1,4 @@
 ---
-_path: /projects/projectb
 type: project
 header: Project B
 subTitle: projectb

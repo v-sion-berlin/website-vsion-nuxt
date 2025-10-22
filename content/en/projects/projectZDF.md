@@ -1,16 +1,10 @@
 ---
-_path: /projects/projectzdf
 type: project
 header: ZDF Moma
 subTitle: projectzdf
 coverImage:
   src: /images/projects/zdf_cover.png
   alt: Project A
----
-
-::project-details
----
-image-src: /images/projects/zdf_detail.png
 table:
   tasks:
     - Design Implementierung
@@ -21,6 +15,11 @@ table:
     - Viz Artist
     - Viz Pilot
     - Adobe CC
+---
+
+::project-details
+---
+image-src: /images/projects/zdf_detail.png
 ---
 ZDF
 

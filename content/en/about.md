@@ -1,5 +1,4 @@
 ---
-_path: /about
 type: about
 header: Live to the world from Berlin
 subTitle: +49 30 29381928 contact@v-sion.de

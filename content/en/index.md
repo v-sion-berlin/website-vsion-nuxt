@@ -1,5 +1,4 @@
 ---
-_path: /
 type: home
 hero: Excellent design and pioneering technology powering today's live content
   delivery
