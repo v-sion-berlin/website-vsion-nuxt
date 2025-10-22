@@ -9,7 +9,7 @@ const { locale } = useI18n();
 
 function localizedPath(subTitle: string) {
   const isGerman = locale.value === "de";
-  return isGerman ? `/de/projects/${subTitle}` : `/projects/${subTitle}`;
+  return isGerman ? `/de/projects/${subTitle}` : `/en/projects/${subTitle}`;
 }
 
 const { data: overview } = await useAsyncData(
