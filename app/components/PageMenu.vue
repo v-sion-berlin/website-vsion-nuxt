@@ -45,20 +45,23 @@ function navigate(path: string) {
 }
 
 watch(
-  () => route.path,
-  (path) => {
-    const page = pages.value.find((p) => p.path === path);
+  [() => route.path, locale],
+  ([path, newLocale]) => {
+    currentLang.value = newLocale as "en" | "de";
+    pages.value = pagesByLang[currentLang.value];
+
+    let page = pages.value.find((p) => p.path === path);
+
+    if (!page) {
+      page = pages.value
+        .filter((p) => path === p.path || path.startsWith(p.path + "/"))
+        .sort((a, b) => b.path.length - a.path.length)[0];
+    }
+
     currentPage.value = page ? page.name : "Menu";
   },
   { immediate: true }
 );
-
-watch(locale, (newLocale) => {
-  currentLang.value = newLocale as "en" | "de";
-  pages.value = pagesByLang[currentLang.value];
-  const page = pages.value.find((p) => p.path === route.path);
-  currentPage.value = page ? page.name : "Menu";
-});
 
 onClickOutside(menuRef, () => {
   showDropdown.value = false;
