@@ -16,7 +16,6 @@
 <style scoped>
 #hero {
   position: relative;
-  overflow: hidden;
   min-height: max-content;
 }
 

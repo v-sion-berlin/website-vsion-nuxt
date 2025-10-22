@@ -19,11 +19,30 @@
       </div>
     </div>
   </section>
+  <section id="table">
+    <div class="table-col" v-if="table?.tasks?.length">
+      <div class="table-header">Unsere Aufgaben</div>
+      <ul class="table-list">
+        <li v-for="(task, i) in table.tasks" :key="i">{{ task }}</li>
+      </ul>
+    </div>
+
+    <div class="table-col" v-if="table?.technologies?.length">
+      <div class="table-header">Technologien</div>
+      <ul class="table-list">
+        <li v-for="(tech, i) in table.technologies" :key="i">{{ tech }}</li>
+      </ul>
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">
 defineProps<{
   imageSrc?: string;
+  table?: {
+    tasks?: string[];
+    technologies?: string[];
+  };
 }>();
 </script>
 
@@ -33,7 +52,45 @@ defineProps<{
   max-width: 100%;
   padding: clamp(10rem, 12vw, 13.75rem) clamp(2rem, 20vw, 19.125rem)
     clamp(2rem, 5vw, 4rem) clamp(0rem, 5vw, 5.625rem);
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+#table {
+  padding: 7.5rem clamp(0rem, 5vw, 5.625rem) 0 clamp(0rem, 5vw, 5.625rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(288px, 100%), 1fr));
+  gap: 7rem;
+}
+
+.table-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.table-header {
+  align-self: flex-start;
+  background: #1a1a1a;
+  color: white;
+  padding: 19px 32px;
+  border-radius: 1rem;
+  font-size: clamp(16px, 1.5vw, 20px);
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.table-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.table-list li {
+  font-size: clamp(1.5rem, 1.5vw, 1.7rem);
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem 0;
+  padding-left: 2rem;
 }
 
 .project-name {
