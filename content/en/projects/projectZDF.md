@@ -8,9 +8,19 @@ coverImage:
   alt: Project A
 ---
 
-::project-details-hero
+::project-details
 ---
 image-src: /images/projects/zdf_detail.png
+table:
+  tasks:
+    - Design Implementierung
+    - Technische Konzeption
+    - Grafik Szenen
+    - Templates
+  technologies:
+    - Viz Artist
+    - Viz Pilot
+    - Adobe CC
 ---
 ZDF
 

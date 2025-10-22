@@ -7,7 +7,7 @@ coverImage:
   alt: Project A
 ---
 
-::project-details-hero
+::project-details
 ---
 image-src: /images/projects/zdf_detail.png
 ---
