@@ -52,7 +52,7 @@ const props = defineProps<{
 <style scoped>
 #hero {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   min-height: max-content;
 }
 

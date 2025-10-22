@@ -27,7 +27,7 @@ const props = defineProps<{
 #hero {
   position: relative;
   min-height: clamp(450px, calc(39vh + 40vw), 100vw);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 #hero section {
