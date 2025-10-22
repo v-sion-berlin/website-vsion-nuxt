@@ -7,6 +7,11 @@ import type { ContactData, Project } from "~/types/content";
 
 const { locale } = useI18n();
 
+function localizedPath(subTitle: string) {
+  const isGerman = locale.value === "de";
+  return isGerman ? `/de/projects/${subTitle}` : `/projects/${subTitle}`;
+}
+
 const { data: overview } = await useAsyncData(
   "projects-overview",
   () =>
@@ -61,7 +66,7 @@ const contactData = computed<ContactData | null>(() => {
         :key="project.subTitle"
         class="project-card"
       >
-        <NuxtLink :to="`/projects/${project.subTitle}`">
+        <NuxtLink :to="localizedPath(project.subTitle!)">
           <img
             v-if="project.coverImage"
             :src="project.coverImage.src"
