@@ -7,8 +7,8 @@
           <div class="project-name">
             <slot name="project-name" mdc-unwrap="p" />
           </div>
-          <img :src="imageSrc" class="img" v-if="imageSrc" />
-          <img :src="imageSrc" class="blur-img" v-if="imageSrc" />
+          <img :src="imageSrc.src" class="img" v-if="imageSrc" />
+          <img :src="imageSrc.src" class="blur-img" v-if="imageSrc" />
         </div>
       </h1>
       <div id="text-container-big">
@@ -20,17 +20,19 @@
     </div>
   </section>
   <section id="table">
-    <div class="table-col" v-if="table?.tasks?.length">
-      <div class="table-header">Unsere Aufgaben</div>
+    <div class="table-col" v-if="tableDetails?.tasks?.length">
+      <div class="table-header">{{ tableDetails.header.firstCol }}</div>
       <ul class="table-list">
-        <li v-for="(task, i) in table.tasks" :key="i">{{ task }}</li>
+        <li v-for="(task, i) in tableDetails.tasks" :key="i">{{ task }}</li>
       </ul>
     </div>
 
-    <div class="table-col" v-if="table?.technologies?.length">
-      <div class="table-header">Technologien</div>
+    <div class="table-col" v-if="tableDetails?.technologies?.length">
+      <div class="table-header">{{ tableDetails.header.secondCol }}</div>
       <ul class="table-list">
-        <li v-for="(tech, i) in table.technologies" :key="i">{{ tech }}</li>
+        <li v-for="(tech, i) in tableDetails.technologies" :key="i">
+          {{ tech }}
+        </li>
       </ul>
     </div>
   </section>
@@ -38,8 +40,15 @@
 
 <script setup lang="ts">
 defineProps<{
-  imageSrc?: string;
-  table?: {
+  imageSrc?: {
+    src: string;
+    alt: string;
+  };
+  tableDetails?: {
+    header: {
+      firstCol: string;
+      secondCol: string;
+    };
     tasks?: string[];
     technologies?: string[];
   };
@@ -56,7 +65,7 @@ defineProps<{
 }
 
 #table {
-  padding: 7.5rem clamp(0rem, 5vw, 5.625rem) 0 clamp(0rem, 5vw, 5.625rem);
+  padding: 4rem clamp(0rem, 5vw, 5.625rem) 0 clamp(0rem, 5vw, 5.625rem);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(288px, 100%), 1fr));
   gap: 7rem;
