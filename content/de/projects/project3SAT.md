@@ -1,13 +1,13 @@
 ---
 type: project
-header: ZDF Moma
-subTitle: projectzdf
+header: 3SAT
+subTitle: project3sat
 coverImage:
-  src: /images/projects/zdf_cover.svg
-  alt: ZDF
+  src: /images/projects/3sat_cover.png
+  alt: 3SAT
 detailImage:
-  src: /images/projects/zdf_detail.png
-  alt: ZDF
+  src: /images/projects/3sat_detail.svg
+  alt: 3SAT
 table:
   header:
     firstCol: Unsere Aufgaben
@@ -25,7 +25,7 @@ projectsHeader: Unsere Projekte
 sliderImages:
   - src: /images/projects/test.jpg
     alt: Studio View 1
-    title: Studio View vom ZDF Studio
+    title: Studio View vom 3SAT Studio
   - src: /images/projects/test.jpg
     alt: Studio View 2
     title: Wettervorschau Animation
@@ -35,14 +35,14 @@ sliderImages:
 ---
 
 ::project-details{:imageSrc="detailImage" :tableDetails="table" :projectsHeader="projectsHeader" :sliderImages="sliderImages"}
-ZDF
+3SAT
 
 #project-name
-Moma
+Tester
 
 #body
-So gut sieht das neue ZDF Morgenmagazin moma aus! Die Umgestaltung des Studios ist für das ZDF mehr als ein Redesign:
+3SAT Kopfzeile
 
 #sub
-Das Fernsehstudio wird zum Raum in dem man die Arbeit der Journalist\*innen mit erleben kann. Zentrales Element ist der große Tisch - ein Arbeitstisch.
+3SAT Untertitel
 ::
