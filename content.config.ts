@@ -87,6 +87,18 @@ const projectSchema = z.object({
       alt: z.string(),
     })
     .optional(),
+  table: z
+    .object({
+      header: z
+        .object({
+          firstCol: z.string(),
+          secondCol: z.string(),
+        })
+        .optional(),
+      tasks: z.array(z.string()).optional(),
+      technologies: z.array(z.string()).optional(),
+    })
+    .optional(),
 });
 
 // --- About Page ---
@@ -195,13 +207,13 @@ export default defineContentConfig({
 
     projects_overview_en: defineCollection({
       type: "page",
-      source: { include: "en/projects.md", prefix: "/" },
+      source: { include: "en/projects/index.md", prefix: "/" },
       schema: projectsOverviewSchema,
     }),
 
     projects_overview_de: defineCollection({
       type: "page",
-      source: { include: "de/projects.md", prefix: "/" },
+      source: { include: "de/projects/index.md", prefix: "/" },
       schema: projectsOverviewSchema,
     }),
 
