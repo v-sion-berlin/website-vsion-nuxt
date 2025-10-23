@@ -5,12 +5,22 @@ subTitle: projectzdf
 coverImage:
   src: /images/projects/zdf_cover.png
   alt: Project A
+table:
+  header:
+    firstCol: Unsere Aufgaben
+    secondCol: Technologien
+  tasks:
+    - Design Implementierung
+    - Technische Konzeption
+    - Grafik Szenen
+    - Templates
+  technologies:
+    - Viz Artist
+    - Viz Pilot
+    - Adobe CC
 ---
 
-::project-details
----
-image-src: /images/projects/zdf_detail.png
----
+::project-details{:imageSrc="coverImage" :tableDetails="table"}
 ZDF
 
 #project-name

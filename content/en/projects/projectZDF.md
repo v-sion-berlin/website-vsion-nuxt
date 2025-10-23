@@ -6,10 +6,13 @@ coverImage:
   src: /images/projects/zdf_cover.png
   alt: Project A
 table:
+  header:
+    firstCol: Our Tasks
+    secondCol: Technologies
   tasks:
-    - Design Implementierung
-    - Technische Konzeption
-    - Grafik Szenen
+    - Design Implementation
+    - Technical Conception
+    - Graphic Scenes
     - Templates
   technologies:
     - Viz Artist
@@ -17,10 +20,7 @@ table:
     - Adobe CC
 ---
 
-::project-details
----
-image-src: /images/projects/zdf_detail.png
----
+::project-details{:imageSrc="coverImage" :tableDetails="table"}
 ZDF
 
 #project-name
