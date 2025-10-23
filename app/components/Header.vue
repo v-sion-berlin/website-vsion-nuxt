@@ -112,7 +112,7 @@ function scrollToTop() {
   width: -webkit-fill-available;
   width: -moz-available; /* firefox */
   max-height: 140px;
-  z-index: 150;
+  z-index: 999;
   gap: clamp(8px, 2vw, 24px);
 }
 
