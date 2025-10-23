@@ -81,7 +81,14 @@ const projectSchema = z.object({
   type: z.literal("project"),
   header: z.string().optional(),
   subTitle: z.string().optional(),
+  projectsHeader: z.string().optional(),
   coverImage: z
+    .object({
+      src: property(z.string()).editor({ input: "media" }),
+      alt: z.string(),
+    })
+    .optional(),
+  detailImage: z
     .object({
       src: property(z.string()).editor({ input: "media" }),
       alt: z.string(),
@@ -98,6 +105,15 @@ const projectSchema = z.object({
       tasks: z.array(z.string()).optional(),
       technologies: z.array(z.string()).optional(),
     })
+    .optional(),
+  sliderImages: z
+    .array(
+      z.object({
+        src: property(z.string()).editor({ input: "media" }),
+        alt: z.string(),
+        title: z.string(),
+      })
+    )
     .optional(),
 });
 
