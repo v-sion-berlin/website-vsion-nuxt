@@ -96,17 +96,20 @@ const contactData = computed<ContactData | null>(() => {
   overflow: hidden;
 }
 
-.project-card:hover {
-  outline: 2px solid #ff153e;
-}
-
 .project-card img {
   width: 400px;
   height: 300px;
   border-radius: 16px;
   display: block;
   object-fit: cover;
+  filter: brightness(0.8);
+  transition: filter 0.3s ease;
 }
+
+.project-card:hover img {
+  filter: brightness(1);
+}
+
 .project-card h2 {
   display: flex;
   position: absolute;
