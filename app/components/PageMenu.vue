@@ -19,9 +19,9 @@ const currentLang = ref(locale.value as "en" | "de");
 
 const pagesByLang: Record<"en" | "de", { name: string; path: string }[]> = {
   en: [
-    { name: "Home", path: "/en" },
-    { name: "Projects", path: "/en/projects" },
-    { name: "About", path: "/en/about" },
+    { name: "Home", path: "/" },
+    { name: "Projects", path: "/projects" },
+    { name: "About", path: "/about" },
   ],
   de: [
     { name: "Startseite", path: "/de" },
