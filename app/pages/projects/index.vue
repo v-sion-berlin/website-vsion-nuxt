@@ -9,7 +9,7 @@ const { locale } = useI18n();
 
 function localizedPath(subTitle: string) {
   const isGerman = locale.value === "de";
-  return isGerman ? `/de/projects/${subTitle}` : `/en/projects/${subTitle}`;
+  return isGerman ? `/de/projects/${subTitle}` : `/projects/${subTitle}`;
 }
 
 const { data: overview } = await useAsyncData(
@@ -29,6 +29,7 @@ const { data: projects } = await useAsyncData(
     queryCollection(
       withoutTrailingSlash(`projects_${locale.value}`) as keyof Collections
     )
+      .where("subTitle", "<>", "projects")
       .all()
       .then(
         (res) => res.map((p) => ({ ...p, ...(p.meta ?? {}) })) as Project[]
