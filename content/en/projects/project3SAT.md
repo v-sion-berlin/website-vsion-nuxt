@@ -1,4 +1,5 @@
 ---
+_path: /projects/project3sat
 type: project
 header: 3SAT
 subTitle: project3sat
