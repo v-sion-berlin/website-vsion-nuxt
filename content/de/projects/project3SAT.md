@@ -16,6 +16,7 @@ table:
     - Design Implementierung
     - Technische Konzeption
     - Grafik Szenen
+    - Templates
   technologies:
     - Viz Artist
     - Viz Pilot
