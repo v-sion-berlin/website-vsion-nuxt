@@ -16,7 +16,6 @@ table:
     - Design Implementierung
     - Technische Konzeption
     - Grafik Szenen
-    - Templates
   technologies:
     - Viz Artist
     - Viz Pilot
@@ -34,7 +33,13 @@ sliderImages:
     title: Setup Studio
 ---
 
-::project-details{:imageSrc="detailImage" :tableDetails="table" :projectsHeader="projectsHeader" :sliderImages="sliderImages"}
+::project-details
+---
+:image-src: detailImage
+:projects-header: projectsHeader
+:slider-images: sliderImages
+:table-details: table
+---
 3SAT
 
 #project-name
