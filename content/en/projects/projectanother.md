@@ -1,7 +1,5 @@
 ---
 title: Project Another
-_description_: des
-_seo: []
 navigation: false
 _path: /projects/projectanother
 type: project
