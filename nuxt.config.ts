@@ -21,12 +21,9 @@ export default defineNuxtConfig({
   },
   content: {
     preview: {
-      // dev: true,
       api: "https://api.nuxt.studio",
     },
-    // watch: {
-    //   enabled: false,
-    // },
+    experimental: { nativeSqlite: true },
   },
 
   app: {
