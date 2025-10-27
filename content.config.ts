@@ -235,12 +235,12 @@ export default defineContentConfig({
 
     projects_en: defineCollection({
       type: "page",
-      source: { include: "en/projects/*.md", prefix: "/projects" },
+      source: { include: "en/projects/**", prefix: "/projects" },
       schema: projectSchema,
     }),
     projects_de: defineCollection({
       type: "page",
-      source: { include: "de/projects/*.md", prefix: "/projects" },
+      source: { include: "de/projects/**", prefix: "/de/projects" },
       schema: projectSchema,
     }),
   },
