@@ -1,4 +1,8 @@
 ---
+title: Project Another
+_description_: des
+_seo: []
+navigation: false
 type: project
 header: Another
 subTitle: projectanother
