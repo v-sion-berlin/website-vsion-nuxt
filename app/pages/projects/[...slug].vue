@@ -11,14 +11,13 @@ const { locale } = useI18n();
 
 const slug = computed(() => String(route.params.slug ?? ""));
 
+const pageId = computed(() => "project-" + route.path);
+
 const { data: project } = await useAsyncData(
-  `project-${slug.value}-${route.path}`,
-  async () =>
-    queryCollection(
-      withoutTrailingSlash(`projects_${locale.value}`) as keyof Collections
-    )
-      .where("slug", "=", slug.value)
-      .first(),
+  `${pageId}-${locale.value}`,
+  () => {
+    return queryCollection(`projects_${locale.value}`).path(route.path).first();
+  },
   { watch: [locale, slug] }
 );
 

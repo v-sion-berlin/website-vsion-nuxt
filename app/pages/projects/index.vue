@@ -27,16 +27,11 @@ const { data: overview } = await useAsyncData(
 );
 
 const { data: projects } = await useAsyncData(
-  `project-${slug.value}-${route.path}`,
-  () =>
-    queryCollection(
-      withoutTrailingSlash(`projects_${locale.value}`) as keyof Collections
-    )
+  () => {
+    return queryCollection(`projects_${locale.value}`)
       .where("slug", "<>", "projects")
-      .all()
-      .then(
-        (res) => res.map((p) => ({ ...p, ...(p.meta ?? {}) })) as Project[]
-      ),
+      .all();
+  },
   { watch: [locale] }
 );
 

@@ -111,11 +111,10 @@
 </template>
 
 <script setup lang="ts">
-import type { Collections } from "@nuxt/content";
-import { withoutTrailingSlash } from "ufo";
-import type { Project } from "~/types/content";
-
 const { locale } = useI18n();
+const route = useRoute();
+
+const slug = computed(() => String(route.params.slug ?? ""));
 
 defineProps<{
   imageSrc?: { src: string; alt: string };
@@ -135,17 +134,12 @@ function localizedPath(subTitle: string) {
 }
 
 const { data: projects } = await useAsyncData(
-  "projects",
-  () =>
-    queryCollection(
-      withoutTrailingSlash(`projects_${locale.value}`) as keyof Collections
-    )
+  () => {
+    return queryCollection(`projects_${locale.value}`)
       .where("slug", "<>", "projects")
-      .all()
-      .then(
-        (res) => res.map((p) => ({ ...p, ...(p.meta ?? {}) })) as Project[]
-      ),
-  { watch: [locale] }
+      .all();
+  },
+  { watch: [locale, slug] }
 );
 
 const sliderRef = ref<HTMLElement | null>(null);
