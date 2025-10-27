@@ -1,6 +1,7 @@
 ---
 title: Project Another
 navigation: false
+_path: /de/projects/projectanother
 type: project
 header: Another
 slug: projectanother
