@@ -1,6 +1,5 @@
 ---
 title: Project Another
-navigation: false
 type: project
 header: Another
 slug: projectanother
