@@ -12,7 +12,7 @@ const { locale } = useI18n();
 const slug = computed(() => String(route.params.slug ?? ""));
 
 const { data: project } = await useAsyncData(
-  `project-${slug.value}`,
+  `project-${slug.value}-${route.path}`,
   async () =>
     queryCollection(
       withoutTrailingSlash(`projects_${locale.value}`) as keyof Collections

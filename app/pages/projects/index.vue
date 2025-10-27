@@ -6,6 +6,9 @@ import type { Collections } from "@nuxt/content";
 import type { ContactData, Project } from "~/types/content";
 
 const { locale } = useI18n();
+const route = useRoute();
+
+const slug = computed(() => String(route.params.slug ?? ""));
 
 function localizedPath(subTitle: string) {
   const isGerman = locale.value === "de";
@@ -24,7 +27,7 @@ const { data: overview } = await useAsyncData(
 );
 
 const { data: projects } = await useAsyncData(
-  "projects",
+  `project-${slug.value}-${route.path}`,
   () =>
     queryCollection(
       withoutTrailingSlash(`projects_${locale.value}`) as keyof Collections
