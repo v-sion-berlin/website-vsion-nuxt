@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     preview: {
       api: "https://api.nuxt.studio",
     },
-    experimental: { nativeSqlite: true },
+    experimental: { sqliteConnector: "native" },
   },
 
   app: {
