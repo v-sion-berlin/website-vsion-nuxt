@@ -1,5 +1,4 @@
 ---
-_path: /projects/projectzdf
 type: project
 header: ZDF Moma
 slug: projectzdf

@@ -1,5 +1,4 @@
 ---
-_path: /projects/project3sat
 type: project
 header: 3SAT
 slug: project3sat

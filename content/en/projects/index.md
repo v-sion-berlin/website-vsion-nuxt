@@ -1,5 +1,4 @@
 ---
-_path: /projects
 type: projects
 header: Projects Overview
 slug: projects
