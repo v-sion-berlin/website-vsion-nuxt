@@ -1,7 +1,7 @@
 ---
 type: projects
 header: Projects Overview
-subTitle: projects
+slug: projects
 ---
 
 ::projects-overview

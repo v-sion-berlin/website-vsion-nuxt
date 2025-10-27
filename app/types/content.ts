@@ -13,7 +13,7 @@ export interface ListItem {
 export interface Project {
   type: "project";
   header?: string;
-  subTitle?: string;
+  slug?: string;
   coverImage?: { src: string; alt: string };
 }
 

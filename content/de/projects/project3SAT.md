@@ -1,7 +1,7 @@
 ---
 type: project
 header: 3SAT
-subTitle: project3sat
+slug: project3sat
 coverImage:
   src: /images/projects/3sat_cover.png
   alt: 3SAT

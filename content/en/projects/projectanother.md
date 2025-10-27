@@ -4,7 +4,7 @@ navigation: false
 _path: /projects/projectanother
 type: project
 header: Another
-subTitle: projectanother
+slug: projectanother
 coverImage:
   src: /images/projects/test.jpg
   alt: Another

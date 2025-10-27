@@ -17,7 +17,7 @@ const { data: project } = await useAsyncData(
     queryCollection(
       withoutTrailingSlash(`projects_${locale.value}`) as keyof Collections
     )
-      .where("subTitle", "=", slug.value)
+      .where("slug", "=", slug.value)
       .first(),
   { watch: [locale, slug] }
 );

@@ -85,10 +85,10 @@
       <div class="grid" ref="gridRef">
         <div
           v-for="project in projects"
-          :key="project.subTitle"
+          :key="project.slug"
           class="project-card"
         >
-          <NuxtLink :to="localizedPath(project.subTitle!)">
+          <NuxtLink :to="localizedPath(project.slug!)">
             <img
               v-if="project.coverImage"
               :src="project.coverImage.src"
@@ -140,7 +140,7 @@ const { data: projects } = await useAsyncData(
     queryCollection(
       withoutTrailingSlash(`projects_${locale.value}`) as keyof Collections
     )
-      .where("subTitle", "<>", "projects")
+      .where("slug", "<>", "projects")
       .all()
       .then(
         (res) => res.map((p) => ({ ...p, ...(p.meta ?? {}) })) as Project[]

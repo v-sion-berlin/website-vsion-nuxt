@@ -73,14 +73,14 @@ const homePageSchema = z.object({
 const projectsOverviewSchema = z.object({
   type: z.literal("projects"),
   header: z.string().optional(),
-  subTitle: z.string().optional(),
+  slug: z.string().optional(),
 });
 
 // --- Project schema ---
 const projectSchema = z.object({
   type: z.literal("project"),
   header: z.string().optional(),
-  subTitle: z.string().optional(),
+  slug: z.string().optional(),
   projectsHeader: z.string().optional(),
   coverImage: z
     .object({

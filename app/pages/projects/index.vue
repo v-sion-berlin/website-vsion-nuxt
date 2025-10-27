@@ -29,7 +29,7 @@ const { data: projects } = await useAsyncData(
     queryCollection(
       withoutTrailingSlash(`projects_${locale.value}`) as keyof Collections
     )
-      .where("subTitle", "<>", "projects")
+      .where("slug", "<>", "projects")
       .all()
       .then(
         (res) => res.map((p) => ({ ...p, ...(p.meta ?? {}) })) as Project[]
@@ -62,12 +62,8 @@ const contactData = computed<ContactData | null>(() => {
 
   <section v-if="projects">
     <div class="grid">
-      <div
-        v-for="project in projects"
-        :key="project.subTitle"
-        class="project-card"
-      >
-        <NuxtLink :to="localizedPath(project.subTitle!)">
+      <div v-for="project in projects" :key="project.slug" class="project-card">
+        <NuxtLink :to="localizedPath(project.slug!)">
           <img
             v-if="project.coverImage"
             :src="project.coverImage.src"

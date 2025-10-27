@@ -3,7 +3,7 @@ title: Project Another
 navigation: false
 type: project
 header: Another
-subTitle: projectanother
+slug: projectanother
 coverImage:
   src: /images/projects/test.jpg
   alt: Another
