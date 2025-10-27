@@ -26,6 +26,12 @@ export default defineNuxtConfig({
     experimental: { sqliteConnector: "native" },
   },
 
+  routeRules: {
+    "/": { prerender: true },
+    "/about": { prerender: true },
+    "/projects": { prerender: true },
+  },
+
   app: {
     head: {
       title: "v-sion",
