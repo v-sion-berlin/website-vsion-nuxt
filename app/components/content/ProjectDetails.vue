@@ -134,12 +134,15 @@ function localizedPath(subTitle: string) {
 }
 
 const { data: projects } = await useAsyncData(
+  () => `projects-${locale.value}-${slug.value}`,
   () => {
     return queryCollection(`projects_${locale.value}`)
       .where("slug", "<>", "projects")
       .all();
   },
-  { watch: [locale, slug] }
+  {
+    watch: [locale, slug],
+  }
 );
 
 const sliderRef = ref<HTMLElement | null>(null);
@@ -219,8 +222,8 @@ onMounted(() => {
   z-index: 10;
   background: rgba(0, 0, 0, 0.5);
   border: none;
-  outline: 1px solid red;
-  color: white;
+  outline: 1px solid var(--color-primary);
+  color: var(--color-text);
   font-size: 2rem;
   width: 3rem;
   height: 3rem;
@@ -296,7 +299,7 @@ onMounted(() => {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  background-color: #31313180;
+  background-color: var(--color-grey-card);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   padding: 19px 32px;
@@ -304,7 +307,7 @@ onMounted(() => {
   font-weight: 500;
   cursor: pointer;
   border-radius: 16px;
-  color: white;
+  color: var(--color-text);
   font-size: clamp(16px, 2vw, 24px);
   width: max-content;
   margin: 0;
@@ -312,14 +315,14 @@ onMounted(() => {
 
 #image-slider {
   padding: 4rem clamp(0rem, 5vw, 5.625rem);
-  background-color: #000;
+  background-color: var(--color-background);
 }
 
 #image-slider .header {
   font-size: clamp(2rem, 5vw, 50px);
   font-weight: 500;
   margin-bottom: 3rem;
-  color: #fff;
+  color: var(--color-text);
 }
 
 .slider {
@@ -365,7 +368,7 @@ onMounted(() => {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  background-color: #31313180;
+  background-color: var(--color-grey-card);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   padding: 19px 32px;
@@ -373,7 +376,7 @@ onMounted(() => {
   font-weight: 500;
   cursor: pointer;
   border-radius: 16px;
-  color: white;
+  color: var(--color-text);
   font-size: clamp(16px, 2vw, 24px);
   width: max-content;
   margin: 0;
@@ -402,8 +405,8 @@ onMounted(() => {
 
 .table-header {
   align-self: flex-start;
-  background: #1a1a1a;
-  color: white;
+  background: var(--color-grey-card);
+  color: var(--color-text);
   padding: 19px 32px;
   border-radius: 1rem;
   font-size: clamp(16px, 1.5vw, 20px);
@@ -420,7 +423,7 @@ onMounted(() => {
 .table-list li {
   font-size: clamp(1.5rem, 1.5vw, 1.7rem);
   font-weight: 500;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid #222;
   padding: 1.5rem 0;
   padding-left: 2rem;
 }

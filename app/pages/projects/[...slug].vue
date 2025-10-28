@@ -14,7 +14,7 @@ const slug = computed(() => String(route.params.slug ?? ""));
 const pageId = computed(() => "project-" + route.path);
 
 const { data: project } = await useAsyncData(
-  `${pageId}-${locale.value}`,
+  `${pageId}-${locale.value}-${slug.value}`,
   () => {
     return queryCollection(`projects_${locale.value}`).path(route.path).first();
   },
