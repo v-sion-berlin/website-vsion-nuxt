@@ -95,7 +95,7 @@ section div:last-child {
 #contact-btn-copy {
   font-size: clamp(16px, 2vw, 20px);
   margin-top: 2rem;
-  border: 2px solid #ff153e;
+  border: 2px solid var(--color-primary);
   border-radius: 16px;
   background: transparent;
   color: white;
@@ -107,6 +107,6 @@ section div:last-child {
 }
 
 #contact-btn-copy:hover {
-  background: #ff153e;
+  background: var(--color-primary);
 }
 </style>

@@ -95,12 +95,12 @@ onBeforeUnmount(() => {
 }
 
 .panel {
-  background: black;
+  background: var(--color-background);
   width: min(720px, 70vw);
   border-radius: 16px;
   padding: 24px;
   position: relative;
-  outline: 1px solid #c2c2c2;
+  outline: 1px solid var(--color-grey-menu-item-hover);
 }
 
 .title {

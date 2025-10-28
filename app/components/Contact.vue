@@ -112,10 +112,10 @@ function copyEmail(source: "button" | "email") {
 
 #contact-btn-copy {
   font-size: clamp(16px, 2vw, 20px);
-  border: 2px solid #ff153e;
+  border: 2px solid var(--color-primary);
   border-radius: 16px;
   background: transparent;
-  color: white;
+  color: var(--color-text);
   padding: clamp(12px, 2vw, 16px) clamp(24px, 3vw, 32px);
   cursor: pointer;
   transition:
@@ -127,8 +127,8 @@ function copyEmail(source: "button" | "email") {
 }
 
 #contact-btn-copy:hover {
-  background: #ff153e;
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--color-text);
 }
 
 .button-container {
@@ -140,11 +140,11 @@ function copyEmail(source: "button" | "email") {
 
 .copied-msg {
   font-size: clamp(16px, 1.5vw, 20px);
-  color: white;
+  color: var(--color-text);
 }
 
 .email-copied {
-  color: #ff153e;
+  color: var(--color-primary);
 }
 
 .contact-right {
@@ -166,22 +166,22 @@ function copyEmail(source: "button" | "email") {
 .info-box-first {
   display: flex;
   flex-direction: column;
-  border: 1px solid #444;
+  border: 1px solid var(--color-grey);
   border-radius: 16px;
   padding: 24px 32px;
   font-size: 18px;
-  background-color: #31313180;
+  background-color: var(--color-grey-card);
   margin-bottom: 16px;
 }
 
 .info-box {
   display: flex;
   align-items: center;
-  border: 1px solid #444;
+  border: 1px solid var(--color-grey);
   border-radius: 16px;
   padding: 19px 24px;
   font-size: 18px;
-  background-color: #31313180;
+  background-color: var(--color-grey-card);
   cursor: pointer;
 }
 

@@ -28,7 +28,7 @@
 
 .description {
   margin-top: 2rem;
-  color: #ffffff;
+  color: var(--color-text);
   font-size: clamp(16px, 1.5vw, 32px);
   font-family: Montserrat, sans-serif;
   font-weight: 400;

@@ -23,7 +23,7 @@ const { data: overview } = await useAsyncData(
         `projects_overview_${locale.value}`
       ) as keyof Collections
     ).first(),
-  { watch: [locale] }
+  { watch: [locale, slug] }
 );
 
 const { data: projects } = await useAsyncData(
@@ -32,7 +32,7 @@ const { data: projects } = await useAsyncData(
       .where("slug", "<>", "projects")
       .all();
   },
-  { watch: [locale] }
+  { watch: [locale, slug] }
 );
 
 const { data: contactDataRaw } = await useAsyncData(
@@ -109,7 +109,7 @@ const contactData = computed<ContactData | null>(() => {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  background-color: #31313180;
+  background-color: var(--color-grey-card);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   padding: 19px 32px;

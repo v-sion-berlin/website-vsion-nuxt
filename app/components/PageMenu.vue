@@ -119,7 +119,7 @@ span {
   justify-content: space-between;
   gap: 12px;
   padding: 19px 32px;
-  background-color: #31313180;
+  background-color: var(--color-grey-card);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   font-weight: 500;
@@ -131,14 +131,14 @@ span {
 }
 
 .menu-item:hover {
-  background-color: #5552527b;
+  background-color: var(--color-grey-menu-item-hover);
 }
 
 .dropdown {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #31313180;
+  background-color: var(--color-grey-card);
   backdrop-filter: blur(8px);
   border-radius: 16px;
   margin-top: 8px;
@@ -155,6 +155,6 @@ span {
 }
 
 .dropdown-item:hover {
-  background-color: #5552527b;
+  background-color: var(--color-grey-menu-item-hover);
 }
 </style>

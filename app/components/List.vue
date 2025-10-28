@@ -120,7 +120,7 @@ const menuItems = [
 
 <style>
 .vertical-menu {
-  background-color: #000;
+  background-color: var(--color-background);
   width: 100%;
   max-width: 100%;
   margin-top: 2rem;
@@ -136,7 +136,7 @@ const menuItems = [
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  color: #fff;
+  color: var(--color-text);
   font-family: "Montserrat", sans-serif;
   font-size: clamp(20px, 4vw, 40px);
   font-weight: 500;

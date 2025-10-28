@@ -227,7 +227,7 @@ p {
   font-size: 16px;
   line-height: 26px;
   letter-spacing: 1px;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .link-wrapper {

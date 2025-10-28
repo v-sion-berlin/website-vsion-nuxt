@@ -75,7 +75,7 @@ const props = defineProps<{
   background-color: transparent;
   cursor: pointer;
   border-radius: 16px;
-  outline: 2px solid #ff153e;
+  outline: 2px solid var(--color-primary);
   width: 150px;
   height: 50px;
   transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
@@ -85,7 +85,7 @@ const props = defineProps<{
 }
 
 .watch:hover {
-  background-color: #ff153e;
+  background-color: var(--color-primary);
 }
 
 .watch:hover p {
@@ -97,7 +97,7 @@ const props = defineProps<{
   width: clamp(320px, 90vw, 1000px);
   height: clamp(200px, 50vh, 60vh);
   border-radius: 16px;
-  background-color: black;
+  background-color: var(--color-background);
   outline: none;
 }
 
@@ -119,7 +119,7 @@ const props = defineProps<{
 }
 
 .watch p {
-  color: white;
+  color: var(--color-text);
   font-weight: bold;
   font-size: clamp(16px, 2vw, 24px);
   transition:
@@ -142,7 +142,7 @@ const props = defineProps<{
   right: 12px;
   background: rgba(0, 0, 0, 0.6);
   border: none;
-  color: white;
+  color: var(--color-text);
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
@@ -159,7 +159,7 @@ const props = defineProps<{
 .video-source {
   margin-top: 8px;
   font-size: 0.8rem;
-  color: #888;
+  color: var(--color-text-secondary);
   text-align: center;
 }
 

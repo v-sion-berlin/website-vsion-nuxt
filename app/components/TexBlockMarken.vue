@@ -109,7 +109,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #31313180;
+  background-color: var(--color-grey-card);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px); /* Safari support */
   cursor: pointer;
@@ -126,10 +126,10 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: var(--color-background);
   cursor: pointer;
   border-radius: 16px;
-  outline: 2px solid #ff153e;
+  outline: 2px solid var(--color-primary);
   width: 100%;
   height: clamp(100px, 12vw, 120px);
 } */
@@ -140,6 +140,6 @@ section {
 }
 
 #logo-grid div:hover {
-  background-color: #ff153e;
+  background-color: var(--color-primary);
 }
 </style>

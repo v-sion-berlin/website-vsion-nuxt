@@ -131,12 +131,12 @@ function scrollToTop() {
   width: 14px;
   height: 14px;
   margin-left: 16px;
-  filter: drop-shadow(0 0 8px white);
+  filter: drop-shadow(0 0 8px var(--color-text));
 }
 
 .menu-item {
   display: flex;
-  background-color: #31313180;
+  background-color: var(--color-grey-card);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   padding: 19px 32px;
@@ -153,7 +153,7 @@ function scrollToTop() {
 }
 
 .menu-item:hover {
-  background-color: #5552527b;
+  background-color: var(--color-grey-menu-item-hover);
 }
 
 .glow-white {
@@ -162,7 +162,7 @@ function scrollToTop() {
 }
 
 .glow-red {
-  filter: drop-shadow(0 0 8px #ff153e);
+  filter: drop-shadow(0 0 8px var(--color-primary));
 }
 
 #logo-vsion {

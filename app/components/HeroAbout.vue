@@ -83,7 +83,7 @@ const props = defineProps<{
 }
 
 h1 {
-  color: #ffffff;
+  color: var(--color-text);
   font-size: clamp(32px, 6vw, 124px);
   font-family: Montserrat, sans-serif;
   font-weight: 500;
@@ -94,7 +94,7 @@ h1 {
 }
 
 h2 {
-  color: #ffffff;
+  color: var(--color-text);
   font-size: clamp(16px, 4vw, 100px);
   font-family: Montserrat, sans-serif;
   font-weight: 500;
@@ -104,7 +104,7 @@ h2 {
 }
 
 h3 {
-  color: #ffffff;
+  color: var(--color-text);
   font-size: clamp(16px, 2vw, 48px);
   font-family: Montserrat, sans-serif;
   font-weight: 500;
@@ -127,7 +127,7 @@ p {
 }
 
 .card {
-  background-color: #31313180;
+  background-color: var(--color-grey-card);
   backdrop-filter: blur(8px);
   border-radius: 16px;
   padding: 48px;
