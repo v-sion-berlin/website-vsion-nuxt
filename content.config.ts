@@ -193,16 +193,16 @@ export default defineContentConfig({
       source: { include: "en/index.md", prefix: "/" },
       schema: homePageSchema,
     }),
-    about_en: defineCollection({
-      type: "page",
-      source: { include: "en/about.md", prefix: "/" },
-      schema: aboutPageSchema,
-    }),
-
     home_de: defineCollection({
       type: "page",
       source: { include: "de/index.md", prefix: "/" },
       schema: homePageSchema,
+    }),
+
+    about_en: defineCollection({
+      type: "page",
+      source: { include: "en/about.md", prefix: "/" },
+      schema: aboutPageSchema,
     }),
     about_de: defineCollection({
       type: "page",
@@ -223,13 +223,13 @@ export default defineContentConfig({
 
     projects_overview_en: defineCollection({
       type: "page",
-      source: { include: "en/projects/index.md" },
+      source: { include: "en/projects/index.md", prefix: "/" },
       schema: projectsOverviewSchema,
     }),
 
     projects_overview_de: defineCollection({
       type: "page",
-      source: { include: "de/projects/index.md" },
+      source: { include: "de/projects/index.md", prefix: "/" },
       schema: projectsOverviewSchema,
     }),
 

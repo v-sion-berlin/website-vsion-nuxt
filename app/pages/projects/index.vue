@@ -16,23 +16,23 @@ function localizedPath(subTitle: string) {
 }
 
 const { data: overview } = await useAsyncData(
-  "projects-overview",
-  () =>
-    queryCollection(
-      withoutTrailingSlash(
-        `projects_overview_${locale.value}`
-      ) as keyof Collections
-    ).first(),
+  `projects-overview-${locale.value}`,
+  () => {
+    return queryCollection(`projects_overview_${locale.value}`).first();
+  },
   { watch: [locale, slug] }
 );
 
 const { data: projects } = await useAsyncData(
+  () => `projects-${locale.value}-${slug.value}`,
   () => {
     return queryCollection(`projects_${locale.value}`)
       .where("slug", "<>", "projects")
       .all();
   },
-  { watch: [locale, slug] }
+  {
+    watch: [locale, slug],
+  }
 );
 
 const { data: contactDataRaw } = await useAsyncData(
