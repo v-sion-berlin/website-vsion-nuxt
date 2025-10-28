@@ -181,10 +181,22 @@ const contactSchema = z.object({
   }),
 });
 
-// const pageSchema = z.discriminatedUnion("type", [
-//   homePageSchema,
-//   aboutPageSchema,
-// ]);
+// --- Services Page ---
+const servicesPageSchema = z.object({
+  type: z.literal("services"),
+  header: z.string().optional(),
+  heroImage: z
+    .object({
+      src: property(z.string()).editor({ input: "media" }),
+      alt: z.string(),
+    })
+    .optional(),
+  menu: z
+    .object({
+      items: z.array(z.string()).optional(),
+    })
+    .optional(),
+});
 
 export default defineContentConfig({
   collections: {
@@ -197,6 +209,17 @@ export default defineContentConfig({
       type: "page",
       source: { include: "de/index.md", prefix: "/" },
       schema: homePageSchema,
+    }),
+
+    services_en: defineCollection({
+      type: "page",
+      source: { include: "en/services.md", prefix: "/" },
+      schema: servicesPageSchema,
+    }),
+    services_de: defineCollection({
+      type: "page",
+      source: { include: "de/services.md", prefix: "/" },
+      schema: servicesPageSchema,
     }),
 
     about_en: defineCollection({
