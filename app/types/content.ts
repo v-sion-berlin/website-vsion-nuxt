@@ -178,3 +178,9 @@ export interface AboutPage {
   addressZDF?: Address;
   courtInfo?: CourtInfo;
 }
+
+export interface ServicesPage {
+  type: "services";
+  header?: string;
+  heroImage?: Media;
+}
