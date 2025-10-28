@@ -461,6 +461,8 @@ onMounted(() => {
   left: 100%;
   width: clamp(400px, 50vw, 764px);
   z-index: -200;
+  transform: translate(-40%, 0%);
+  filter: blur(20px);
 }
 
 .img {
@@ -468,10 +470,5 @@ onMounted(() => {
   position: absolute;
   left: 100%;
   width: clamp(80px, 10vw, 137px);
-}
-.blur-img {
-  transform: translate(-40%, 0%);
-  z-index: -150;
-  filter: blur(20px);
 }
 </style>

@@ -17,5 +17,7 @@
 #text-container {
   padding: 0 clamp(1rem, 12vw, 200px) clamp(2rem, 5vw, 4rem)
     clamp(1rem, 12vw, 200px);
+  z-index: 200;
+  position: relative;
 }
 </style>

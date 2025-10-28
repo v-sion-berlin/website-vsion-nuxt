@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import type { HomePage, AboutPage, ContactData } from "~/types/content";
+import type {
+  HomePage,
+  AboutPage,
+  ContactData,
+  ServicesPage,
+} from "~/types/content";
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { queryCollection } from "#imports";
@@ -39,10 +44,18 @@ const { data: contactDataRaw } = await useAsyncData(
   { watch: [locale] }
 );
 
-const page = computed<HomePage | AboutPage | null>(() => {
+const page = computed<HomePage | AboutPage | ServicesPage | null>(() => {
   if (!rawPage.value) return null;
   return { ...(rawPage.value.meta ?? {}), ...(rawPage.value as any) };
 });
+
+const { data: services } = await useAsyncData(
+  `services-${locale.value}`,
+  () => {
+    return queryCollection(`services_${locale.value}`).first();
+  },
+  { watch: [locale, slug] }
+);
 
 const contactData = computed<ContactData | null>(() => {
   if (!contactDataRaw.value) return null;
@@ -56,6 +69,10 @@ const contactData = computed<ContactData | null>(() => {
 <template>
   <HeroAbout v-if="page?.type === 'about'" :page="page as AboutPage" />
   <Home v-else-if="page?.type === 'home'" :page="page as HomePage" />
+
+  <article v-else-if="services">
+    <ContentRenderer :value="services" />
+  </article>
 
   <div v-else-if="!page">
     <h1>Page not found</h1>
