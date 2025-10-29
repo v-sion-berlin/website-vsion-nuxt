@@ -19,6 +19,7 @@
       </div>
     </div>
   </section>
+
   <section id="table">
     <div class="table-col" v-if="tableDetails?.tasks?.length">
       <div class="table-header">{{ tableDetails.header.firstCol }}</div>
@@ -37,19 +38,19 @@
     </div>
   </section>
 
-  <section id="image-slider" v-if="sliderImages?.length">
+  <section id="projects" v-if="sliderImages?.length">
     <div class="header">{{ sliderHeader }}</div>
 
     <div class="scroll-wrapper">
       <button
         class="scroll-arrow left"
         v-show="showLeftSliderArrow"
-        @click="scrollLeft('.slider')"
+        @click="scrollLeft()"
       >
         <div class="arrow"><</div>
       </button>
 
-      <div class="slider" ref="sliderRef">
+      <div class="grid" ref="sliderRef">
         <div
           v-for="(slide, index) in sliderImages"
           :key="index"
@@ -63,7 +64,7 @@
       <button
         class="scroll-arrow right"
         v-show="showRightSliderArrow"
-        @click="scrollRight('.slider')"
+        @click="scrollRight()"
       >
         <div class="arrow">></div>
       </button>
@@ -77,7 +78,7 @@
       <button
         class="scroll-arrow left"
         v-show="showLeftProjectArrow"
-        @click="scrollLeft('.grid')"
+        @click="scrollLeftGrid()"
       >
         <div class="arrow"><</div>
       </button>
@@ -102,7 +103,7 @@
       <button
         class="scroll-arrow right"
         v-show="showRightProjectArrow"
-        @click="scrollRight('.grid')"
+        @click="scrollRightGrid()"
       >
         <div class="arrow">></div>
       </button>
@@ -145,198 +146,27 @@ const { data: projects } = await useAsyncData(
   }
 );
 
-const sliderRef = ref<HTMLElement | null>(null);
-const gridRef = ref<HTMLElement | null>(null);
+const {
+  sliderRef,
+  showLeftSliderArrow,
+  showRightSliderArrow,
+  scrollLeft,
+  scrollRight,
+} = useHorizontalSlider();
 
-const showLeftSliderArrow = ref(false);
-const showRightSliderArrow = ref(false);
-const showLeftProjectArrow = ref(false);
-const showRightProjectArrow = ref(false);
-
-function updateArrowVisibility(
-  container: HTMLElement,
-  leftRef: any,
-  rightRef: any
-) {
-  leftRef.value = container.scrollLeft > 10;
-  rightRef.value =
-    container.scrollLeft + container.clientWidth < container.scrollWidth - 10;
-}
-
-function scrollLeft(selector: string) {
-  const el = document.querySelector(selector);
-  if (el) el.scrollBy({ left: -300, behavior: "smooth" });
-}
-
-function scrollRight(selector: string) {
-  const el = document.querySelector(selector);
-  if (el) el.scrollBy({ left: 300, behavior: "smooth" });
-}
-
-onMounted(() => {
-  const update = () => {
-    if (sliderRef.value)
-      updateArrowVisibility(
-        sliderRef.value,
-        showLeftSliderArrow,
-        showRightSliderArrow
-      );
-    if (gridRef.value)
-      updateArrowVisibility(
-        gridRef.value,
-        showLeftProjectArrow,
-        showRightProjectArrow
-      );
-  };
-
-  const handleScroll = (e: Event) => update();
-  const handleResize = () => update();
-
-  sliderRef.value?.addEventListener("scroll", handleScroll);
-  gridRef.value?.addEventListener("scroll", handleScroll);
-  window.addEventListener("resize", handleResize);
-
-  update();
-  onBeforeUnmount(() => {
-    sliderRef.value?.removeEventListener("scroll", handleScroll);
-    gridRef.value?.removeEventListener("scroll", handleScroll);
-    window.removeEventListener("resize", handleResize);
-  });
-});
+const {
+  sliderRef: gridRef,
+  showLeftSliderArrow: showLeftProjectArrow,
+  showRightSliderArrow: showRightProjectArrow,
+  scrollLeft: scrollLeftGrid,
+  scrollRight: scrollRightGrid,
+} = useHorizontalSlider();
 </script>
 
 <style scoped>
-.arrow {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
-.scroll-wrapper {
-  position: relative;
-}
-
-.scroll-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  background: rgba(0, 0, 0, 0.5);
-  border: none;
-  outline: 1px solid var(--color-primary);
-  color: var(--color-text);
-  font-size: 2rem;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.scroll-arrow:hover {
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.scroll-arrow.left {
-  left: 0.5rem;
-}
-
-.scroll-arrow.right {
-  right: 0.5rem;
-}
-
-#projects {
-  padding: 4rem clamp(0rem, 5vw, 5.625rem) 0 clamp(0rem, 5vw, 5.625rem);
-}
-
-#projects .header {
-  font-size: clamp(2rem, 5vw, 50px);
-  font-weight: 500;
-  margin-top: 0;
-  margin-bottom: 3rem;
-}
-
 .grid {
-  display: flex;
-  gap: 2rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none; /* hide scrollbar firefox */
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  margin-bottom: 7rem;
-}
-
-.grid::-webkit-scrollbar {
-  display: none; /* hide scrollbar chrome/safari */
-}
-
-.project-card {
-  flex: 0 0 320px;
-  aspect-ratio: 16/10;
-  border-radius: 1rem;
-  overflow: hidden;
-  position: relative;
-  scroll-snap-align: start;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.project-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: brightness(0.8);
-  transition: filter 0.3s ease;
-}
-
-.project-card:hover img {
-  filter: brightness(1);
-}
-
-.project-card h2 {
-  display: flex;
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  background-color: var(--color-grey-card);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 19px 32px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 16px;
-  color: var(--color-text);
-  font-size: clamp(16px, 2vw, 24px);
-  width: max-content;
-  margin: 0;
-}
-
-#image-slider {
-  padding: 4rem clamp(0rem, 5vw, 5.625rem);
-  background-color: var(--color-background);
-}
-
-#image-slider .header {
-  font-size: clamp(2rem, 5vw, 50px);
-  font-weight: 500;
-  margin-bottom: 3rem;
-  color: var(--color-text);
-}
-
-.slider {
-  display: flex;
-  gap: 2rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-.slider::-webkit-scrollbar {
-  display: none;
+  margin-bottom: 5rem;
+  margin-top: 5rem;
 }
 
 .slide-card {
