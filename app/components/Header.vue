@@ -192,7 +192,7 @@ function scrollToTop() {
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
   display: none;
-  z-index: 199;
+  z-index: 900;
   transition: opacity 0.3s;
 }
 .mobile-overlay.active {
@@ -227,7 +227,7 @@ function scrollToTop() {
   gap: 12px;
   padding: 32px 16px;
   transition: right 0.3s ease-in-out;
-  z-index: 200;
+  z-index: 1000;
 }
 .mobile-drawer.open {
   right: 0;
