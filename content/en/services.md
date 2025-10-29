@@ -7,14 +7,14 @@ heroImage:
   alt: Hero image showing Berlin skyline
 menu:
   items:
-    - Studio & Videowalls
-    - News
-    - Sport
     - Code & Control
     - Interaction
     - Operations
-    - Storytelling
+    - Sport
+    - News
+    - Studio & Videowalls
     - Infographics
+    - Storytelling
 ---
 
 ::projects-overview
@@ -35,54 +35,10 @@ As a design studio and technical developer, we realize live broadcasts based on 
 ---
 ::
 
+
 ::text-block
 ---
 :block-index: 0
-:show-projects: true
----
-#header
-Studio & Videowalls
-
-#subHeader
-Connected technology for interactive live shows
-
-#body
-From international broadcasters to local stations: our clients are as diverse as our services. They challenge us - and we deliver results that excite.
-::
-
-::text-block
----
-:block-index: 1
-:show-projects: true
----
-#header
-News
-
-#subHeader
-Clear design for informative news
-
-#body
-We design clear, structured graphics that present complex news content in a way that is both understandable and visually engaging.
-::
-
-::text-block
----
-:block-index: 2
-:show-projects: true
----
-#header
-Sport
-
-#subHeader
-Interactive studio graphics in real time
-
-#body
-We design clear, structured graphics that present complex news content in a way that is both understandable and visually engaging.
-::
-
-::text-block
----
-:block-index: 3
 :show-projects: true
 ---
 #header
@@ -97,7 +53,7 @@ Our custom control systems ensure smooth workflows and enable precise control of
 
 ::text-block
 ---
-:block-index: 4
+:block-index: 1
 :show-projects: true
 ---
 #header
@@ -110,9 +66,10 @@ Maximum freedom for presenters
 We provide intuitive solutions that give on-air talent the greatest possible creative freedom in live broadcasting.
 ::
 
+
 ::text-block
 ---
-:block-index: 5
+:block-index: 2
 :show-projects: true
 ---
 #header
@@ -125,24 +82,58 @@ Broadcast operations - fast, flexible, secure
 We take responsibility - from setup all the way to the livestream - and ensure everything runs perfectly. Even when speed matters most.
 ::
 
+
 ::text-block
 ---
-:block-index: 6
+:block-index: 3
 :show-projects: true
 ---
 #header
-Storytelling
+Sport
 
 #subHeader
-Creative narratives, powerfully staged
+Interactive studio graphics in real time
 
 #body
-People think in stories. We understand dramaturgy and stage content in a way that stays in mind and resonates.
+We design clear, structured graphics that present complex news content in a way that is both understandable and visually engaging.
 ::
+
 
 ::text-block
 ---
-:block-index: 7
+:block-index: 4
+:show-projects: true
+---
+#header
+News
+
+#subHeader
+Clear design for informative news
+
+#body
+We design clear, structured graphics that present complex news content in a way that is both understandable and visually engaging.
+::
+
+
+::text-block
+---
+:block-index: 5
+:show-projects: true
+---
+#header
+Studio & Videowalls
+
+#subHeader
+Connected technology for interactive live shows
+
+#body
+From international broadcasters to local stations: our clients are as diverse as our services. They challenge us - and we deliver results that excite.
+::
+
+
+::text-block
+---
+:block-index: 6
 :show-projects: true
 ---
 #header
@@ -153,4 +144,20 @@ Complex data, visually on point
 
 #body
 Where information meets design: data becomes a story that you can understand at a glance.
+::
+
+
+::text-block
+---
+:block-index: 7
+:show-projects: true
+---
+#header
+Storytelling
+
+#subHeader
+Creative narratives, powerfully staged
+
+#body
+People think in stories. We understand dramaturgy and stage content in a way that stays in mind and resonates.
 ::
