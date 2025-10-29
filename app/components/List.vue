@@ -2,27 +2,33 @@
   <nav class="vertical-menu">
     <ul>
       <li
-        v-for="item in menuItems"
+        v-for="(item, i) in menuItems"
         :key="item.key"
         :data-text="item.i18nKey"
         :class="{ active: activeItem === item.key }"
         v-on="!canHover ? { click: () => toggleItem(item.key) } : {}"
         :style="`--bg-color: ${item.color}`"
       >
-        <span>{{ item.label }}</span>
+        <NuxtLink
+          :to="localizedPath()"
+          class="menu-link"
+          @click.prevent="setActive(i)"
+        >
+          <span>{{ item.label }}</span>
 
-        <div class="marquee">
-          <div class="marquee__inner">
-            <span v-for="i in repeatCount" :key="`${item.key}-a-${i}`">
-              {{ item.i18nKey }}
-              <img :src="Arrow" alt="→" />
-            </span>
-            <span v-for="i in repeatCount" :key="`${item.key}-b-${i}`">
-              {{ item.i18nKey }}
-              <img :src="Arrow" alt="→" />
-            </span>
+          <div class="marquee">
+            <div class="marquee__inner">
+              <span v-for="i in repeatCount" :key="`${item.key}-a-${i}`">
+                {{ item.i18nKey }}
+                <img :src="Arrow" alt="→" />
+              </span>
+              <span v-for="i in repeatCount" :key="`${item.key}-b-${i}`">
+                {{ item.i18nKey }}
+                <img :src="Arrow" alt="→" />
+              </span>
+            </div>
           </div>
-        </div>
+        </NuxtLink>
       </li>
     </ul>
   </nav>
@@ -31,6 +37,7 @@
 <script setup lang="ts">
 import Arrow from "~/assets/Arrow.svg";
 import { onBeforeUnmount, onMounted, ref } from "vue";
+const { locale } = useI18n();
 
 interface ListItem {
   title: string;
@@ -44,6 +51,15 @@ const props = defineProps<{
 const activeItem = ref<string | null>(null);
 const repeatCount = 10;
 const canHover = ref(false);
+const { activeIndex } = useServicesMenu();
+
+function setActive(index: number) {
+  activeIndex.value = index;
+}
+
+function localizedPath() {
+  return locale.value === "de" ? "/de/services" : "/services";
+}
 
 function toggleItem(key: string) {
   if (canHover) return;
@@ -132,6 +148,23 @@ const menuItems = [
   list-style: none;
 }
 
+.vertical-menu li .menu-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+
+.vertical-menu li .menu-link {
+  pointer-events: none;
+}
+
+.vertical-menu li .menu-link > * {
+  pointer-events: auto;
+}
+
 .vertical-menu li {
   position: relative;
   overflow: hidden;
@@ -178,10 +211,9 @@ const menuItems = [
 .vertical-menu .marquee {
   position: absolute;
   top: 50%;
-  left: 0;
+  left: -10%;
   display: flex;
   width: max-content;
-  min-width: 200%;
   white-space: nowrap;
   gap: 2rem;
   transform: translateY(120%);
@@ -200,6 +232,7 @@ const menuItems = [
   will-change: transform;
   backface-visibility: hidden;
   transform: translateZ(0);
+  width: max-content;
 }
 
 .vertical-menu .marquee span {
@@ -224,32 +257,32 @@ const menuItems = [
 }
 
 /* Hover states */
-.vertical-menu li:hover .marquee {
+.vertical-menu li:hover .menu-link .marquee {
   opacity: 1;
   transform: translateY(-50%);
 }
 
-.vertical-menu li:hover > span {
+.vertical-menu li:hover .menu-link > span {
   transform: translateY(-120%);
   opacity: 0;
 }
 /* safari */
-.vertical-menu li.active .marquee {
+.vertical-menu li.active .menu-link .marquee {
   opacity: 1;
   transform: translateY(-50%);
 }
 
-.vertical-menu li.active > span {
+.vertical-menu li.active .menu-link > span {
   transform: translateY(-120%);
   opacity: 0;
 }
 
 @keyframes marquee {
   0% {
-    transform: translate3d(0, 0, 0);
+    transform: translateX(0);
   }
   100% {
-    transform: translate3d(-50%, 0, 0);
+    transform: translateX(-50%);
   }
 }
 </style>
