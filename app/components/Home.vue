@@ -34,6 +34,7 @@ const props = defineProps<{
     :page="{
       textblock_marken_header: page.textblocks.marken.header,
       textblock_marken_body: page.textblocks.marken.body_text,
+      textblock_marken_button: page.textblocks.marken.button,
     }"
   />
   <TexBlockAnspruch
