@@ -92,7 +92,8 @@ function copyEmail(source: "button" | "email") {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: clamp(2rem, 5vw, 6rem);
-  padding: clamp(3rem, 5vw, 5rem);
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 10vw, 19.125rem)
+    clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5.625rem);
   background-color: #000;
   color: #fff;
   position: relative;
