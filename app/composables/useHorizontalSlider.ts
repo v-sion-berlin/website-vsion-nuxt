@@ -1,4 +1,4 @@
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, watch, nextTick } from "vue";
 
 export function useHorizontalSlider() {
   const sliderRef = ref<HTMLElement | null>(null);
@@ -6,45 +6,54 @@ export function useHorizontalSlider() {
   const showLeftSliderArrow = ref(false);
   const showRightSliderArrow = ref(false);
 
-  const updateArrowVisibility = () => {
+  const handleScroll = () => updateArrowVisibility();
+  const handleResize = () => updateArrowVisibility();
+
+  function updateArrowVisibility() {
     const slider = sliderRef.value;
     if (!slider) return;
 
     showLeftSliderArrow.value = slider.scrollLeft > 10;
     showRightSliderArrow.value =
       slider.scrollLeft + slider.clientWidth < slider.scrollWidth - 10;
-  };
+  }
 
-  const scrollLeft = (amount = 300) => {
-    sliderRef.value?.scrollBy({ left: -amount, behavior: "smooth" });
-  };
+  function init() {
+    const slider = sliderRef.value;
+    if (!slider) return;
 
-  const scrollRight = (amount = 300) => {
-    sliderRef.value?.scrollBy({ left: amount, behavior: "smooth" });
-  };
+    slider.removeEventListener("scroll", handleScroll);
+    slider.addEventListener("scroll", handleScroll);
 
-  onMounted(() => {
-    if (!sliderRef.value) return;
-
-    const handleScroll = () => updateArrowVisibility();
-    const handleResize = () => updateArrowVisibility();
-
-    sliderRef.value.addEventListener("scroll", handleScroll);
+    window.removeEventListener("resize", handleResize);
     window.addEventListener("resize", handleResize);
 
     updateArrowVisibility();
+  }
 
-    onBeforeUnmount(() => {
-      sliderRef.value?.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
-    });
+  onMounted(() => {
+    init();
+  });
+
+  onUpdated(() => {
+    init();
+  });
+
+  onBeforeUnmount(() => {
+    const slider = sliderRef.value;
+    if (!slider) return;
+
+    slider.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("resize", handleResize);
   });
 
   return {
     sliderRef,
     showLeftSliderArrow,
     showRightSliderArrow,
-    scrollLeft,
-    scrollRight,
+    scrollLeft: (amount = 300) =>
+      sliderRef.value?.scrollBy({ left: -amount, behavior: "smooth" }),
+    scrollRight: (amount = 300) =>
+      sliderRef.value?.scrollBy({ left: amount, behavior: "smooth" }),
   };
 }
