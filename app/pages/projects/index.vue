@@ -3,7 +3,7 @@ import { queryCollection } from "#imports";
 import { useI18n } from "vue-i18n";
 import { withoutTrailingSlash } from "ufo";
 import type { Collections } from "@nuxt/content";
-import type { ContactData, Project } from "~/types/content";
+import type { ContactData } from "~/types/content";
 
 const { locale } = useI18n();
 const route = useRoute();
