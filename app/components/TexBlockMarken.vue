@@ -48,9 +48,11 @@
         <div>
           <img :src="SVT" alt="SVT" />
         </div>
-        <!-- <div>
-          <p>{{ t("textblock_marken_button") }}</p>
-        </div> -->
+        <div>
+          <NuxtLink :to="localizedPath()" class="menu-link">
+            <p>{{ page.textblock_marken_button }}</p>
+          </NuxtLink>
+        </div>
       </section>
     </main>
   </div>
@@ -70,19 +72,30 @@ import KABEL1 from "~/assets/KABEL1.svg";
 import NTV from "~/assets/NTV.svg";
 import PRO7 from "~/assets/PRO7.svg";
 import RTL from "~/assets/RTL.svg";
+const { locale } = useI18n();
 
 interface Marken {
   textblock_marken_header: string;
   textblock_marken_body: string;
+  textblock_marken_button: string;
 }
 const props = defineProps<{
   page: Marken;
 }>();
+
+function localizedPath() {
+  const isGerman = locale.value === "de";
+  return isGerman ? `/de/projects/` : `/projects/`;
+}
 </script>
 
 <style scoped>
 section {
   margin-top: clamp(2rem, 8vw, 9rem);
+}
+
+.menu-link {
+  color: inherit;
 }
 
 #logo-grid {
@@ -122,7 +135,7 @@ section {
     transform 0.3s ease;
 }
 
-/* #logo-grid div:last-child {
+#logo-grid div:last-child {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -132,7 +145,7 @@ section {
   outline: 2px solid var(--color-primary);
   width: 100%;
   height: clamp(100px, 12vw, 120px);
-} */
+}
 
 #logo-grid div:hover img {
   opacity: 1;
