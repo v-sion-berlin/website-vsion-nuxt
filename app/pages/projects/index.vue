@@ -59,7 +59,7 @@ const contactData = computed<ContactData | null>(() => {
   </div>
 
   <section v-if="projects">
-    <div class="grid">
+    <div class="grid-overview">
       <div v-for="project in projects" :key="project.slug" class="project-card">
         <NuxtLink :to="localizedPath(project.slug!)">
           <img
@@ -76,50 +76,18 @@ const contactData = computed<ContactData | null>(() => {
 </template>
 
 <style scoped>
-.grid {
+.grid-overview {
   display: grid;
   grid-template-columns: repeat(auto-fill, 400px);
   gap: 2rem;
   padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 10vw, 19.125rem)
     clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5.625rem);
-}
-
-.project-card {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
+  justify-content: center;
+  justify-items: center;
 }
 
 .project-card img {
   width: 400px;
   height: 300px;
-  border-radius: 16px;
-  display: block;
-  object-fit: cover;
-  filter: brightness(0.8);
-  transition: filter 0.3s ease;
-}
-
-.project-card:hover img {
-  filter: brightness(1);
-}
-
-.project-card h2 {
-  display: flex;
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  background-color: var(--color-grey-card);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 19px 32px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 16px;
-  color: white;
-  font-size: clamp(16px, 2vw, 24px);
-  width: max-content;
-  margin: 0;
 }
 </style>
