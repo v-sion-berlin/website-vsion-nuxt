@@ -30,7 +30,6 @@ const props = defineProps<{
   margin-top: clamp(-10rem, -15vw, -6rem);
   height: 50vw;
   position: relative;
-  right: -6%;
 }
 
 img {
