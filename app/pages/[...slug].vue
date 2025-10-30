@@ -57,6 +57,19 @@ const { data: services } = await useAsyncData(
   { watch: [locale, slug] }
 );
 
+const { data: career } = await useAsyncData(
+  `career-${locale.value}`,
+  () => {
+    return queryCollection(`career_${locale.value}`).first();
+  },
+  { watch: [locale, slug] }
+);
+
+const careerTransformed = computed<any>(() => {
+  if (!career.value) return null;
+  return { ...(career.value.meta ?? {}), ...(career.value as any) };
+});
+
 const contactData = computed<ContactData | null>(() => {
   if (!contactDataRaw.value) return null;
   return {
@@ -70,8 +83,12 @@ const contactData = computed<ContactData | null>(() => {
   <HeroAbout v-if="page?.type === 'about'" :page="page as AboutPage" />
   <Home v-else-if="page?.type === 'home'" :page="page as HomePage" />
 
-  <article v-else-if="services">
+  <article v-else-if="services && route.path.includes('services')">
     <ContentRenderer :value="services" />
+  </article>
+
+  <article v-else-if="career && route.path.includes('career')">
+    <ContentRenderer :value="careerTransformed" />
   </article>
 
   <div v-else-if="!page">
