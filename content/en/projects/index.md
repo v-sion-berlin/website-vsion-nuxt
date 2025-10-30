@@ -5,7 +5,7 @@ header: Projects Overview
 slug: projects
 ---
 
-::projects-overview
+::title-block
 Whether local broadcaster or international livestream - we make safe and successful broadcasts
 ::
 

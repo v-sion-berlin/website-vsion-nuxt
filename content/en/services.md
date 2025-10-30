@@ -17,9 +17,10 @@ menu:
     - Storytelling
 ---
 
-::projects-overview
+::title-block
 ---
 :image-src: heroImage
+:image-pos: tr
 ---
 We analyze, advise, plan, design, conceptualize, optimize, and deliver
 ::
