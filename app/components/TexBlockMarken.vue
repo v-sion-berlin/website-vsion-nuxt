@@ -48,11 +48,11 @@
         <div>
           <img :src="SVT" alt="SVT" />
         </div>
-        <div>
-          <NuxtLink :to="localizedPath()" class="menu-link">
+        <NuxtLink :to="localizedPath()" class="menu-link">
+          <div>
             <p>{{ page.textblock_marken_button }}</p>
-          </NuxtLink>
-        </div>
+          </div>
+        </NuxtLink>
       </section>
     </main>
   </div>
@@ -118,7 +118,7 @@ section {
     opacity 0.3s ease;
 }
 
-#logo-grid div {
+#logo-grid > div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,7 +135,7 @@ section {
     transform 0.3s ease;
 }
 
-#logo-grid div:last-child {
+#logo-grid .menu-link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,6 +145,7 @@ section {
   outline: 2px solid var(--color-primary);
   width: 100%;
   height: clamp(100px, 12vw, 120px);
+  transition: background 0.3s ease;
 }
 
 #logo-grid div:hover img {
@@ -152,7 +153,8 @@ section {
   transform: scale(1.2);
 }
 
-#logo-grid div:hover {
+#logo-grid div:hover,
+#logo-grid .menu-link:hover {
   background-color: var(--color-primary);
 }
 </style>
