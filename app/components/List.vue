@@ -4,7 +4,7 @@
       <li
         v-for="(item, i) in menuItems"
         :key="item.key"
-        :data-text="item.i18nKey"
+        :data-text="item.dataText"
         :class="{ active: activeItem === item.key }"
         v-on="!canHover ? { click: () => toggleItem(item.key) } : {}"
         :style="`--bg-color: ${item.color}`"
@@ -19,11 +19,11 @@
           <div class="marquee">
             <div class="marquee__inner">
               <span v-for="i in repeatCount" :key="`${item.key}-a-${i}`">
-                {{ item.i18nKey }}
+                {{ item.dataText }}
                 <img :src="Arrow" alt="→" />
               </span>
               <span v-for="i in repeatCount" :key="`${item.key}-b-${i}`">
-                {{ item.i18nKey }}
+                {{ item.dataText }}
                 <img :src="Arrow" alt="→" />
               </span>
             </div>
@@ -85,49 +85,49 @@ onBeforeUnmount(() => {
 const menuItems = [
   {
     key: "code",
-    i18nKey: props.page.code?.title,
+    dataText: props.page.code?.title,
     label: "Code & Control",
     color: props.page.code?.color,
   },
   {
     key: "interaction",
-    i18nKey: props.page.interaction?.title,
+    dataText: props.page.interaction?.title,
     label: "Interaction",
     color: props.page.interaction?.color,
   },
   {
     key: "operations",
-    i18nKey: props.page.operations?.title,
+    dataText: props.page.operations?.title,
     label: "Operations",
     color: props.page.operations?.color,
   },
   {
     key: "sport",
-    i18nKey: props.page.sport?.title,
+    dataText: props.page.sport?.title,
     label: "Sport",
     color: props.page.sport?.color,
   },
   {
     key: "news",
-    i18nKey: props.page.news?.title,
+    dataText: props.page.news?.title,
     label: "News",
     color: props.page.news?.color,
   },
   {
     key: "studio",
-    i18nKey: props.page.studio?.title,
+    dataText: props.page.studio?.title,
     label: "Studio & Videowalls",
     color: props.page.studio?.color,
   },
   {
     key: "infographics",
-    i18nKey: props.page.infographics?.title,
+    dataText: props.page.infographics?.title,
     label: "Infographics",
     color: props.page.infographics?.color,
   },
   {
     key: "storytelling",
-    i18nKey: props.page.storytelling?.title,
+    dataText: props.page.storytelling?.title,
     label: "Storytelling",
     color: props.page.storytelling?.color,
   },
