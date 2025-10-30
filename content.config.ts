@@ -196,6 +196,38 @@ const servicesPageSchema = z.object({
       items: z.array(z.string()).optional(),
     })
     .optional(),
+  smallCards: z
+    .array(
+      z.object({
+        header: z.string(),
+        body: z.string(),
+      })
+    )
+    .optional(),
+});
+
+// --- Career Page ---
+const careerPageSchema = z.object({
+  type: z.literal("career"),
+  header: z.string().optional(),
+  heroImage: z
+    .object({
+      src: property(z.string()).editor({ input: "media" }),
+      alt: z.string(),
+    })
+    .optional(),
+  careerImage1: z
+    .object({
+      src: property(z.string()).editor({ input: "media" }),
+      alt: z.string(),
+    })
+    .optional(),
+  careerImage2: z
+    .object({
+      src: property(z.string()).editor({ input: "media" }),
+      alt: z.string(),
+    })
+    .optional(),
 });
 
 export default defineContentConfig({
@@ -242,6 +274,18 @@ export default defineContentConfig({
       type: "data",
       source: { include: "de/contact.md", prefix: "/" },
       schema: contactSchema,
+    }),
+
+    career_en: defineCollection({
+      type: "page",
+      source: { include: "en/career.md", prefix: "/" },
+      schema: careerPageSchema,
+    }),
+
+    career_de: defineCollection({
+      type: "page",
+      source: { include: "de/career.md", prefix: "/" },
+      schema: careerPageSchema,
     }),
 
     projects_overview_en: defineCollection({
