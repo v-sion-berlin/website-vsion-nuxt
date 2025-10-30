@@ -16,7 +16,7 @@ menu:
     - Storytelling
 ---
 
-::projects-overview
+::title-block
 ---
 :image-src: heroImage
 ---

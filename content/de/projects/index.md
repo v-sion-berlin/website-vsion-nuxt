@@ -4,7 +4,7 @@ header: Projects Overview
 slug: projects
 ---
 
-::projects-overview
+::title-block
 Ob Lokalsender oder internationaler Livestream - wir machen sichere und erfolgreiche Sendungen
 ::
 
