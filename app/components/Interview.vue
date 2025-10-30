@@ -78,7 +78,12 @@ const props = defineProps<{
   outline: 2px solid var(--color-primary);
   width: 150px;
   height: 50px;
-  transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  transition:
+    background-color 0.3s ease,
+    width 0.5s cubic-bezier(0.65, 0, 0.35, 1),
+    height 0.5s cubic-bezier(0.65, 0, 0.35, 1),
+    outline 0.5s cubic-bezier(0.65, 0, 0.35, 1),
+    border-radius 0.5s cubic-bezier(0.65, 0, 0.35, 1);
   position: relative;
   overflow: hidden;
   margin-top: 32px;
@@ -86,11 +91,6 @@ const props = defineProps<{
 
 .watch:hover {
   background-color: var(--color-primary);
-}
-
-.watch:hover p {
-  opacity: 0.7;
-  transform: scale(0.95);
 }
 
 .watch.expanded {
@@ -153,7 +153,7 @@ const props = defineProps<{
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background 0.2s ease;
+  transition: background 0.3s ease;
 }
 
 .video-source {
