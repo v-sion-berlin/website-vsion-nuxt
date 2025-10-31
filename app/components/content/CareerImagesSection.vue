@@ -28,7 +28,7 @@ const props = defineProps<{
   padding: clamp(2rem, 5vw, 4rem) 0 clamp(2rem, 5vw, 4rem)
     clamp(1rem, 5vw, 5.625rem);
   margin-top: clamp(-10rem, -15vw, -6rem);
-  height: 50vw;
+  height: 55vw;
   position: relative;
 }
 
