@@ -23,7 +23,8 @@ const props = defineProps<{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, auto);
-  gap: 1.5rem 1.5rem;
+  gap: 1.5em;
+  position: relative;
 }
 
 .card:nth-child(1) {
@@ -45,11 +46,7 @@ const props = defineProps<{
 
 .card:nth-child(3),
 .card:nth-child(2) {
-  transform: translateY(-18rem);
-}
-
-.card:nth-child(6) {
-  transform: translateY(-3.1rem);
+  transform: translateY(-17rem);
 }
 
 .card {
@@ -59,7 +56,6 @@ const props = defineProps<{
   border-radius: 16px;
   padding: clamp(2rem, 4vw, 3rem) clamp(2rem, 4vw, 3rem) clamp(2rem, 4vw, 3rem)
     clamp(2rem, 4vw, 3rem);
-  max-height: min-content;
 }
 
 .cards-benefits {
