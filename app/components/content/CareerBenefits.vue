@@ -46,7 +46,7 @@ const props = defineProps<{
 
 .card:nth-child(3),
 .card:nth-child(2) {
-  transform: translateY(-17rem);
+  transform: translateY(-15rem);
 }
 
 .card {
