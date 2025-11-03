@@ -1,38 +1,29 @@
 <template>
   <section>
     <h1>
-      <span class="cursiv">{{ teamTransformed.cursivWord1 }}</span>
-      {{ teamTransformed.headerLine1 }}
-      <span class="cursiv">{{ teamTransformed.cursivWord2 }}</span>
-      {{ teamTransformed.headerLine2 }}
+      <span class="cursiv">{{ team.cursivWord1 }}</span>
+      {{ team.headerLine1 }}
+      <span class="cursiv">{{ team.cursivWord2 }}</span>
+      {{ team.headerLine2 }}
     </h1>
     <h1>
-      <span class="cursiv">{{ teamTransformed.cursivWord1 }}</span>
-      {{ teamTransformed.headerLine1 }}
-      <span class="cursiv">{{ teamTransformed.cursivWord2 }}</span>
-      {{ teamTransformed.headerLine2 }}
+      <span class="cursiv">{{ team.cursivWord1 }}</span>
+      {{ team.headerLine1 }}
+      <span class="cursiv">{{ team.cursivWord2 }}</span>
+      {{ team.headerLine2 }}
     </h1>
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-const { locale } = useI18n();
-const route = useRoute();
-const slug = computed(() => String(route.params.slug ?? ""));
+interface TeamData {
+  cursivWord1: string;
+  headerLine1: string;
+  cursivWord2: string;
+  headerLine2: string;
+}
 
-const { data: team } = await useAsyncData(
-  `team-${locale.value}-1`,
-  () => {
-    return queryCollection(`team_${locale.value}`).first();
-  },
-  { watch: [locale, slug] }
-);
-
-const teamTransformed = computed<any>(() => {
-  if (!team.value) return null;
-  return { ...(team.value.meta ?? {}), ...(team.value as any) };
-});
+const team = inject("team") as Ref<TeamData>;
 </script>
 
 <style scoped>
