@@ -43,5 +43,5 @@ Seit 2010 aus Berlin live in die Welt
 Wir sind ein eingespieltes Team aus Entwicklern, Designern und Operatoren. Seit 15 Jahren holen wir das Beste aus Live-Übertragungen heraus - im engen Austausch mit unseren Kundinnen und Kunden. Wer mit uns arbeitet, bucht keine Dienstleistung - sondern ein Miteinander, das beide Seiten weiterbringt. Wir glauben an Wissenstransfer statt Geheimniskrämerei: Gemeinsam wachsen ist unser Ziel, unsere Vision.
 ::
 
-::team-cards{:imagesArray="images"}
+::team-cards{:images-array="images"}
 ::

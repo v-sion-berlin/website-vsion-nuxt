@@ -43,5 +43,5 @@ Live from Berlin to the world since 2010
 We are a tight-knit team of developers, designers, and operators. For 15 years, we've been getting the best out of live broadcasts - working closely with our clients every step of the way. When you work with us, you're not just hiring a service - you're engaging in a collaboration that benefits both sides. We believe in knowledge sharing instead of secrecy: growing together is our goal, our vision.
 ::
 
-::team-cards{:imagesArray="images"}
+::team-cards{:images-array="images"}
 ::
