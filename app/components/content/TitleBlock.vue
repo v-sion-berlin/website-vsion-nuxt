@@ -1,29 +1,24 @@
 <template>
   <section id="hero">
     <div id="headline">
-      <h1>
-        <div>
-          <span :class="textPos === 'r' ? 'text-right' : ''">
-            <slot />
-          </span>
-          <div class="image-wrapper">
-            <img
-              :src="imageSrc.src"
-              :class="imagePos === 'tr' ? 'img-top-right' : 'img-top-left'"
-              v-if="imageSrc"
-            />
-            <img
-              :src="imageSrc.src"
-              :class="
-                imagePos === 'tr' ? 'blur-img-top-right' : 'blur-img-top-left'
-              "
-              v-if="imageSrc"
-            />
-          </div>
+      <div class="headline-content">
+        <h1 :class="{ 'text-right': textPos === 'r' }">
+          <slot v-if="$slots.default" mdc-unwrap="p" />
+        </h1>
+        <div class="description">
+          <slot name="description" />
         </div>
-      </h1>
-      <div class="description">
-        <slot name="description" />
+      </div>
+
+      <div
+        class="image-wrapper"
+        :class="{
+          'image-right': imagePos === 'tr',
+          'image-left': imagePos !== 'tr',
+        }"
+      >
+        <img :src="imageSrc.src" v-if="imageSrc" class="main-img" />
+        <img :src="imageSrc.src" v-if="imageSrc" class="blur-img" />
       </div>
     </div>
   </section>
@@ -39,10 +34,12 @@ defineProps<{
 
 <style scoped>
 .image-wrapper {
-  position: relative;
+  position: absolute;
+  top: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   overflow: visible;
+  pointer-events: none;
 }
 
 .text-right {
@@ -56,7 +53,11 @@ defineProps<{
 .text-right > * {
   padding: 0;
   margin: 0;
-  width: clamp(250px, 45vw, 1000px);
+  width: clamp(250px, 60vw, 1000px);
+}
+
+.text-right {
+  text-wrap-style: pretty;
 }
 
 h1 #hero {
@@ -72,6 +73,12 @@ h1 #hero {
   overflow-x: clip;
 }
 
+.headline-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+}
+
 .description {
   margin-top: 2rem;
   color: var(--color-text);
@@ -82,42 +89,38 @@ h1 #hero {
   line-height: 1.6;
 }
 
-.img-top-right {
-  z-index: -100;
+.image-right .main-img {
   position: absolute;
-  left: 100%;
-  width: clamp(250px, 30vw, 480px);
-  transform: translate(-10%, -70%);
+  top: 10%;
+  right: -10%;
+  width: clamp(20vw, 30vw, 450px);
+  z-index: -1;
+  transform: translateY(0);
 }
 
-.blur-img-top-right {
+.image-right .blur-img {
   position: absolute;
-  left: 100%;
-  width: clamp(250px, 30vw, 480px);
-  z-index: -200;
-  transform: translate(-60%, -100%);
+  top: -55%;
+  right: 10%;
+  width: clamp(20vw, 30vw, 450px);
   filter: blur(20px);
+  z-index: -2;
 }
 
-.img-top-left,
-.blur-img-top-left {
+.image-left .main-img {
   position: absolute;
+  top: 20%;
+  left: -21%;
+  width: clamp(20vw, 50vw, 700px);
+  z-index: -1;
 }
 
-.img-top-left {
-  z-index: -100;
-  left: -10%;
-  top: clamp(40%, 30vw, 60%);
-  width: clamp(200px, 60vw, 900px);
-  transform: translate(-25%, -75%);
-}
-
-.blur-img-top-left {
-  z-index: -200;
-  left: 0%;
-  top: 45%;
-  width: clamp(200px, 60vw, 900px);
-  transform: translate(30%, -100%);
+.image-left .blur-img {
+  position: absolute;
+  top: -19%;
+  left: 20%;
+  width: clamp(20vw, 50vw, 700px);
   filter: blur(20px);
+  z-index: -2;
 }
 </style>
