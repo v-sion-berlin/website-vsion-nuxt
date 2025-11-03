@@ -50,6 +50,7 @@ h1 {
   line-height: 1.2;
   z-index: 30;
   position: relative;
+  padding-right: clamp(1rem, 10vw, 19.125rem);
 }
 
 #text-container {
