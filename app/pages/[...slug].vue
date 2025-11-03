@@ -70,6 +70,19 @@ const careerTransformed = computed<any>(() => {
   return { ...(career.value.meta ?? {}), ...(career.value as any) };
 });
 
+const { data: team } = await useAsyncData(
+  `team-${locale.value}`,
+  () => {
+    return queryCollection(`team_${locale.value}`).first();
+  },
+  { watch: [locale, slug] }
+);
+
+const teamTransformed = computed<any>(() => {
+  if (!team.value) return null;
+  return { ...(team.value.meta ?? {}), ...(team.value as any) };
+});
+
 const contactData = computed<ContactData | null>(() => {
   if (!contactDataRaw.value) return null;
   return {
@@ -89,6 +102,10 @@ const contactData = computed<ContactData | null>(() => {
 
   <article v-else-if="career && route.path.includes('career')">
     <ContentRenderer :value="careerTransformed" />
+  </article>
+
+  <article v-else-if="team && route.path.includes('team')">
+    <ContentRenderer :value="teamTransformed" />
   </article>
 
   <div v-else-if="!page">
