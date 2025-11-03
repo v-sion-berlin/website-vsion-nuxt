@@ -84,7 +84,15 @@ import Cursor from "~/assets/Cursor.svg";
 import PageMenu from "./PageMenu.vue";
 import Menu from "~/assets/Menu.svg";
 
+const router = useRouter();
+const route = useRoute();
+const { locale } = useI18n();
 const drawerOpen = ref(false);
+
+function localizedPath() {
+  const isGerman = locale.value === "de";
+  return isGerman ? `/de/` : `/`;
+}
 
 function toggleDrawer() {
   drawerOpen.value = !drawerOpen.value;
@@ -95,7 +103,10 @@ function scrollToBottom() {
 }
 
 function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (route.path === "/" || route.path === "/de") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  router.push(localizedPath());
 }
 </script>
 
