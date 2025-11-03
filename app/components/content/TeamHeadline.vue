@@ -1,12 +1,12 @@
 <template>
   <section>
-    <h1>
+    <h1 v-if="team">
       <span class="cursiv">{{ team.cursivWord1 }}</span>
       {{ team.headerLine1 }}
       <span class="cursiv">{{ team.cursivWord2 }}</span>
       {{ team.headerLine2 }}
     </h1>
-    <h1>
+    <h1 v-if="team">
       <span class="cursiv">{{ team.cursivWord1 }}</span>
       {{ team.headerLine1 }}
       <span class="cursiv">{{ team.cursivWord2 }}</span>
