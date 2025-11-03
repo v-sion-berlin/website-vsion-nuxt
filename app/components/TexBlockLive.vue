@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 #text-container {
   padding-top: 0;
 }
