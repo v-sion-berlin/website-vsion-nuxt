@@ -2,8 +2,6 @@
   <div id="text-container">
     <main>
       <section>
-        <!-- If we have an image we can comment this in -->
-        <!-- <div class="image-container"><img :src="ClaimPicture.src" /></div> -->
         <div>
           <h2>
             {{ page.textblock_anspruch_header }}
@@ -11,9 +9,11 @@
           <p>
             {{ page.textblock_anspruch_body }}
           </p>
-          <button id="contact-btn-copy" @click="handleClick">
-            {{ buttonText }}
-          </button>
+          <NuxtLink :to="localizedPath()">
+            <div id="contact-btn-copy">
+              <p>{{ page.textblock_anspruch_button }}</p>
+            </div>
+          </NuxtLink>
         </div>
       </section>
     </main>
@@ -21,9 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
-
-const isSoon = ref(false);
+const { locale } = useI18n();
 
 interface Anspruch {
   textblock_anspruch_header: string;
@@ -35,18 +33,9 @@ const props = defineProps<{
   page: Anspruch;
 }>();
 
-const buttonText = computed(() =>
-  isSoon.value
-    ? props.page.textblock_anspruch_button_soon
-    : props.page.textblock_anspruch_button
-);
-
-function handleClick() {
-  isSoon.value = true;
-
-  setTimeout(() => {
-    isSoon.value = false;
-  }, 2000);
+function localizedPath() {
+  const isGerman = locale.value === "de";
+  return isGerman ? `/de/team/` : `/team/`;
 }
 </script>
 
@@ -89,12 +78,11 @@ section img {
 
 section div:last-child {
   flex: 1 1 280px;
-  min-width: 280px;
 }
 
 #contact-btn-copy {
   font-size: clamp(16px, 2vw, 20px);
-  margin-top: 2rem;
+  margin-top: 1rem;
   border: 2px solid var(--color-primary);
   border-radius: 16px;
   background: transparent;
@@ -108,5 +96,9 @@ section div:last-child {
 
 #contact-btn-copy:hover {
   background: var(--color-primary);
+}
+
+div a {
+  display: inline-flex;
 }
 </style>
