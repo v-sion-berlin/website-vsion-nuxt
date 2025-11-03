@@ -16,10 +16,7 @@ menu:
     - Storytelling
 ---
 
-::title-block
----
-:image-src: heroImage
----
+::title-block{:image-src="heroImage"}
 Wir analysieren, beraten, planen, gestalten, konzipieren, optimieren und senden
 ::
 
@@ -28,16 +25,13 @@ Wir analysieren, beraten, planen, gestalten, konzipieren, optimieren und senden
 Als Designbüro und technischer Entwickler realisieren wir Live-Sendungen nach individuellen Vorstellungen. Unsere Expertise in Echtzeitgrafik, virtuellen Studios, Augmented Graphics und Vidiwalls behalten wir nicht für uns - wir teilen Wissen und wachsen gemeinsam mit unseren Auftraggebern. Für moderne Produktionen mit Liebe zum Detail.
 ::
 
-::services
----
-:menu: menu
----
+::services{:menu="menu"}
 ::
 
 ::text-block
 ---
-:block-index: 0
-:show-projects: true
+block-index: 0
+:show-projects: ""
 ---
 #header
 Code & Control
@@ -51,8 +45,8 @@ Unsere maßgeschneiderten Steuerungssysteme sorgen für einen reibungslosen Abla
 
 ::text-block
 ---
-:block-index: 1
-:show-projects: true
+block-index: 1
+:show-projects: ""
 ---
 #header
 Interaction
@@ -66,8 +60,8 @@ Wir bieten intuitive Lösungen, die den Menschen vor der Kamera die maximale Ges
 
 ::text-block
 ---
-:block-index: 2
-:show-projects: true
+block-index: 2
+:show-projects: ""
 ---
 #header
 Operations
@@ -81,8 +75,8 @@ Wir übernehmen die Verantwortung - von Aufbau bis Livestream - und sorgen dafü
 
 ::text-block
 ---
-:block-index: 3
-:show-projects: true
+block-index: 3
+:show-projects: ""
 ---
 #header
 Sport
@@ -96,8 +90,8 @@ Wir gestalten klare, strukturierte Grafiken, die komplexe Nachrichteninhalte ver
 
 ::text-block
 ---
-:block-index: 4
-:show-projects: true
+block-index: 4
+:show-projects: ""
 ---
 #header
 News
@@ -111,8 +105,8 @@ Wir gestalten klare, strukturierte Grafiken, die komplexe Nachrichteninhalte ver
 
 ::text-block
 ---
-:block-index: 5
-:show-projects: true
+block-index: 5
+:show-projects: ""
 ---
 #header
 Studio & Videowalls
@@ -126,8 +120,8 @@ Vom internationalen Broadcaster bis zum Lokalsender: Unsere Kundschaft ist so vi
 
 ::text-block
 ---
-:block-index: 6
-:show-projects: true
+block-index: 6
+:show-projects: ""
 ---
 #header
 Infographics
@@ -141,8 +135,8 @@ Information trifft Gestaltung: Daten werden zu Geschichten, die man auf einen Bl
 
 ::text-block
 ---
-:block-index: 7
-:show-projects: true
+block-index: 7
+:show-projects: ""
 ---
 #header
 Storytelling

@@ -12,27 +12,35 @@ careerImage2:
   alt: Career image two
 smallCards:
   - header: Modernes Arbeitsumfeld
-    body: "Unser zentral gelegenes Loft-Büro ist lichtdurchflutet, stylisch - und versorgt dich mit allem, was du brauchst: hervorragender Kaffee, eine voll ausgestattete Küche, gekühlte Getränke und frisches Obst warten auf dich."
+    body: "Unser zentral gelegenes Loft-Büro ist lichtdurchflutet, stylisch - und
+      versorgt dich mit allem, was du brauchst: hervorragender Kaffee, eine voll
+      ausgestattete Küche, gekühlte Getränke und frisches Obst warten auf dich."
   - header: Flexibel arbeiten, wie es zu dir passt
-    body: "Remote, hybrid oder vor Ort: Du entscheidest, wo du arbeitest. Unsere Standorte in Mainz und Berlin stehen dir jederzeit offen, aber du kannst auch komplett remote arbeiten - so wie es für dich am besten funktioniert."
+    body: "Remote, hybrid oder vor Ort: Du entscheidest, wo du arbeitest. Unsere
+      Standorte in Mainz und Berlin stehen dir jederzeit offen, aber du kannst
+      auch komplett remote arbeiten - so wie es für dich am besten
+      funktioniert."
   - header: Ausstattung nach deinen Bedürfnissen
-    body: "Ob MacBook oder Linux-Setup - du bekommst von uns genau die Technik, mit der du am produktivsten bist. Selbstverständlich mit 4K-Display und schneller Performance."
+    body: Ob MacBook oder Linux-Setup - du bekommst von uns genau die Technik, mit
+      der du am produktivsten bist. Selbstverständlich mit 4K-Display und
+      schneller Performance.
   - header: Teamgeist auf Augenhöhe
-    body: "Wir ziehen an einem Strang, unterstützen uns gegenseitig und begegnen einander mit Respekt. Bei uns zählt das WIR - nicht nur im Projekt, sondern auch im Alltag."
+    body: Wir ziehen an einem Strang, unterstützen uns gegenseitig und begegnen
+      einander mit Respekt. Bei uns zählt das WIR - nicht nur im Projekt,
+      sondern auch im Alltag.
   - header: Gemeinsame Erlebnisse
-    body: "Ob Sommerfest, Monthly Breakfast oder Grillen auf dem Boot - wir feiern Erfolge und das Miteinander regelmäßig. Denn ein starkes Team wächst auch außerhalb des Büros zusammen."
+    body: Ob Sommerfest, Monthly Breakfast oder Grillen auf dem Boot - wir feiern
+      Erfolge und das Miteinander regelmäßig. Denn ein starkes Team wächst auch
+      außerhalb des Büros zusammen.
 ---
-::title-block
----
-:image-src: heroImage
-:image-pos: tl
-:text-pos: r
----
+
+::title-block{:image-pos="tl" :image-src="heroImage" :text-pos="r"}
 Dein Talent ist bei uns richtig
 ::
 
 ::indented-text-block
 Werde Teil von v-sion!
+
 #body
 Seit über 15 Jahren kombinieren wir Design, Technik und Innovation, um das Beste aus Live-Übertragungen herauszuholen. Mit einem eingespielten Team aus Entwicklern, Designern und Operatoren setzen wir auf Qualität, Kreativität und Verlässlichkeit - für Projekte, die faszinieren und funktionieren. Bei uns kannst du dein Talent voll einbringen und gemeinsam mit uns die Zukunft der Live-Übertragung gestalten.
 ::

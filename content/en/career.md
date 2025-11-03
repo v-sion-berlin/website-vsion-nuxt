@@ -13,28 +13,32 @@ careerImage2:
   alt: Career image two
 smallCards:
   - header: Modern work environment
-    body: "Our centrally located loft office is bright, stylish - and equipped with everything you need: excellent coffee, a fully equipped kitchen, chilled drinks, and fresh fruit await you."
+    body: "Our centrally located loft office is bright, stylish - and equipped with
+      everything you need: excellent coffee, a fully equipped kitchen, chilled
+      drinks, and fresh fruit await you."
   - header: Flexible work that fits you
-    body: "Remote, hybrid, or on-site - you decide where you work. Our offices in Mainz and Berlin are always open to you, but you can also work fully remotely - whatever works best for you."
+    body: Remote, hybrid, or on-site - you decide where you work. Our offices in
+      Mainz and Berlin are always open to you, but you can also work fully
+      remotely - whatever works best for you.
   - header: Equipment tailored to your needs
-    body: "Whether MacBook or Linux setup - we'll provide exactly the tools that make you most productive. Naturally with a 4K display and high performance."
+    body: Whether MacBook or Linux setup - we'll provide exactly the tools that make
+      you most productive. Naturally with a 4K display and high performance.
   - header: Team spirit at eye level
-    body: "We pull together, support one another, and treat each other with respect. For us, it's all about the WE - not just in projects, but every day."
+    body: We pull together, support one another, and treat each other with respect.
+      For us, it's all about the WE - not just in projects, but every day.
   - header: Shared experiences
-    body: "Whether summer parties, monthly breakfasts, or barbecues on the boat - we regularly celebrate successes and togetherness. Because a strong team grows beyond the office too."
+    body: Whether summer parties, monthly breakfasts, or barbecues on the boat - we
+      regularly celebrate successes and togetherness. Because a strong team
+      grows beyond the office too.
 ---
 
-::title-block
----
-:image-src: heroImage
-:image-pos: tl
-:text-pos: r
----
+::title-block{:image-pos="tl" :image-src="heroImage" :text-pos="r"}
 This is where your talent belongs.
 ::
 
 ::indented-text-block
 Join the v-sion team!
+
 #body
 For over 15 years, we've been combining design, technology, and innovation to bring out the best in live broadcasting. With a well-coordinated team of developers, designers, and operators, we focus on quality, creativity, and reliability - for projects that both fascinate and function. Here, you can fully apply your talent and help us shape the future of live production.
 ::

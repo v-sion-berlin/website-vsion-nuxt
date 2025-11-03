@@ -17,11 +17,7 @@ menu:
     - Storytelling
 ---
 
-::title-block
----
-:image-src: heroImage
-:image-pos: tr
----
+::title-block{:image-pos="tr" :image-src="heroImage"}
 We analyze, advise, plan, design, conceptualize, optimize, and deliver
 ::
 
@@ -30,17 +26,13 @@ We analyze, advise, plan, design, conceptualize, optimize, and deliver
 As a design studio and technical developer, we realize live broadcasts based on individual visions. Our expertise in real-time graphics, virtual studios, augmented graphics, and video walls is something we don't keep to ourselves - we share knowledge and grow together with our clients. For modern productions crafted with attention to detail.
 ::
 
-::services
----
-:menu: menu
----
+::services{:menu="menu"}
 ::
-
 
 ::text-block
 ---
-:block-index: 0
-:show-projects: true
+block-index: 0
+:show-projects: ""
 ---
 #header
 Code & Control
@@ -54,8 +46,8 @@ Our custom control systems ensure smooth workflows and enable precise control of
 
 ::text-block
 ---
-:block-index: 1
-:show-projects: true
+block-index: 1
+:show-projects: ""
 ---
 #header
 Interaction
@@ -67,11 +59,10 @@ Maximum freedom for presenters
 We provide intuitive solutions that give on-air talent the greatest possible creative freedom in live broadcasting.
 ::
 
-
 ::text-block
 ---
-:block-index: 2
-:show-projects: true
+block-index: 2
+:show-projects: ""
 ---
 #header
 Operations
@@ -83,11 +74,10 @@ Broadcast operations - fast, flexible, secure
 We take responsibility - from setup all the way to the livestream - and ensure everything runs perfectly. Even when speed matters most.
 ::
 
-
 ::text-block
 ---
-:block-index: 3
-:show-projects: true
+block-index: 3
+:show-projects: ""
 ---
 #header
 Sport
@@ -99,11 +89,10 @@ Interactive studio graphics in real time
 We design clear, structured graphics that present complex news content in a way that is both understandable and visually engaging.
 ::
 
-
 ::text-block
 ---
-:block-index: 4
-:show-projects: true
+block-index: 4
+:show-projects: ""
 ---
 #header
 News
@@ -115,11 +104,10 @@ Clear design for informative news
 We design clear, structured graphics that present complex news content in a way that is both understandable and visually engaging.
 ::
 
-
 ::text-block
 ---
-:block-index: 5
-:show-projects: true
+block-index: 5
+:show-projects: ""
 ---
 #header
 Studio & Videowalls
@@ -131,11 +119,10 @@ Connected technology for interactive live shows
 From international broadcasters to local stations: our clients are as diverse as our services. They challenge us - and we deliver results that excite.
 ::
 
-
 ::text-block
 ---
-:block-index: 6
-:show-projects: true
+block-index: 6
+:show-projects: ""
 ---
 #header
 Infographics
@@ -147,11 +134,10 @@ Complex data, visually on point
 Where information meets design: data becomes a story that you can understand at a glance.
 ::
 
-
 ::text-block
 ---
-:block-index: 7
-:show-projects: true
+block-index: 7
+:show-projects: ""
 ---
 #header
 Storytelling
