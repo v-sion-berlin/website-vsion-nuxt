@@ -90,6 +90,8 @@ const contactData = computed<ContactData | null>(() => {
     ...(contactDataRaw.value as any),
   };
 });
+
+provide("team", teamTransformed);
 </script>
 
 <template>
