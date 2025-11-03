@@ -16,7 +16,7 @@ menu:
     - Storytelling
 ---
 
-::title-block{:image-src="heroImage"}
+::title-block{:image-pos="tr" :image-src="heroImage"}
 Wir analysieren, beraten, planen, gestalten, konzipieren, optimieren und senden
 ::
 
