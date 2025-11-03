@@ -117,6 +117,25 @@ const projectSchema = z.object({
     .optional(),
 });
 
+// --- Team Page ---
+const teamPageSchema = z.object({
+  type: z.literal("team"),
+  headerLine1: z.string().optional(),
+  headerLine2: z.string().optional(),
+  cursivWord1: z.string().optional(),
+  cursivWord2: z.string().optional(),
+  images: z
+    .array(
+      z.object({
+        src: property(z.string()).editor({ input: "media" }),
+        alt: z.string(),
+        text: z.string(),
+        alignment: z.string(),
+      })
+    )
+    .optional(),
+});
+
 // --- About Page ---
 const aboutPageSchema = z.object({
   type: z.literal("about"),
@@ -232,6 +251,7 @@ const careerPageSchema = z.object({
 
 export default defineContentConfig({
   collections: {
+    // HOME
     home_en: defineCollection({
       type: "page",
       source: { include: "en/index.md", prefix: "/" },
@@ -243,6 +263,7 @@ export default defineContentConfig({
       schema: homePageSchema,
     }),
 
+    // SERVICES
     services_en: defineCollection({
       type: "page",
       source: { include: "en/services.md", prefix: "/" },
@@ -254,28 +275,20 @@ export default defineContentConfig({
       schema: servicesPageSchema,
     }),
 
-    about_en: defineCollection({
+    // TEAM
+    team_en: defineCollection({
       type: "page",
-      source: { include: "en/about.md", prefix: "/" },
-      schema: aboutPageSchema,
-    }),
-    about_de: defineCollection({
-      type: "page",
-      source: { include: "de/about.md", prefix: "/" },
-      schema: aboutPageSchema,
+      source: { include: "en/team.md", prefix: "/" },
+      schema: teamPageSchema,
     }),
 
-    contact_en: defineCollection({
-      type: "data",
-      source: { include: "en/contact.md", prefix: "/" },
-      schema: contactSchema,
-    }),
-    contact_de: defineCollection({
-      type: "data",
-      source: { include: "de/contact.md", prefix: "/" },
-      schema: contactSchema,
+    team_de: defineCollection({
+      type: "page",
+      source: { include: "de/team.md", prefix: "/" },
+      schema: teamPageSchema,
     }),
 
+    // CAREER
     career_en: defineCollection({
       type: "page",
       source: { include: "en/career.md", prefix: "/" },
@@ -288,6 +301,7 @@ export default defineContentConfig({
       schema: careerPageSchema,
     }),
 
+    // PROJECTS OVERVIEW
     projects_overview_en: defineCollection({
       type: "page",
       source: { include: "en/projects/index.md", prefix: "/" },
@@ -300,6 +314,7 @@ export default defineContentConfig({
       schema: projectsOverviewSchema,
     }),
 
+    // PROJECTS DETAILS
     projects_en: defineCollection({
       type: "page",
       source: { include: "en/projects/**", prefix: "/projects" },
@@ -309,6 +324,30 @@ export default defineContentConfig({
       type: "page",
       source: { include: "de/projects/**", prefix: "/de/projects" },
       schema: projectSchema,
+    }),
+
+    // ABOUT
+    about_en: defineCollection({
+      type: "page",
+      source: { include: "en/about.md", prefix: "/" },
+      schema: aboutPageSchema,
+    }),
+    about_de: defineCollection({
+      type: "page",
+      source: { include: "de/about.md", prefix: "/" },
+      schema: aboutPageSchema,
+    }),
+
+    // CONTACT COMPONENT
+    contact_en: defineCollection({
+      type: "data",
+      source: { include: "en/contact.md", prefix: "/" },
+      schema: contactSchema,
+    }),
+    contact_de: defineCollection({
+      type: "data",
+      source: { include: "de/contact.md", prefix: "/" },
+      schema: contactSchema,
     }),
   },
 });
