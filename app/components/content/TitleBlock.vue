@@ -9,17 +9,16 @@
           <slot name="description" />
         </div>
       </div>
-
-      <div
-        class="image-wrapper"
-        :class="{
-          'image-right': imagePos === 'tr',
-          'image-left': imagePos !== 'tr',
-        }"
-      >
-        <img :src="imageSrc.src" v-if="imageSrc" class="main-img" />
-        <img :src="imageSrc.src" v-if="imageSrc" class="blur-img" />
-      </div>
+    </div>
+    <div
+      class="image-wrapper"
+      :class="{
+        'image-right': imagePos === 'tr',
+        'image-left': imagePos !== 'tr',
+      }"
+    >
+      <img :src="imageSrc.src" v-if="imageSrc" class="main-img" />
+      <img :src="imageSrc.src" v-if="imageSrc" class="blur-img" />
     </div>
   </section>
 </template>
@@ -34,12 +33,16 @@ defineProps<{
 
 <style scoped>
 .image-wrapper {
-  position: absolute;
-  top: 0;
+  position: relative;
   width: 100%;
-  height: 100%;
-  overflow: visible;
   pointer-events: none;
+  overflow-x: clip;
+}
+
+.image-wrapper img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .text-right {
@@ -58,11 +61,7 @@ defineProps<{
 
 .text-right {
   text-wrap-style: pretty;
-}
-
-h1 #hero {
-  position: relative;
-  min-height: max-content;
+  text-indent: calc(6vw + 15rem);
 }
 
 #headline {
@@ -74,7 +73,6 @@ h1 #hero {
 }
 
 .headline-content {
-  position: relative;
   z-index: 1;
   display: flex;
 }
@@ -91,36 +89,45 @@ h1 #hero {
 
 .image-right .main-img {
   position: absolute;
-  top: 10%;
-  right: -10%;
-  width: clamp(20vw, 30vw, 450px);
+  bottom: clamp(260px, 25vw, 600px);
+  right: calc(-45vw + 25%);
+  width: clamp(30%, 40%, 60%);
   z-index: -1;
-  transform: translateY(0);
+  transform: translateY(42%);
 }
 
 .image-right .blur-img {
   position: absolute;
-  top: -55%;
-  right: 10%;
-  width: clamp(20vw, 30vw, 450px);
+  bottom: clamp(260px, 25vw, 600px);
+  right: calc(-15vw + 25%);
+  width: clamp(30%, 40%, 60%);
   filter: blur(20px);
   z-index: -2;
 }
 
 .image-left .main-img {
   position: absolute;
-  top: 20%;
-  left: -21%;
-  width: clamp(20vw, 50vw, 700px);
+  bottom: clamp(260px, 25vw, 600px);
+  left: -16vw;
+  width: clamp(40%, 50%, 70%);
   z-index: -1;
+  transform: translateY(95%);
 }
 
 .image-left .blur-img {
   position: absolute;
-  top: -19%;
-  left: 20%;
-  width: clamp(20vw, 50vw, 700px);
+  width: clamp(40%, 50%, 70%);
+  bottom: clamp(260px, 25vw, 600px);
+  left: calc(-4vw + 25%);
   filter: blur(20px);
+  transform: translateY(65%);
   z-index: -2;
+}
+
+@media (max-width: 765px) {
+  .text-right {
+    text-wrap-style: pretty;
+    text-indent: 0;
+  }
 }
 </style>
