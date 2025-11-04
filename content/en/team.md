@@ -1,5 +1,5 @@
 ---
-_path: /about
+_path: /team
 type: team
 headerLine1: to work with and
 headerLine2: in business
