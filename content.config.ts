@@ -215,14 +215,6 @@ const servicesPageSchema = z.object({
       items: z.array(z.string()).optional(),
     })
     .optional(),
-  smallCards: z
-    .array(
-      z.object({
-        header: z.string(),
-        body: z.string(),
-      })
-    )
-    .optional(),
 });
 
 // --- Career Page ---
@@ -246,6 +238,14 @@ const careerPageSchema = z.object({
       src: property(z.string()).editor({ input: "media" }),
       alt: z.string(),
     })
+    .optional(),
+  smallCards: z
+    .array(
+      z.object({
+        header: z.string(),
+        body: z.string(),
+      })
+    )
     .optional(),
 });
 
