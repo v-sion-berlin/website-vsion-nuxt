@@ -13,21 +13,21 @@ careerImage2:
   alt: Career image two
 smallCards:
   - header: Modern work environment
-    body: "Our centrally located loft office is bright, stylish - and equipped with
+    text: "Our centrally located loft office is bright, stylish - and equipped with
       everything you need: excellent coffee, a fully equipped kitchen, chilled
       drinks, and fresh fruit await you."
   - header: Flexible work that fits you
-    body: Remote, hybrid, or on-site - you decide where you work. Our offices in
+    text: Remote, hybrid, or on-site - you decide where you work. Our offices in
       Mainz and Berlin are always open to you, but you can also work fully
       remotely - whatever works best for you.
   - header: Equipment tailored to your needs
-    body: Whether MacBook or Linux setup - we'll provide exactly the tools that make
+    text: Whether MacBook or Linux setup - we'll provide exactly the tools that make
       you most productive. Naturally with a 4K display and high performance.
   - header: Team spirit at eye level
-    body: We pull together, support one another, and treat each other with respect.
+    text: We pull together, support one another, and treat each other with respect.
       For us, it's all about the WE - not just in projects, but every day.
   - header: Shared experiences
-    body: Whether summer parties, monthly breakfasts, or barbecues on the boat - we
+    text: Whether summer parties, monthly breakfasts, or barbecues on the boat - we
       regularly celebrate successes and togetherness. Because a strong team
       grows beyond the office too.
 ---
