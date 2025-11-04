@@ -12,24 +12,24 @@ careerImage2:
   alt: Career image two
 smallCards:
   - header: Modernes Arbeitsumfeld
-    body: "Unser zentral gelegenes Loft-Büro ist lichtdurchflutet, stylisch - und
+    text: "Unser zentral gelegenes Loft-Büro ist lichtdurchflutet, stylisch - und
       versorgt dich mit allem, was du brauchst: hervorragender Kaffee, eine voll
       ausgestattete Küche, gekühlte Getränke und frisches Obst warten auf dich."
   - header: Flexibel arbeiten, wie es zu dir passt
-    body: "Remote, hybrid oder vor Ort: Du entscheidest, wo du arbeitest. Unsere
+    text: "Remote, hybrid oder vor Ort: Du entscheidest, wo du arbeitest. Unsere
       Standorte in Mainz und Berlin stehen dir jederzeit offen, aber du kannst
       auch komplett remote arbeiten - so wie es für dich am besten
       funktioniert."
   - header: Ausstattung nach deinen Bedürfnissen
-    body: Ob MacBook oder Linux-Setup - du bekommst von uns genau die Technik, mit
+    text: Ob MacBook oder Linux-Setup - du bekommst von uns genau die Technik, mit
       der du am produktivsten bist. Selbstverständlich mit 4K-Display und
       schneller Performance.
   - header: Teamgeist auf Augenhöhe
-    body: Wir ziehen an einem Strang, unterstützen uns gegenseitig und begegnen
+    text: Wir ziehen an einem Strang, unterstützen uns gegenseitig und begegnen
       einander mit Respekt. Bei uns zählt das WIR - nicht nur im Projekt,
       sondern auch im Alltag.
   - header: Gemeinsame Erlebnisse
-    body: Ob Sommerfest, Monthly Breakfast oder Grillen auf dem Boot - wir feiern
+    text: Ob Sommerfest, Monthly Breakfast oder Grillen auf dem Boot - wir feiern
       Erfolge und das Miteinander regelmäßig. Denn ein starkes Team wächst auch
       außerhalb des Büros zusammen.
 ---
