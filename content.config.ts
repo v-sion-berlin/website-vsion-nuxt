@@ -243,7 +243,7 @@ const careerPageSchema = z.object({
     .array(
       z.object({
         header: z.string(),
-        body: z.string(),
+        text: z.string(),
       })
     )
     .optional(),
