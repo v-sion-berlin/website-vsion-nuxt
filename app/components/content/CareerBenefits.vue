@@ -6,7 +6,7 @@
       </h1>
       <div v-for="(card, i) in cards" :key="i" class="card">
         <h2>{{ card.header }}</h2>
-        <p>{{ card.body }}</p>
+        <p>{{ card.text }}</p>
       </div>
     </div>
   </section>
@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  cards?: { header: string; body: string }[];
+  cards?: { header: string; text: string }[];
 }>();
 </script>
 
