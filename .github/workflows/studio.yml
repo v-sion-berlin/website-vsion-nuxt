@@ -33,8 +33,6 @@ jobs:
 
       - name: Build Nuxt site
         run: npm run build
-        env:
-          NUXT_APP_BASE_URL: /website-vsion-nuxt/
 
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
