@@ -45,13 +45,6 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       failOnError: false,
-
-      ignore: [
-        "/__preview.json",
-        "/__nuxt_content/**",
-        "/200.html",
-        "/404.html",
-      ],
     },
   },
 
