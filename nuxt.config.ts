@@ -43,13 +43,19 @@ export default defineNuxtConfig({
   nitro: {
     preset: "github_pages",
     prerender: {
-      routes: ["/"],
       crawlLinks: true,
+      failOnError: false,
+
+      ignore: [
+        "/__preview.json",
+        "/__nuxt_content/**",
+        "/200.html",
+        "/404.html",
+      ],
     },
   },
 
   app: {
-    baseURL: process.env.NUXT_APP_BASE_URL || "/",
     head: {
       title: "v-sion",
       meta: [
