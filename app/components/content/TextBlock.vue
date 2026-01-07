@@ -30,7 +30,7 @@
 
         <div class="grid" ref="gridRef">
           <div
-            v-for="project in projects"
+            v-for="project in projectsFull"
             :key="project.slug"
             class="project-card"
           >
@@ -83,6 +83,21 @@ const { data: projects } = await useAsyncData(
   {
     watch: [locale, slug],
   }
+);
+
+const appBaseURL = useNuxtApp().$config.app.baseURL;
+
+const projectsFull = computed(
+  () =>
+    projects.value?.map((p) => ({
+      ...p,
+      coverImage: p.coverImage
+        ? {
+            ...p.coverImage,
+            src: `${appBaseURL}${p.coverImage.src.replace(/^\/+/, "")}`,
+          }
+        : undefined,
+    })) || []
 );
 
 const {

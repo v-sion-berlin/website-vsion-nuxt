@@ -17,13 +17,15 @@
         'image-left': imagePos !== 'tr',
       }"
     >
-      <img :src="imageSrc.src" v-if="imageSrc" class="main-img" />
-      <img :src="imageSrc.src" v-if="imageSrc" class="blur-img" />
+      <img :src="useImagePath(imageSrc.src)" v-if="imageSrc" class="main-img" />
+      <img :src="useImagePath(imageSrc.src)" v-if="imageSrc" class="blur-img" />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import { useImagePath } from "~/composables/useImagePath";
+
 defineProps<{
   imageSrc?: { src: string; alt: string };
   imagePos?: string;

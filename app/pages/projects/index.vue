@@ -51,6 +51,21 @@ const contactData = computed<ContactData | null>(() => {
     ...(contactDataRaw.value as any),
   };
 });
+
+const appBaseURL = useNuxtApp().$config.app.baseURL;
+
+const projectsFull = computed(
+  () =>
+    projects.value?.map((p) => ({
+      ...p,
+      coverImage: p.coverImage
+        ? {
+            ...p.coverImage,
+            src: `${appBaseURL}${p.coverImage.src.replace(/^\/+/, "")}`,
+          }
+        : undefined,
+    })) || []
+);
 </script>
 
 <template>
@@ -60,7 +75,11 @@ const contactData = computed<ContactData | null>(() => {
 
   <section v-if="projects">
     <div class="grid-overview">
-      <div v-for="project in projects" :key="project.slug" class="project-card">
+      <div
+        v-for="project in projectsFull"
+        :key="project.slug"
+        class="project-card"
+      >
         <NuxtLink :to="localizedPath(project.slug!)">
           <img
             v-if="project.coverImage"

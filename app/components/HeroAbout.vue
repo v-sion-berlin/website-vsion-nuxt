@@ -2,8 +2,8 @@
   <div id="hero" v-if="page">
     <!-- Hero Section -->
     <section id="headline">
-      <img :src="page.heroImage?.src" class="blur-img" />
-      <img :src="page.heroImage?.src" class="img" />
+      <img :src="useImagePath(page.heroImage?.src)" class="blur-img" />
+      <img :src="useImagePath(page.heroImage?.src)" class="img" />
       <h1>{{ page?.header }}</h1>
       <h2>{{ page.subTitle }}</h2>
     </section>
@@ -42,6 +42,7 @@
 </template>
 
 <script setup lang="ts">
+import { useImagePath } from "~/composables/useImagePath";
 import type { AboutPage } from "~/types/content";
 
 const props = defineProps<{

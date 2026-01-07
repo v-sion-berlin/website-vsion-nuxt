@@ -5,13 +5,15 @@
       :class="getAlignmentClass(image)"
       v-for="image in imagesArray"
     >
-      <img :src="image.src" />
+      <img :src="useImagePath(image.src)" />
       <p>{{ image.text }}</p>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import { useImagePath } from "~/composables/useImagePath";
+
 const props = defineProps<{
   imagesArray?: { src: string; alt: string; text: string; alignment: string }[];
 }>();

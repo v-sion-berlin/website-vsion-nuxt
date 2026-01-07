@@ -3,10 +3,10 @@
     <main>
       <section class="image-wrapper">
         <div class="first-image">
-          <img :src="careerImage1.src" v-if="careerImage1" />
+          <img :src="useImagePath(careerImage1?.src)" v-if="careerImage1" />
         </div>
         <div>
-          <img :src="careerImage2.src" v-if="careerImage2" />
+          <img :src="useImagePath(careerImage2?.src)" v-if="careerImage2" />
         </div>
       </section>
     </main>
@@ -14,6 +14,8 @@
 </template>
 
 <script setup lang="ts">
+import { useImagePath } from "~/composables/useImagePath";
+
 const props = defineProps<{
   careerImage1?: { src: string; alt: string };
   careerImage2?: { src: string; alt: string };

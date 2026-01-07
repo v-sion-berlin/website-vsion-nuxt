@@ -7,8 +7,16 @@
           <div class="project-name">
             <slot name="project-name" mdc-unwrap="p" />
           </div>
-          <img :src="imageSrc.src" class="img" v-if="imageSrc" />
-          <img :src="imageSrc.src" class="blur-img" v-if="imageSrc" />
+          <img
+            :src="useImagePath(imageSrc?.src)"
+            class="img"
+            v-if="props.imageSrc"
+          />
+          <img
+            :src="useImagePath(imageSrc?.src)"
+            class="blur-img"
+            v-if="props.imageSrc"
+          />
         </div>
       </h1>
       <div id="text-container-big">
@@ -52,7 +60,7 @@
 
       <div class="grid" ref="sliderRef">
         <div
-          v-for="(slide, index) in sliderImages"
+          v-for="(slide, index) in sliderImagesFull"
           :key="index"
           class="slide-card"
         >
@@ -85,7 +93,7 @@
 
       <div class="grid" ref="gridRef">
         <div
-          v-for="project in projects"
+          v-for="project in projectsFull"
           :key="project.slug"
           class="project-card"
         >
@@ -112,12 +120,16 @@
 </template>
 
 <script setup lang="ts">
+import { useImagePath } from "~/composables/useImagePath";
+
 const { locale } = useI18n();
 const route = useRoute();
 
 const slug = computed(() => String(route.params.slug ?? ""));
 
-defineProps<{
+const appBaseURL = useNuxtApp().$config.app.baseURL;
+
+const props = defineProps<{
   imageSrc?: { src: string; alt: string };
   tableDetails?: {
     header: { firstCol: string; secondCol: string };
@@ -128,6 +140,27 @@ defineProps<{
   sliderHeader?: string;
   sliderImages?: { src: string; alt: string; title: string }[];
 }>();
+
+const sliderImagesFull = computed(
+  () =>
+    props.sliderImages?.map((img) => ({
+      ...img,
+      src: `${appBaseURL}${img.src.replace(/^\/+/, "")}`,
+    })) || []
+);
+
+const projectsFull = computed(
+  () =>
+    projects.value?.map((p) => ({
+      ...p,
+      coverImage: p.coverImage
+        ? {
+            ...p.coverImage,
+            src: `${appBaseURL}${p.coverImage.src.replace(/^\/+/, "")}`,
+          }
+        : undefined,
+    })) || []
+);
 
 function localizedPath(subTitle: string) {
   const isGerman = locale.value === "de";

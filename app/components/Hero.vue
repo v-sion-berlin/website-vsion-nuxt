@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const appBaseURL = useNuxtApp().$config.app.baseURL;
+import { useImagePath } from "~/composables/useImagePath";
 
 interface Media {
   src: string;
@@ -13,18 +13,13 @@ interface Page {
 const props = defineProps<{
   page: Page;
 }>();
-
-const heroImageSrc = computed(() => {
-  if (!props.page.heroImage?.src) return "";
-  return `${appBaseURL}${props.page.heroImage.src.replace(/^\/+/, "")}`;
-});
 </script>
 
 <template>
   <div id="hero">
     <section>
-      <img :src="heroImageSrc" class="blur-img" />
-      <img :src="heroImageSrc" class="img" />
+      <img :src="useImagePath(page.heroImage?.src)" class="blur-img" />
+      <img :src="useImagePath(page.heroImage?.src)" class="img" />
       <h1>{{ page.hero }}</h1>
     </section>
   </div>
