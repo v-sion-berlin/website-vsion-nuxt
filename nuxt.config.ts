@@ -27,7 +27,7 @@ export default defineNuxtConfig({
     experimental: { sqliteConnector: "native" },
   },
   studio: {
-    dev: false,
+    route: "/admin",
     repository: {
       provider: "github",
       owner: "v-sion-berlin",
