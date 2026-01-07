@@ -35,7 +35,6 @@ jobs:
         run: npm run build
         env:
           NUXT_APP_BASE_URL: /website-vsion-nuxt/
-          NUXT_CONTENT_PREVIEW_API: https://api.nuxt.studio
 
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
