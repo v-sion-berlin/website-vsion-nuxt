@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "@nuxt/fonts",
     "@nuxtjs/i18n",
+    "nuxt-studio",
   ],
   i18n: {
     defaultLocale: "en",
@@ -25,10 +26,25 @@ export default defineNuxtConfig({
     },
     experimental: { sqliteConnector: "native" },
   },
-
+  studio: {
+    dev: false,
+    repository: {
+      provider: "github",
+      owner: "v-sion-berlin",
+      repo: "website-vsion-nuxt",
+      branch: "master",
+      private: false,
+    },
+  },
   routeRules: {
     "/": { prerender: true },
     "/about": { prerender: true },
+  },
+  nitro: {
+    prerender: {
+      routes: ["/"],
+      crawlLinks: true,
+    },
   },
 
   app: {
