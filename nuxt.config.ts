@@ -28,6 +28,7 @@ export default defineNuxtConfig({
   },
   studio: {
     route: "/admin",
+    dev: false,
     repository: {
       provider: "github",
       owner: "v-sion-berlin",
@@ -41,7 +42,8 @@ export default defineNuxtConfig({
     "/about": { prerender: true },
   },
   nitro: {
-    preset: "github_pages",
+    // preset: "github_pages",
+    preset: "vercel",
     prerender: {
       routes: ["/"],
       crawlLinks: true,
@@ -49,7 +51,8 @@ export default defineNuxtConfig({
   },
 
   app: {
-    baseURL: process.env.NUXT_APP_BASE_URL || "/",
+    // baseURL: process.env.NUXT_APP_BASE_URL || "/",
+    baseURL: "/",
     head: {
       title: "v-sion",
       meta: [
