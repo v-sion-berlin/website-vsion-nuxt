@@ -41,6 +41,7 @@ export default defineNuxtConfig({
     "/about": { prerender: true },
   },
   nitro: {
+    preset: "github_pages",
     prerender: {
       routes: ["/"],
       crawlLinks: true,
@@ -48,6 +49,7 @@ export default defineNuxtConfig({
   },
 
   app: {
+    baseURL: process.env.NUXT_APP_BASE_URL || "/",
     head: {
       title: "v-sion",
       meta: [
